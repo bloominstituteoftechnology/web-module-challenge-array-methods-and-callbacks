@@ -74,10 +74,6 @@ See if you can complete one or more of the following challenges:
 
 <img alt='passing tests' src='./PassingTests.png'> 
 
-## Project FAQs
-
-**How **
-
 ## Resources
 
 📚 [Examples of .map, .reduce, and .filter](https://itnext.io/15-useful-javascript-examples-of-map-reduce-and-filter-74cbbb5e0a1f)
