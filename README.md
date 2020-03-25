@@ -77,7 +77,7 @@ See if you can complete one or more of the following challenges:
 
 ## Testing FAQ
 
-<img alt='instructions screenshot' src='./instructions.png'>
+<img alt='instructions screenshot' src='assets/instructions.png'>
 
 **What are Tests?**
 
@@ -95,11 +95,11 @@ See if you can complete one or more of the following challenges:
 - Open `index.html`
 - You should see the following at first with failed tests and error messages
 
-<img alt='failing tests' src='./FailingTests.png'> 
+<img alt='failing tests' src='assets/FailingTests.png'> 
 
 - Once your code is working you will see tests passing and can click on tests to view the code which made the test pass.
 
-<img alt='passing tests' src='./PassingTests.png'> 
+<img alt='passing tests' src='assets/PassingTests.png'> 
 
 ## Resources
 
