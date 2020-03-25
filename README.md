@@ -113,3 +113,13 @@ See if you can complete one or more of the following challenges:
 
 👀 [List of FIFA World Cup finals
  on Wikipedia](https://en.wikipedia.org/wiki/List_of_FIFA_World_Cup_finals)
+ 
+ ## Submission Format
+ 
+ Follow these steps for completing your project.
+
+ - [ ] Submit a pull request to merge Branch into master (student's Repo). Please don't merge your own pull request
+ - [ ] Add your Team Lead as a reviewer on the pull request
+ - [ ] Your Team Lead will count the project as complete by merging the branch back into master
+
+
