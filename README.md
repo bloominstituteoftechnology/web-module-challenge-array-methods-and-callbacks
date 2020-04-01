@@ -1,25 +1,24 @@
 # FIFA Challenge - JavaScript-Foundations
 
-The module challenge is the afternoon project or assignment that students work through independently. This expands on the guided project completed earlier with the instructor.
-
 ## Advanced JavaScript
 
 ## Array Methods and Callbacks
 
 ## Objectives
 
-- Array Methods - demonstrate ability to use `.forEach` `.map` `.reduce` `.filter` and describe their use cases 
-- Callbacks - demonstrate the proper use a of a callback function by passing a function to another function as a parameter 
+- Array Methods - demonstrate ability to use `.forEach` `.map` `.reduce` `.filter` and describe their use cases
+- Callbacks - demonstrate the proper use a of a callback function by passing a function to another function as a parameter
   
 ## Introduction
 
-In this challenge you will work with a data set summarizing every world cup game from 1930-2014. As web developers, you will work with JSON data often to interact with servers, summarize data, get images to your page, and more. It is crucial that you cultivate a thorough understanding of data structures and methods early in your career.
+In this challenge, you will work with a data set summarizing every World Cup game from 1930 to 2014. As web developers, you will often work with JSON data to interact with servers, summarize data, get images to your page, and more. It is crucial that you cultivate a thorough understanding of data structures and methods early in your career.
 
 The data set you are given (loaded in at the top of `index.js`) contains a report for every game played at every stage in the FIFA World Cup tournament since 1930. Each report is an object with many keys, including `Year`,`Stage`, `Stadium`,  `Home Team Name`,`Home Team Goals`, `Away Team Name`, and `Away Team Goals`. There is a plethora of other data in this set as well, but we won't spend time working with it. You can read more about the data [here](https://www.kaggle.com/abecklas/fifa-world-cup) or look at the sample object below if you are interested!
 
-Your goal today wil be to manipulate the data using array methods and callbacks to create interesting statistics.
+Your goal today will be to manipulate the data using array methods and callbacks to create interesting statistics.
 
-### Sample Data 
+### Sample Data
+
 ```js
   {
       "Year": 1930,
@@ -51,13 +50,13 @@ Your goal today wil be to manipulate the data using array methods and callbacks 
 
 Using VSCode and a Command Line:
 
-1. Fork repo and add TL as collaborator on Github
-2. Clone your fork (not Lambda's repo by mistake!)
+1. Fork repo and add TL as collaborator on Github.
+2. Clone your fork (not Lambda's repo by mistake!).
 3. `cd` into your newly cloned repository.
-4. Create a new branch by typing `git checkout -b <firstName-lastName>`
-5. Install dependencies by typing npm install
-6. Run tests by typing npm run test:watch
-7. Work on your branch, push commits and create PR as usual
+4. Create a new branch by typing `git checkout -b <firstName-lastName>`.
+5. Install dependencies by typing `npm install`.
+6. Run tests by typing `npm run test:watch`.
+7. Work on your branch, push commits and create PR as usual.
 
 ### Task 2: Minimum Viable Product
 
@@ -71,13 +70,13 @@ After you have completed the requirements, create a new file called `stretch.js`
 
 See if you can complete one or more of the following challenges:
 
-- [ ] Create a function that takes a country code as a parameter and returns their total number of World Cup appearances
-- [ ] Create a function that takes a country code as a parameter and determines how many goals that country has scored in World Cup games since 1930
-- [ ] Use .map to format country names into `<h1>` HTML headers
+- [ ] Create a function that takes a country code as a parameter and returns their total number of World Cup appearances.
+- [ ] Create a function that takes a country code as a parameter and determines how many goals that country has scored in World Cup games since 1930.
+- [ ] Use `.map` to format country names into `<h1>` HTML headers.
 
 ## Testing FAQ
 
-<img alt='instructions screenshot' src='assets/instructions.png'>
+![instructions screenshot](assets/instructions.png)
 
 **What are Tests?**
 
@@ -87,19 +86,19 @@ See if you can complete one or more of the following challenges:
 
 **How do I run tests in terminal?**
 
-- Run tests by typing `npm run test:watch`.
-- Testing in Terminal can be done in the terminal utility or VS code
+- Run tests by typing `npm run test:watch`.
+- Testing in Terminal can be done in the terminal utility or VS code.
 
 **How do I run tests in my browser?**
 
-- Open `index.html`
-- You should see the following at first with failed tests and error messages
+- Open `index.html`.
+- You should see the following at first with failed tests and error messages.
 
-<img alt='failing tests' src='assets/FailingTests.png'> 
+![failing tests](assets/FailingTests.png)
 
-- Once your code is working you will see tests passing and can click on tests to view the code which made the test pass.
+- Once your code is working, you will see tests passing and can click on tests to view the code which made the test pass.
 
-<img alt='passing tests' src='assets/PassingTests.png'> 
+![passing tests](assets/PassingTests.png)
 
 ## Resources
 
@@ -111,15 +110,12 @@ See if you can complete one or more of the following challenges:
 
 ⚽️ [World Cup Summary Data to Check Work](https://www.foxsports.com/soccer/fifa-world-cup/history)
 
-👀 [List of FIFA World Cup finals
- on Wikipedia](https://en.wikipedia.org/wiki/List_of_FIFA_World_Cup_finals)
- 
- ## Submission Format
- 
- Follow these steps for completing your project.
+👀 [List of FIFA World Cup finals on Wikipedia](https://en.wikipedia.org/wiki/List_of_FIFA_World_Cup_finals)
 
- - [ ] Submit a pull request to merge Branch into master (student's Repo). Please don't merge your own pull request
- - [ ] Add your Team Lead as a reviewer on the pull request
- - [ ] Your Team Lead will count the project as complete by merging the branch back into master
+## Submission Format
 
+Follow these steps for completing your project.
 
+- [ ] Submit a pull request to merge Branch into master (student's Repo). Please don't merge your own pull request.
+- [ ] Add your Team Lead as a reviewer on the pull request.
+- [ ] Your Team Lead will count the project as complete by merging the branch back into master.
