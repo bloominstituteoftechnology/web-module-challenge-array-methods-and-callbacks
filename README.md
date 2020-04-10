@@ -74,6 +74,12 @@ See if you can complete one or more of the following challenges:
 - [ ] Create a function that takes a country code as a parameter and determines how many goals that country has scored in World Cup games since 1930.
 - [ ] Use `.map` to format country names into `<h1>` HTML headers.
 
+## FAQ 
+
+**Where is my data?**
+
+Your data lives in a file called `fifa.js`. In order to work with and use your data in the `index.js` file, we used the import function of JavaScript. The first line in your file should be `import { fifa } from "fifa.js"`, which will save all of the data into an object called fifa. You can confirm that your data has been imported correctly by running `console.log(fifa)` in your `index.js` file.
+
 ## Testing FAQ
 
 ![instructions screenshot](assets/instructions.png)

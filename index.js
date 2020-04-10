@@ -1,4 +1,4 @@
-import {data} from "data.js";
+import {fifa} from "fifa.js";
 
 // ⚽️ M  V P ⚽️ //
 
