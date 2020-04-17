@@ -80,32 +80,6 @@ See if you can complete one or more of the following challenges:
 
 Your data lives in a file called `fifa.js`. In order to work with and use your data in the `index.js` file, we used the import function of JavaScript. The first line in your file should be `import { fifa } from "fifa.js"`, which will save all of the data into an object called fifa. You can confirm that your data has been imported correctly by running `console.log(fifa)` in your `index.js` file.
 
-## Testing FAQ
-
-![instructions screenshot](assets/instructions.png)
-
-**What are Tests?**
-
-- Lambda School staff members use tests to algorithmically check for required elements in a code file. For example, a test for the question "`console.log()` "hello [name]" using a variable `name` to hold the name" (not a question you will ever be asked, but I digress), might pass **if** your code includes a variable called `name` **and if** that variable was created with `const` **and** **if** `console.log` is called. Additional parameters could require that this code doesn't exceed 2 lines.
-- Your tests work similarly, with more complex conditionals for what is considered passing and what is considered failing. These tests and associated error messages are meant to help you by providing informative error messages that are specific to the requirements of your project.
-- Read more about testing frameworks [here](https://blog.bitsrc.io/top-javascript-testing-frameworks-in-demand-for-2019-90c76e7777e9) including how testing can be used at scale. Lambda School uses Mocha to test in JavaScript.
-
-**How do I run tests in terminal?**
-
-- Run tests by typing `npm run test:watch`.
-- Testing in Terminal can be done in the terminal utility or VS code.
-
-**How do I run tests in my browser?**
-
-- Open `index.html`.
-- You should see the following at first with failed tests and error messages.
-
-![failing tests](assets/FailingTests.png)
-
-- Once your code is working, you will see tests passing and can click on tests to view the code which made the test pass.
-
-![passing tests](assets/PassingTests.png)
-
 ## Resources
 
 📚 [Examples of .map, .reduce, and .filter](https://itnext.io/15-useful-javascript-examples-of-map-reduce-and-filter-74cbbb5e0a1f)
