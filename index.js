@@ -1,4 +1,6 @@
-import {fifa} from "fifa.js";
+import { fifaData } from './fifa.js';
+console.log(fifaData);
+
 
 // ⚽️ M  V P ⚽️ //
 
