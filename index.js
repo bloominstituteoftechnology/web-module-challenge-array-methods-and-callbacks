@@ -11,15 +11,18 @@ console.log(fifaData);
 (c) Home Team goals for 2014 world cup final
 (d) Away Team goals for 2014 world cup final
 (e) Winner of 2014 world cup final */
-const homeTeam2014 = [];
-let a = fifaData.forEach(function (item){
+
+// (a)
+const homeTeam2014 = []; //new array
+fifaData.forEach(function (item){ //forEach to iterate over
     if (item["Year"] === 2014){
         homeTeam2014.push(item["Home Team Name"]);
     }
     return homeTeam2014;
-})
+});
+console.log(homeTeam2014);
 
-console.log(a);
+// (b)
 
 
 /* Task 2: Create a function called  getFinals that takes `data` as an argument and returns an array of objects with only finals data */
