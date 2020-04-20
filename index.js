@@ -23,6 +23,38 @@ fifaData.forEach(function (item){ //forEach to iterate over
 console.log(homeTeam2014);
 
 // (b)
+const awayTeam2014 = []; //new array
+fifaData.forEach(function (item){ //forEach to iterate over
+    if (item["Year"] === 2014){
+        awayTeam2014.push(item["Away Team Name"]);
+    }
+    return awayTeam2014;
+});
+console.log(awayTeam2014);
+
+// (c)
+
+const homeTeamGoals2014 = []; //new array
+fifaData.forEach(function (item){ //forEach to iterate over
+    if (item["Year"] === 2014){
+        homeTeamGoals2014.push(item["Home Team Goals"]);
+    }
+    return homeTeamGoals2014;
+});
+console.log(homeTeamGoals2014);
+
+// (d)
+
+const awayTeamGoals2014 = []; //new array
+fifaData.forEach(function (item){ //forEach to iterate over
+    if (item["Year"] === 2014){
+        awayTeamGoals2014.push(item["Away Team Goals"]);
+    }
+    return awayTeamGoals2014;
+});
+console.log(awayTeamGoals2014);
+
+// (e)
 
 
 /* Task 2: Create a function called  getFinals that takes `data` as an argument and returns an array of objects with only finals data */
