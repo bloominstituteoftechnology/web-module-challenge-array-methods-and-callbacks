@@ -68,14 +68,23 @@ After you have completed the requirements, create a new file called `stretch.js`
 See if you can complete one or more of the following challenges:
 
 - [ ] Create a function that takes country initials as a parameter and returns their total number of World Cup appearances.
+- [ ] Account for ties in your 'finals' data set
 - [ ] Create a function that takes country initials as a parameter and determines how many goals that country has scored in World Cup games since 1930.
 - [ ] Use `.map` to format country names into `<h1>` HTML headers.
 
-## FAQ 
+## FAQ
 
 **Where is my data?**
 
 Your data lives in a file called `fifa.js`. In order to work with and use your data in the `index.js` file, we used the import function of JavaScript. The first line in your file should be `import { fifaData } from "fifa.js"`, which will save all of the data into an object called fifaData. You can confirm that your data has been imported correctly by running `console.log(fifaData)` in your `index.js` file.
+
+**What about ties?**
+
+In some cases, when the outcome of a game was decided by penalty kicks, the home team and away team will have the same number of goals scored. You can ignore ties for the purpose of this task, but you can also look to the "Win conditions" key  and splice out the winning team. (See example below)
+
+```
+Win conditions": "France win on penalties (3 - 4)",
+````
 
 ## Resources
 
