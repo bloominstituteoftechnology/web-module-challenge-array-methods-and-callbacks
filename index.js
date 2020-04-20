@@ -19,7 +19,42 @@ console.log(
     }
   })
 );
+
 // (B)
+console.log(
+  fifaData.filter((data) => {
+    if (data.Year === 2014 && data.Stage === "Final") {
+      return data["Away Team Name"];
+    }
+  })
+);
+
+// (C)
+console.log(
+  fifaData.filter((data) => {
+    if (data.Year === 2014 && data.Stage === "Final") {
+      return data["Home Team Goals"];
+    }
+  })
+);
+
+// (D)
+console.log(
+  fifaData.filter((data) => {
+    if (data.Year === 2014 && data.Stage === "Final") {
+      return data["Away Team Goals"];
+    }
+  })
+);
+
+// (E)
+console.log(
+  fifaData.filter((data) => {
+    if (data.Year === 2014 && data.Stage === "Final") {
+      return data["Win conditions"];
+    }
+  })
+);
 
 /* Task 2: Create a function called  getFinals that takes `data` as an argument and returns an array of objects with only finals data */
 
