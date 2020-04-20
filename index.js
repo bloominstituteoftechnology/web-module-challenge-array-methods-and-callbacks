@@ -56,14 +56,28 @@ console.log(awayTeamGoals2014);
 
 // (e)
 
+//Winner of 2014
+
+//no need for forEach or filter because already have variables
+// if Home Team Goals are higher then away team goals
+if (homeTeamGoals2014 > awayTeamGoals2014){ //if Home is higher than Away
+    console.log(homeTeam2014[0]); // logs home team 
+}else if (awayTeamGoals2014 > homeTeamGoals2014){ //if Away team is higher than Home
+    console.log(awayTeam2014[0]); // logs away team
+} //closes if statements
+
 
 /* Task 2: Create a function called  getFinals that takes `data` as an argument and returns an array of objects with only finals data */
 
-function getFinals(/* code here */) {
-
-    /* code here */
+function getFinals(data) {
+    fifaData.filter(function(data){
+        return data.stage === "Final";
+    })
 
 };
+
+console.log(getFinals);
+console.log(data);
 
 /* Task 3: Impliment a higher-order function called `getYears` that accepts the callback function `getFinals`, and returns an array called `years` containing all of the years in the dataset */
 
