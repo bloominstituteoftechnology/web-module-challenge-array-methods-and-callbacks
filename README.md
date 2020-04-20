@@ -46,7 +46,7 @@ Your goal today will be to manipulate the data using array methods and callbacks
 
 ## Instructions
 
-### Task 1: Set up Project and Tests
+### Task 1: Set up Project
 
 Using VSCode and a Command Line:
 
@@ -54,9 +54,6 @@ Using VSCode and a Command Line:
 2. Clone your fork (not Lambda's repo by mistake!).
 3. `cd` into your newly cloned repository.
 4. Create a new branch by typing `git checkout -b <firstName-lastName>`.
-5. Install dependencies by typing `npm install`.
-6. Run tests by typing `npm run test:watch`.
-7. Work on your branch, push commits and create PR as usual.
 
 ### Task 2: Minimum Viable Product
 
@@ -70,15 +67,15 @@ After you have completed the requirements, create a new file called `stretch.js`
 
 See if you can complete one or more of the following challenges:
 
-- [ ] Create a function that takes a country code as a parameter and returns their total number of World Cup appearances.
-- [ ] Create a function that takes a country code as a parameter and determines how many goals that country has scored in World Cup games since 1930.
+- [ ] Create a function that takes country initials as a parameter and returns their total number of World Cup appearances.
+- [ ] Create a function that takes country initials as a parameter and determines how many goals that country has scored in World Cup games since 1930.
 - [ ] Use `.map` to format country names into `<h1>` HTML headers.
 
 ## FAQ 
 
 **Where is my data?**
 
-Your data lives in a file called `fifa.js`. In order to work with and use your data in the `index.js` file, we used the import function of JavaScript. The first line in your file should be `import { fifa } from "fifa.js"`, which will save all of the data into an object called fifa. You can confirm that your data has been imported correctly by running `console.log(fifa)` in your `index.js` file.
+Your data lives in a file called `fifa.js`. In order to work with and use your data in the `index.js` file, we used the import function of JavaScript. The first line in your file should be `import { fifaData } from "fifa.js"`, which will save all of the data into an object called fifaData. You can confirm that your data has been imported correctly by running `console.log(fifaData)` in your `index.js` file.
 
 ## Resources
 

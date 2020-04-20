@@ -6,11 +6,11 @@ console.log(fifaData);
 
 /* Task 1: Investigate the data above. Practice accessing data by console.log-ing the following pieces of data 
 
-(a) Home Team name for 2014 world cup
-(b) Away Team name for 2014 world cup
-(c) Home Team goals for 2014 world cup
-(d) Away Team goals for 2014 world cup
-(e) Winner of 2014 world cup  */
+(a) Home Team name for 2014 world cup final
+(b) Away Team name for 2014 world cup final
+(c) Home Team goals for 2014 world cup final
+(d) Away Team goals for 2014 world cup final
+(e) Winner of 2014 world cup final */
 
 
 /* Task 2: Create a function called  getFinals that takes `data` as an argument and returns an array of objects with only finals data */
@@ -50,8 +50,9 @@ function getAllWinners(/* code here */) {
 
 getAllWinners();
 
-/* Task 7: Create a function called `getCountryWins` that takes the parameters `data` and `country code` and returns the number of world cup wins that country has had. 
+/* Task 7: Create a function called `getCountryWins` that takes the parameters `data` and `team initials` and returns the number of world cup wins that country has had. 
 
+Hint: Investigate your data to find "team initials"!
 Hint: use `.reduce` */
 
 function getCountryWins(/* code here */) {
@@ -60,21 +61,21 @@ function getCountryWins(/* code here */) {
 
 };
 
-getAllWinners();
+getCountryWins();
 
 
-/* Task 8: Write a function called getGoals() that accepts a parameter `data` and calculates the team with the most goals score per appearance (avergae goals for) in the World Cup finals */
+/* Task 8: Write a function called getGoals() that accepts a parameter `data` and calculates the team with the most goals score per appearance (average goals for) in the World Cup finals */
 
-function getCountryWins(/* code here */) {
+function getGoals(/* code here */) {
 
     /* code here */
 
 };
 
-getAllWinners();
+getGoals();
 
 
-/* Task 9: Write a function called badDefense() that accepts a parameter `data` and calculates the team with the most goals scored against them per appearance (avergae goals against) in the World Cup finals */
+/* Task 9: Write a function called badDefense() that accepts a parameter `data` and calculates the team with the most goals scored against them per appearance (average goals against) in the World Cup finals */
 
 function badDefense(/* code here */) {
 
