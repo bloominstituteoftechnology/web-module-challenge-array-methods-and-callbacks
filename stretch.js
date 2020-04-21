@@ -14,3 +14,8 @@ var fifaAwayInitials = fifaData.map(function (item) {
 var fifaInitials = fifaHomeInitials.concat(fifaAwayInitials);
 
 console.log(fifaInitials);
+
+const data = [fifaInitials];
+
+let uniqueTeams = [...new Set(data.map((item) => item.Initials))];
+console.log(uniqueTeams);
