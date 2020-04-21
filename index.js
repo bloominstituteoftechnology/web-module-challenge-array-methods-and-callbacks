@@ -94,7 +94,7 @@ function getYears(getFinals) { // getFinals is callback we want to look thru
 console.log(getYears(getFinals));
 
 /* Task 5: Impliment a higher-order function called `getWinners`, that accepts the callback function `getFinals()` and determine the winner (home or away) of each `finals` game. Return the name of all winning countries in an array called `winners` */ 
-// new array called winners
+//new array called winners
 const winners =[];
 function getWinners(getFinals) { //getFinals callback we want to look thru
     //go over getFinals
@@ -105,10 +105,10 @@ function getWinners(getFinals) { //getFinals callback we want to look thru
             winners.push(data["Home Team Name"]);
         }//end if statement
         //return winners array
-        return winners;
+        return winners; //changed to consol log to see if works and it does
     })
 };
-getWinners(getFinals);
+ // Works but need to get console log correct
 //console.log(getWinners(getFinals));
 
 /* Task 6: Implement a higher-order function called `getWinnersByYear` that accepts the following parameters and returns a set of strings "In {year}, {country} won the world cup!" 
@@ -118,24 +118,51 @@ Parameters:
  * callback function getYears
  */
 
-function getAllWinners(/* code here */) {
+function getAllWinners(data) {
 
 };
 
-getAllWinners();
 
 /* Task 7: Create a function called `getCountryWins` that takes the parameters `data` and `team initials` and returns the number of world cup wins that country has had. 
 
 Hint: Investigate your data to find "team initials"!
 Hint: use `.reduce` */
 
-function getCountryWins(/* code here */) {
-
-    /* code here */
-
+function getCountryWins(data, teamInitials) {
+    let count = 0;//counter
+    const cupWins = getFinals(data); //variable for cup wins from getFinals
+    // team initials array = cupWIns (getFinals)
+    const tiArray = cupWins.map(function (item) { 
+        //If team goals are higher than other team goals
+        if (item["Home Team Goals"] > item["Away Team Goals"]) {
+            // return initials of higher team
+            return item["Home Team Initials"]
+        } else {
+            //return other team initials
+            return item["Away Team Initials"]
+        }
+    })
+    // GO over team initials array to count each duplicate
+    tiArray.forEach(function (item) {
+        //if match
+        if (item === teamInitials) {
+            //add +1
+            count = count + 1
+        }
+    })
+    //return count
+    return count
+    // return tiArray
 };
+console.log(getCountryWins(fifaData, "BRA"));
 
-getCountryWins();
+// function getCountryWins(/* code here */) {
+
+//     /* code here */
+
+// };
+
+// getCountryWins();
 
 
 
