@@ -117,46 +117,33 @@ Parameters:
  * callback function getWinners
  * callback function getYears
  */
-
+//comesback undefined
 function getAllWinners(data) {
+    //if data = getYears year
+if (data === getYears["Year"]){
+    //if get Years Year is === get Winners Year
+    if (getYears["Year"] === getWinners["Year"]){
+    //return year and country
+    return getYears["Year"], getWinners["Home Team Name"];
+}//close inside if
+}// close outside if
+    //return string
+    return `"In ${getYears["Year"]}, ${getWinners["Home Team Name"]} won the world cup! `
 
-};
-
+}; //close function
+console.log(getAllWinners(2014));
 
 /* Task 7: Create a function called `getCountryWins` that takes the parameters `data` and `team initials` and returns the number of world cup wins that country has had. 
 
 Hint: Investigate your data to find "team initials"!
 Hint: use `.reduce` */
 
-function getCountryWins(data, teamInitials) {
-    let count = 0;//counter
-    const cupWins = getFinals(data); //variable for cup wins from getFinals
-    // team initials array = cupWIns (getFinals)
-    const tiArray = cupWins.map(function (item) { 
-        //If team goals are higher than other team goals
-        if (item["Home Team Goals"] > item["Away Team Goals"]) {
-            // return initials of higher team
-            return item["Home Team Initials"]
-        } else {
-            //return other team initials
-            return item["Away Team Initials"]
-        }
-    })
-    // GO over team initials array to count each duplicate
-    tiArray.forEach(function (item) {
-        //if match
-        if (item === teamInitials) {
-            //add +1
-            count = count + 1
-        }
-    })
-    //return count
-    return count
-    // return tiArray
-};
-console.log(getCountryWins(fifaData, "BRA"));
-
 // function getCountryWins(/* code here */) {
+    //takes data and team initials as parameters
+    //for all team initials taht match data.team initials reduce
+    //count ++ for the same team initials for reduce?
+    //if team initials match get country wins initials
+    //returns the number of world cupe wins that country has
 
 //     /* code here */
 
