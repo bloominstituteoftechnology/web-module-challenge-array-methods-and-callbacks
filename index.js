@@ -20,7 +20,7 @@ fifaData.forEach(function (item){ //forEach to iterate over
     }
     return homeTeam2014;
 });
-console.log(homeTeam2014);
+//console.log(homeTeam2014);
 
 // (b)
 const awayTeam2014 = []; //new array
@@ -30,7 +30,7 @@ fifaData.forEach(function (item){ //forEach to iterate over
     }
     return awayTeam2014;
 });
-console.log(awayTeam2014);
+//console.log(awayTeam2014);
 
 // (c)
 
@@ -41,7 +41,7 @@ fifaData.forEach(function (item){ //forEach to iterate over
     }
     return homeTeamGoals2014;
 });
-console.log(homeTeamGoals2014);
+//console.log(homeTeamGoals2014);
 
 // (d)
 
@@ -52,7 +52,7 @@ fifaData.forEach(function (item){ //forEach to iterate over
     }
     return awayTeamGoals2014;
 });
-console.log(awayTeamGoals2014);
+//console.log(awayTeamGoals2014);
 
 // (e)
 
@@ -79,7 +79,7 @@ function getFinals(fifaData) { //data is the array we are looking at
    
 };
 //invoked function 
-console.log(getFinals(fifaData));
+//console.log(getFinals(fifaData));
 
 /* Task 3: Impliment a higher-order function called `getYears` that accepts the callback function `getFinals`, and returns an array called `years` containing all of the years in the dataset */
 
@@ -91,25 +91,37 @@ function getYears(getFinals) { // getFinals is callback we want to look thru
     });
 };
 //console log function(parameter)
-console.log(getYears(getFinals));
+//console.log(getYears(getFinals));
 
 /* Task 5: Impliment a higher-order function called `getWinners`, that accepts the callback function `getFinals()` and determine the winner (home or away) of each `finals` game. Return the name of all winning countries in an array called `winners` */ 
 //new array called winners
-const winners =[];
-function getWinners(getFinals) { //getFinals callback we want to look thru
-    //go over getFinals
-    return getFinals(fifaData).forEach(function(data){
-        // check to see is home or away team score is higher
-        if (data["Home Team Goals"] > data["Away Team Goals"] || data["Away Team Goals"] > data["Home Team Goals"]){
-            //push winning team name into winners array
-            winners.push(data["Home Team Name"]);
-        }//end if statement
-        //return winners array
-        return winners; //changed to consol log to see if works and it does
-    })
-};
+// const winners =[];
+// function getWinners(getFinals) { //getFinals callback we want to look thru
+//     //go over getFinals
+//     return getFinals(fifaData).forEach(function(data){
+//         // check to see is home or away team score is higher
+//         if (data["Home Team Goals"] > data["Away Team Goals"] || data["Away Team Goals"] > data["Home Team Goals"]){
+//             //push winning team name into winners array
+//             winners.push(data["Home Team Name"]);
+//         }//end if statement
+//         //return winners array
+//         return winners; //changed to consol log to see if works and it does
+//     })
+// };
  // Works but need to get console log correct
 //console.log(getWinners(getFinals));
+
+function getWinners(callback) {
+    let winners = callback.map(function(final){
+        if (final["Home Team Goals"] > final["Away Team Goals"]){
+        return final["Home Team Name"]
+    }else{
+        return final["Away Team Name"]
+    }
+    });
+    return winners;
+};
+//console.log(getWinners(getFinals(data)));
 
 /* Task 6: Implement a higher-order function called `getWinnersByYear` that accepts the following parameters and returns a set of strings "In {year}, {country} won the world cup!" 
 
@@ -118,36 +130,60 @@ Parameters:
  * callback function getYears
  */
 //comesback undefined
-function getAllWinners(data) {
-    //if data = getYears year
-if (data === getYears["Year"]){
-    //if get Years Year is === get Winners Year
-    if (getYears["Year"] === getWinners["Year"]){
-    //return year and country
-    return getYears["Year"], getWinners["Home Team Name"];
-}//close inside if
-}// close outside if
-    //return string
-    return `"In ${getYears["Year"]}, ${getWinners["Home Team Name"]} won the world cup! `
+// function getAllWinners(data) {
+//     //if data = getYears year
+// if (data === getYears["Year"]){
+//     //if get Years Year is === get Winners Year
+//     if (getYears["Year"] === getWinners["Year"]){
+//     //return year and country
+//     return getYears["Year"], getWinners["Home Team Name"];
+// }//close inside if
+// }// close outside if
+//     //return string
+//     return `"In ${getYears["Year"]}, ${getWinners["Home Team Name"]} won the world cup! `
 
-}; //close function
-console.log(getAllWinners(2014));
+// }; //close function
+// console.log(getAllWinners(2014));
 
+function getWinnersByYear(winners, years) {
+for (let i=0; i < winners.length; i++){
+    console.log(`In ${years[i]},${winners[i]} won the World Cup.`)
+    }
+};
+getWinnersByYears(getWinners(getFinals(data)), getYears(getFinals(data)));
 /* Task 7: Create a function called `getCountryWins` that takes the parameters `data` and `team initials` and returns the number of world cup wins that country has had. 
 
 Hint: Investigate your data to find "team initials"!
 Hint: use `.reduce` */
 
-// function getCountryWins(/* code here */) {
-    //takes data and team initials as parameters
-    //for all team initials taht match data.team initials reduce
-    //count ++ for the same team initials for reduce?
-    //if team initials match get country wins initials
-    //returns the number of world cupe wins that country has
+function getCountryWins(data, teamInitials) { // takes data and team initials as parameters
+    let count = 0; //counter
+    let teamMatches = data.map(function(match){
+        if (match["Home Team Goals"] > match["Away Team Goals"] || match["Win conditions"].includes(match["Home Team Name"])){ //give me name of team with highest score
+            return match["Home Team Initials"]
+        }else{
+            return match["Away Team Initials"]
+        }//end else
+    
+        })
+        teamMatches.forEach(function(item){
+            if(item === teamInitials){ //it initials match team initials
+                count++ // add 1
+            }
+        })
+        return `${teamInitials} has won ${count} games`;
+    }
 
-//     /* code here */
+    console.log(getCOuntryWIns(data, "BRA"));
 
-// };
+    // for all team initials taht match data.team initials reduce
+    // count ++ for the same team initials for reduce?
+    // if team initials match get country wins initials
+    // returns the number of world cupe wins that country has
+
+    /* code here */
+
+};
 
 // getCountryWins();
 
@@ -178,13 +214,22 @@ badDefense();
 //STRETCH
 /* Task 10: Write a function called `getAverageGoals` that accepts a parameter `data` and returns the the average number of home team goals and away team goals scored per match (Hint: use .reduce and do this in 2 steps) */
 
-function getAverageGoals(/* code here */) {
-
-    /* code here */
-
+function getAverageGoals(data) {
+ let homeTeamGoals = data.map(function(item){
+     return item["Home Team Goals"]
+ })
+ let awayTeamGoals = data.map(function(item){
+     return item["Away Team Goals"]
+ })
+ //change Home team goals away to a value using reduce
+ let avgHomeGoals = homeTeamGoals.reduce(function(accumulator, currentValue){
+     return accumulator + currentValue
+ }, 0) / homeTeamGoals.length
 };
+let avgAwayGoals = awayTeamGoals.reduce((accumulator, currentValue) => { return accumulator + currentValue 
+}, 0) / awayTeamGoals.length
 
-getAverageGoals();
+console.log(`Home Team Avg: ${avgHomeGoals.toFixed(2)}, Away Team Avg: ${awayTeamGoals.toFIxed(2)}`)
 
 
 /// STRETCH 🥅 //
