@@ -75,11 +75,11 @@ function getFinals(fifaData) { //data is the array we are looking at
          //return data.key === the string "";
         return data["Stage"] === "Final"; 
     })
-    //console log varaiable
-    console.log(finalData);
+   return finalData;
+   
 };
 //invoked function 
-getFinals(fifaData);
+console.log(getFinals(fifaData));
 
 /* Task 3: Impliment a higher-order function called `getYears` that accepts the callback function `getFinals`, and returns an array called `years` containing all of the years in the dataset */
 
