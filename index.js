@@ -67,30 +67,7 @@ function getCountryWins(/* code here */) {
 
 getCountryWins();
 
-
-/* Task 8: Write a function called getGoals() that accepts a parameter `data` and returns the team with the most goals score per appearance (average goals for) in the World Cup finals */
-
-function getGoals(/* code here */) {
-
-    /* code here */
-
-};
-
-getGoals();
-
-
-/* Task 9: Write a function called badDefense() that accepts a parameter `data` and calculates the team with the most goals scored against them per appearance (average goals against) in the World Cup finals */
-
-function badDefense(/* code here */) {
-
-    /* code here */
-
-};
-
-badDefense();
-
-
-/* Task 10: Write a function called `getAverageGoals` that accepts a parameter `data` and returns the the average number of home team goals and away team goals scored per match (Hint: use .reduce and do this in 2 steps) */
+/* Task 9: Write a function called `getAverageGoals` that accepts a parameter `data` and returns the the average number of home team goals and away team goals scored per match (Hint: use .reduce and do this in 2 steps) */
 
 function getAverageGoals(/* code here */) {
 
@@ -103,4 +80,25 @@ getAverageGoals();
 
 /// STRETCH 🥅 //
 
-/* Use the space below to work on any stretch goals of your chosing as listed in the README file. */
+/* STRETCH 1: Write a function called getGoals() that accepts a parameter `data` and returns the team with the most goals score per appearance (average goals for) in the World Cup finals */
+
+function getGoals(/* code here */) {
+
+    /* code here */
+
+};
+
+getGoals();
+
+
+/* STRETCH 2: Write a function called badDefense() that accepts a parameter `data` and calculates the team with the most goals scored against them per appearance (average goals against) in the World Cup finals */
+
+function badDefense(/* code here */) {
+
+    /* code here */
+
+};
+
+badDefense();
+
+/* If you still have time, use the space below to work on any stretch goals of your chosing as listed in the README file. */
