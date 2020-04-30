@@ -21,7 +21,7 @@ function getFinals(/* code here */) {
 
 };
 
-/* Task 3: Impliment a higher-order function called `getYears` that accepts the callback function `getFinals`, and returns an array called `years` containing all of the years in the dataset */
+/* Task 3: Implement a higher-order function called `getYears` that accepts the callback function `getFinals`, and returns an array called `years` containing all of the years in the dataset */
 
 function getYears(/* code here */) {
 
@@ -31,7 +31,7 @@ function getYears(/* code here */) {
 
 getYears();
 
-/* Task 5: Impliment a higher-order function called `getWinners`, that accepts the callback function `getFinals()` and determine the winner (home or away) of each `finals` game. Return the name of all winning countries in an array called `winners` */ 
+/* Task 5: Implement a higher-order function called `getWinners`, that accepts the callback function `getFinals()` and determine the winner (home or away) of each `finals` game. Return the name of all winning countries in an array called `winners` */ 
 
 function getWinners(/* code here */) {
 
@@ -48,11 +48,11 @@ Parameters:
  * callback function getYears
  */
 
-function getAllWinners(/* code here */) {
+function getWinnersByYear(/* code here */) {
 
 };
 
-getAllWinners();
+getWinnersByYear();
 
 /* Task 7: Create a function called `getCountryWins` that takes the parameters `data` and `team initials` and returns the number of world cup wins that country has had. 
 
@@ -67,7 +67,7 @@ function getCountryWins(/* code here */) {
 
 getCountryWins();
 
-/* Task 9: Write a function called `getAverageGoals` that accepts a parameter `data` and returns the the average number of home team goals and away team goals scored per match (Hint: use .reduce and do this in 2 steps) */
+/* Task 8: Write a function called `getAverageGoals` that accepts a parameter `data` and returns the the average number of home team goals and away team goals scored per match (Hint: use .reduce and do this in 2 steps) */
 
 function getAverageGoals(/* code here */) {
 
