@@ -76,9 +76,15 @@ function getWinnersByYear() {
             Hint: Investigate your data to find "team initials"!
             Hint: use `.reduce` */
 
-            function getCountryWins( /* code here */ ) {
+            function getCountryWins(country) {
 
-                /* code here */
+                return getWinners().reduce((acc, winner) => {
+                        if (winner === country) {
+                            return acc + 1
+                        }
+                        return acc
+                    },
+                }
 
             };
 
@@ -86,7 +92,7 @@ function getWinnersByYear() {
 
             /* Task 8: Write a function called `getAverageGoals` that accepts a parameter `data` and returns the the average number of home team goals and away team goals scored per match (Hint: use .reduce and do this in 2 steps) */
 
-            function getAverageGoals( /* code here */ ) {
+            function getAverageGoals() {
 
                 /* code here */
 
