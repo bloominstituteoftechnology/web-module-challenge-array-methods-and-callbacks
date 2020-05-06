@@ -1,5 +1,5 @@
 import { fifaData } from './fifa.js';
-console.log(fifaData);
+// console.log(fifaData);
 
 
 // ⚽️ M  V P ⚽️ //
@@ -12,6 +12,13 @@ console.log(fifaData);
 (d) Away Team goals for 2014 world cup final
 (e) Winner of 2014 world cup final */
 
+const homeTeam2014Final = fifaData.filter((game) => {
+    if (game['Year'] === 2014 && game['Stage'] === 'Final') {
+        return game['Home Team Name'];
+    }
+});
+
+console.log(homeTeam2014Final);
 
 /* Task 2: Create a function called  getFinals that takes `data` as an argument and returns an array of objects with only finals data */
 
