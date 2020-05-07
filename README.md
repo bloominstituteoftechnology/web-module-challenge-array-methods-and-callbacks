@@ -46,7 +46,7 @@ Your goal today will be to manipulate the data using array methods and callbacks
 
 ## Instructions
 
-### Task 1: Set up Project
+COMPLETED ### Task 1: Set up Project
 
 Using VSCode and a Command Line:
 
