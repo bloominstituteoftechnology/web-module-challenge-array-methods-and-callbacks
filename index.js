@@ -123,8 +123,8 @@ function getAverageGoals(data) {
         let awayGoals = currentMatch['Away Team Goals'];
 
         // https://captaincalculator.com/sports/goals-against-average-calculator/
-        let homeAverage = (awayGoals / 637) * 60;
-        let awayAverage = (homeGoals / 637) * 60;
+        let homeAverage = (awayGoals / 637) * 90;
+        let awayAverage = (homeGoals / 637) * 90;
 
         console.log(`Home average: ${homeAverage.toFixed(3)}, Away average: ${awayAverage.toFixed(3)}.`);
     }
