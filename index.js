@@ -116,24 +116,15 @@ console.log(output5);
 /* Task 8: Write a function called `getAverageGoals` that accepts a parameter `data` and returns the the average number of home team goals and away team goals scored per match (Hint: use .reduce and do this in 2 steps) */
 
 function getAverageGoals(data) {
-    for (var i = 0; i < data.length; i++) {
-        let currentMatch = data[i];
-        
-        let homeGoals = currentMatch['Home Team Goals'];
-        let awayGoals = currentMatch['Away Team Goals'];
+    const averageHomeGoals = data.reduce((accumulator, item) => {
+        return accumulator + item["Home Team Goals"] + item["Away Team Goals"];
+    }, 0)
 
-        // https://captaincalculator.com/sports/goals-against-average-calculator/
-        let homeAverage = (awayGoals / 637) * 90;
-        let awayAverage = (homeGoals / 637) * 90;
-
-        console.log(`Home average: ${homeAverage.toFixed(3)}, Away average: ${awayAverage.toFixed(3)}.`);
-    }
+    return (averageHomeGoals / data.length).toFixed(2);
 };
 
-const output6 = getAverageGoals(fifaData);
-// console.log(output6);
-output6;
-
+const output6 = getAverageGoals(getFinals(fifaData));
+console.log("Task 10:", output6);
 
 /// STRETCH 🥅 //
 
