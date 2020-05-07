@@ -89,42 +89,53 @@ console.log(output4);
 Hint: Investigate your data to find "team initials"!
 Hint: use `.reduce` */
 
-function getCountryWins(data, teamInitials) {
-    const totalWins = data.reduce((acc, obj) => {
-        const winCondition = obj['Home Team Goals'] > obj['Away Team Goals'];
-        let key = obj['Home Team Initials'];
-
-        winCondition ? acc + 1 : obj, 0;
-        if (!acc[key]) {
-            acc[key] = 0;
-        }
-        if (winCondition) {
-            acc[key]++;
+function getCountryWins(data, initials) {
+    // initial value for numOfWins
+    const initialValue = 0;
+    const wins = data.reduce((numOfWins, match) => {
+        const homeTeamGoals = match['Home Team Goals'];
+        const awayTeamGoals = match['Away Team Goals'];
+        // find the winner
+        if (homeTeamGoals > awayTeamGoals) {
+            // home is winner, now find the initials
+            if (match['Home Team Initials'] === initials) {
+                // add one to number of wins
+                return numOfWins + 1;
+            } else {
+                // home team won, but home team initials doesn't match inputted initials
+                return numOfWins;
+            }
+        } else if (awayTeamGoals > homeTeamGoals) {
+            // away is winner, now find initials
+            if (match['Away Team Initials'] === initials) {
+                // add one to number of wins
+                return numOfWins + 1;
+            } else {
+                // away team won, but away team initials doesn't match inputted initials
+                return numOfWins;
+            }
         } else {
-            acc[obj[['Home Team Initials']]]++;
+            // both teams tied
+            return numOfWins;
         }
+    }, initialValue); // 0 is the initial value of numOfWins
 
-        return acc;
-    }, {})[teamInitials];
-
-    return `${teamInitials} has had ${totalWins} World Cup wins.`;
+    return wins;
 };
 
-const output5 = getCountryWins(getFinals(fifaData), 'ITA');
-console.log(output5);
+const output5 = getCountryWins(fifaData, 'ITA');
+console.log('Country wins:', output5);
 
 /* Task 8: Write a function called `getAverageGoals` that accepts a parameter `data` and returns the the average number of home team goals and away team goals scored per match (Hint: use .reduce and do this in 2 steps) */
 
 function getAverageGoals(data) {
-    const averageHomeGoals = data.reduce((acc, obj) => {
-        return acc + obj["Home Team Goals"] + obj["Away Team Goals"];
-    }, 0)
-
-    return (averageHomeGoals / data.length).toFixed(2);
+    const avgHomeGoals = data.reduce((goals, match) => goals + match['Home Team Goals'], 0) / data.length;
+    const avgAwayGoals = data.reduce((goals, match) => goals + match['Away Team Goals'], 0) / data.length;
+    return `Average Home Team Goals: ${avgHomeGoals.toFixed(2)}\nAverage Away Team Goals: ${avgAwayGoals.toFixed(2)}.`;
 };
 
-const output6 = getAverageGoals(getFinals(fifaData));
-console.log("Task 8:", output6);
+const output6 = getAverageGoals(fifaData);
+console.log(output6);
 
 /// STRETCH 🥅 //
 
