@@ -86,32 +86,63 @@ Parameters:
  */
 
 function getWinnersByYear(callback1, callback2) {
+    const arr = [];
+    callback1.forEach((ele, i) => {
+        arr.push(`In ${callback1[i]}, ${callback2[i]} won the world cup!`)
+    });
+    return arr;
 };
 
-//console.log(getWinnersByYear(getYears(getFinals(fifaData)), getWinners(getFinals(fifaData))));
+console.log(getWinnersByYear(getYears(getFinals(fifaData)), getWinners(getFinals(fifaData))));
 
 /* Task 7: Create a function called `getCountryWins` that takes the parameters `data` and `team initials` and returns the number of world cup wins that country has had. 
 
 Hint: Investigate your data to find "team initials"!
 Hint: use `.reduce` */
 
-function getCountryWins(/* code here */) {
+function getCountryWins(data, initials) {
+    const countries = data.map((ele, i) => {
+        if (data[i]["Home Team Goals"] > data[i]["Away Team Goals"]) {
+            return data[i]["Home Team Initials"];
+        } else if (data[i]["Home Team Goals"] < data[i]["Away Team Goals"]) {
+            return data[i]["Away Team Initials"];
+        } else {
+            return "Tie";
+        }
+    });
 
-    /* code here */
+    const number = countries.reduce((tally, amt) => {
+        tally[amt] ? tally[amt]++ : tally[amt] = 1;
+        return tally;
+    },{});
 
+    return number[initials];
 };
 
-getCountryWins();
+console.log(getCountryWins(fifaData, "FRA"));
 
 /* Task 8: Write a function called `getAverageGoals` that accepts a parameter `data` and returns the the average number of home team goals and away team goals scored per match (Hint: use .reduce and do this in 2 steps) */
 
-function getAverageGoals(/* code here */) {
+function getAverageGoals(data) {
+    const homeGoals = data.map((ele) => {
+        return ele["Home Team Goals"];
+    });
+    const awayGoals = data.map((ele) => {
+        return ele["Away Team Goals"];
+    });
 
-    /* code here */
+    const honeGoalsTotal = homeGoals.reduce((acc, item) => {
+        return acc + item;
+    });
 
+    const awayGoalsTotal = awayGoals.reduce((acc, item) => {
+        return acc + item;
+    });
+
+    return honeGoalsTotal / homeGoals.length + " " + awayGoalsTotal / awayGoals.length;
 };
 
-getAverageGoals();
+console.log(getAverageGoals(fifaData));
 
 
 /// STRETCH 🥅 //
