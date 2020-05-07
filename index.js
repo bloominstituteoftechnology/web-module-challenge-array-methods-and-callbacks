@@ -131,7 +131,7 @@ console.log('Country wins:', output5);
 function getAverageGoals(data) {
     const avgHomeGoals = data.reduce((goals, match) => goals + match['Home Team Goals'], 0) / data.length;
     const avgAwayGoals = data.reduce((goals, match) => goals + match['Away Team Goals'], 0) / data.length;
-    return `Average Home Team Goals: ${avgHomeGoals.toFixed(2)}\nAverage Away Team Goals: ${avgAwayGoals.toFixed(2)}.`;
+    return `Average Home Team Goals: ${avgHomeGoals.toFixed(2)}\nAverage Away Team Goals: ${avgAwayGoals.toFixed(2)}`;
 };
 
 const output6 = getAverageGoals(fifaData);
