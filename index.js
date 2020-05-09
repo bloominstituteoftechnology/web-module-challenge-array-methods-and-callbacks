@@ -20,10 +20,11 @@ console.log("Win Conditions")
 
 /* Task 2: Create a function called  getFinals that takes `data` as an argument and returns an array 
 of objects with only finals data */
-
+// use filter Stage property = 'Final'
 function getFinals(fifaData)  {
     array[fifaData].finals
-};
+}
+let res = users.filter(it => it.name.includes('Final'));
 
 /* Task 3: Implement a higher-order function called `getYears` that accepts the callback function 
 `getFinals`, and returns an array called `years` containing all of the years in the dataset */
@@ -65,7 +66,7 @@ getYears();
 Hint: Investigate your data to find "team initials"!
 Hint: use `.reduce` */
 
-function getCountryWins(fifaData) {
+function getCountryWins(fifaData, initials) {
 
    console.log()
 
@@ -77,7 +78,10 @@ returns the the average number of home team goals and away team goals scored per
  (Hint: use .reduce and do this in 2 steps) */
 
 function getAverageGoals(fifaData) {
-
+    for (let index = 0; index < array.length; index++) {
+        const element = array[index];
+        
+    }
 };
 
 getAverageGoals();
