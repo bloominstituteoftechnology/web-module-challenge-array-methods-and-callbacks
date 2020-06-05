@@ -41,19 +41,31 @@ function getYears(callback) {
         return {'Year': game.Year}; 
     });
     console.log(years);
+    return years;
 };
 
 getYears(getFinals);
 
 /* Task 5: Implement a higher-order function called `getWinners`, that accepts the callback function `getFinals()` and determine the winner (home or away) of each `finals` game. Return the name of all winning countries in an array called `winners` */ 
 
-function getWinners(/* code here */) {
-
-    /* code here */
-
+function getWinners(callback) {
+    const finals = callback(fifaData);
+    const winners = [];
+for (let i = 0;i < finals.length; i++ ){
+    const condition = finals[i]['Win conditions'];
+    const first = condition.split(' ')[0];
+    let homeName = finals[i]['Home Team Name'];
+    if(finals[i]['Home Team Goals']>finals[i]['Away Team Goals']){
+        winners.push(homeName)
+    } else if (finals[i]['Home Team Goals']<finals[i]['Away Team Goals']){
+        winners.push(finals[i]['Away Team Name'])} else {
+            winners.push(first);
+        }    
+}
+console.log(winners);
 };
 
-getWinners();
+getWinners(getFinals);
 
 /* Task 6: Implement a higher-order function called `getWinnersByYear` that accepts the following parameters and returns a set of strings "In {year}, {country} won the world cup!" 
 
@@ -62,7 +74,7 @@ Parameters:
  * callback function getYears
  */
 
-function getWinnersByYear(/* code here */) {
+function getWinnersByYear(callbackW,callbackY) {
 
 };
 
@@ -70,13 +82,19 @@ getWinnersByYear();
 
 /* Task 7: Write a function called `getAverageGoals` that accepts a parameter `data` and returns the the average number of home team goals and away team goals scored per match (Hint: use .reduce and do this in 2 steps) */
 
-function getAverageGoals(/* code here */) {
-
-    /* code here */
-
+function getAverageGoals(data) {
+const length = data.length;
+const reduceAwayData = data.reduce((total,score) =>{
+    return total += data[0]['Away Team Goals'];
+}, 0);
+console.log('Away Average:', reduceAwayData/length);
+const reduceHomeData = data.reduce((total,score) =>{
+    return total += data[0]['Home Team Goals'];
+}, 0);
+console.log('Home Average:',reduceHomeData/length);
 };
 
-getAverageGoals();
+getAverageGoals(fifaData);
 
 /// STRETCH 🥅 //
 
