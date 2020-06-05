@@ -31,45 +31,18 @@ function winner() {
 }
 winner();
 
-
-
-
 /* Task 2: Create a function called  getFinals that takes `data` as an argument and returns an array of objects with only finals data */
 
-// function getFinals(data) {
-
-//    let finalsArray = [];
-
-//    finalsArray.push(fifaData[844]);
-
-//    finalsArray.push(fifaData[845]);
-
-//    finalsArray.push(fifaData[846]);
-
-//    finalsArray.push(fifaData[847]);
-
-//    finalsArray.push(fifaData[848]);
-
-//    finalsArray.push(fifaData[849]);
-
-//    finalsArray.push(fifaData[850]);
-
-// console.log(finalsArray);
-
-// };
-
-// getFinals(fifaData);
-
-// function getFinals(data) {
+function getFinals(data) {
     
-//     const filterFinalsData = data.filter((final) => {
-//         return final["Stage"] == "Final";
-//       });
-//       console.log(filterFinalsData);
-//     }
+    const filterFinalsData = data.filter(
+        (final) => final["Stage"] == "Final"
+      );
+      console.log(filterFinalsData);
+    }
 
 
-// getFinals(fifaData);
+getFinals(fifaData);
 
 /* Task 3: Implement a higher-order function called `getYears` that accepts the callback function `getFinals`, and returns an array called `years` containing all of the years in the dataset */
 
