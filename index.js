@@ -139,7 +139,7 @@ getCountryWins(fifaData, "CMR");
 
 /* Stretch 3: Write a function called getGoals() that accepts a parameter `data` and returns the team with the most goals score per appearance (average goals for) in the World Cup finals */
 
-function getGoals(/* code here */) {
+function getGoals(data) {
 
     /* code here */
 
@@ -150,12 +150,31 @@ getGoals();
 
 /* Stretch 4: Write a function called badDefense() that accepts a parameter `data` and calculates the team with the most goals scored against them per appearance (average goals against) in the World Cup finals */
 
-function badDefense(/* code here */) {
+function howManyGoals(data,teamInitial){
 
-    /* code here */
+    let totalPoints = 0;
+    const filterInitialHome = data.filter((initial) => {
+        return initial['Home Team Initials'] == teamInitial;
+    });
+    const filterInitialAway = data.filter((initial) => {
+        return initial['Away Team Initials'] == teamInitial;
+    });
+    for (let i = 0; i < filterInitialAway.length; i++){
+        const awayGoals = filterInitialAway[i]['Away Team Goals']
+        totalPoints += awayGoals; 
+    }
+    for (let i = 0; i < filterInitialHome.length; i++){
+        const homeGoals = filterInitialHome[i]['Away Team Goals']
+        totalPoints += homeGoals;
+    }
+    const homeArrayL = filterInitialHome.length;
+    const awayArrayL = filterInitialAway.length;
+    console.log('HOME',homeArrayL,'AWAY',awayArrayL, 'TOTAL POINTS', totalPoints)
+}
 
-};
+howManyGoals(fifaData, "CMR")
 
-badDefense();
+
+
 
 /* If you still have time, use the space below to work on any stretch goals of your chosing as listed in the README file. */
