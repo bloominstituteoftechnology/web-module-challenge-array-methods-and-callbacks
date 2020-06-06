@@ -63,6 +63,7 @@ for (let i = 0;i < finals.length; i++ ){
         }    
 }
 console.log(winners);
+return winners;
 };
 
 getWinners(getFinals);
@@ -75,10 +76,15 @@ Parameters:
  */
 
 function getWinnersByYear(callbackW,callbackY) {
+    const years = callbackY(getFinals);
+    const winners = callbackW(getFinals);
+    for(let i = 0;i < years.length; i++){
+    console.log(`In ${years[i].Year}, ${winners[i]} won the World Cup!` )
+    }
 
 };
 
-getWinnersByYear();
+getWinnersByYear(getWinners,getYears);
 
 /* Task 7: Write a function called `getAverageGoals` that accepts a parameter `data` and returns the the average number of home team goals and away team goals scored per match (Hint: use .reduce and do this in 2 steps) */
 
@@ -103,13 +109,32 @@ getAverageGoals(fifaData);
 Hint: Investigate your data to find "team initials"!
 Hint: use `.reduce` */
 
-function getCountryWins(/* code here */) {
-
-    /* code here */
-
-};
-
-getCountryWins();
+function getCountryWins(data,initials) {
+    const winners = [];
+    const filterInitial = data.filter((initial) => {
+        return initial['Home Team Initials'] == initials || initial['Away Team Initials'] == initials;
+    });
+    for (let i = 0;i < filterInitial.length; i++ )
+    {
+        const awayGoals = filterInitial[i]['Away Team Goals'];
+        const homeGoals = filterInitial[i]['Home Team Goals'];
+        const homeInitials = filterInitial[i]['Home Team Initials'];
+        if(homeGoals> awayGoals)
+        {
+            winners.push(homeInitials)
+        } 
+        else if (homeGoals < awayGoals)
+        {
+            winners.push(filterInitial[i]['Away Team Initials'])
+        }    
+    };
+    const filterInitialWinner = winners.filter((winner) => {
+        return winner == initials; 
+    }
+    )  
+console.log(filterInitialWinner.length)
+}
+getCountryWins(fifaData, "CMR");
 
 
 /* Stretch 3: Write a function called getGoals() that accepts a parameter `data` and returns the team with the most goals score per appearance (average goals for) in the World Cup finals */
