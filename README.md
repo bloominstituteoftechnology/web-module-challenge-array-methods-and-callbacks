@@ -87,7 +87,7 @@ Your data lives in a file called `fifa.js`. In order to work with and use your d
 
 **What about ties?**
 
-In some cases, when the outcome of a game was decided by penalty kicks, the home team and away team will have the same number of goals scored. You can ignore ties for the purpose of this task, but you can also look to the "Win conditions" key  and splice out the winning team. (See example below)
+In some cases, when the outcome of a game was decided by penalty kicks, the home team and away team will have the same number of goals scored. You can ignore ties for the purpose of these tasks, but you can also look to the "Win conditions" key  and splice out the winning team as a stretch goal. (See example below)
 
 ```
 Win conditions": "France win on penalties (3 - 4)",
