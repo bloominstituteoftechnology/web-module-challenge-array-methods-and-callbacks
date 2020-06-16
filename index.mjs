@@ -81,13 +81,13 @@ containing all of the years in the dataset */
 
 function getYears(callback) {
 
-    const years = callback.filter(function(element){
+    const years = callback.map(function(element){
         return element.Year
     })
 return years
+}
 
-
-console.log(getYears(getFinals(fifaData)));
+console.log(getYears(getFinals(fifaData)))
 
 /* Task 5: Implement a higher-order function called `getWinners`, that accepts the callback function `getFinals()` and determine the winner (home or away) of each `finals` game. 
 Return the name of all winning countries in an array called `winners` */ 
@@ -159,4 +159,4 @@ function badDefense(/* code here */) {
 };
 
 //badDefense();
-}
+//}
