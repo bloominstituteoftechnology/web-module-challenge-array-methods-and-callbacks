@@ -69,10 +69,10 @@ console.log(winnerYear);
 
 function getFinals(data) {
 
-    data.filter(function(element){
-    return element.Stage === "Finals"
+    const finals = data.filter(function(element){
+    return element.Stage === "Final"
     });
-
+    return finals
 };
 console.log(getFinals(fifaData));
 /* Task 3: Implement a higher-order function called `getYears` that accepts the callback function `getFinals`, and returns an array called `years` 
