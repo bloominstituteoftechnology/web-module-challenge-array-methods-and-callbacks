@@ -1,26 +1,61 @@
-import { fifaData } from './fifa.js';
-console.log(fifaData);
+import { fifaData } from './fifa.mjs';
+
+//console.log(fifaData);
 
 console.log('its working');
+
 // ⚽️ M  V P ⚽️ //
 
 /* Task 1: Investigate the data above. Practice accessing data by console.log-ing the following pieces of data 
 
 (a) Home Team name for 2014 world cup final
-(b) Away Team name for 2014 world cup final
-(c) Home Team goals for 2014 world cup final
-(d) Away Team goals for 2014 world cup final
-(e) Winner of 2014 world cup final */
+*/
+const homeTeamYear = fifaData.filter(function(element) {
+    
+    //return element.Year === 2014;
+  });
+  //console.log(homeTeamYear[0]["Home Team Name"]);
+//(b) Away Team name for 2014 world cup final
+const awayTeamYear = fifaData.filter(function(element) {
+    
+   // return element.Year === 2014;
+  });
+  //console.log(awayTeamYear[0]["Away Team Name"]);
+//(c) Home Team goals for 2014 world cup final
+const homeTeamGoals = fifaData.filter(function(element) {
+    
+    //return element.Year === 2014;
+  });
+ // console.log(homeTeamGoals[0]["Home Team Goals"]);
+//(d) Away Team goals for 2014 world cup final
+const awayTeamGoals = fifaData.filter(function(element) {
+    
+    //return element.Year === 2014;
+  });
+  //console.log(awayTeamGoals[0]["Away Team Goals"]);
+//(e) Winner of 2014 world cup final */
+const winnerYear = fifaData.filter(function(element) {
+    
+    //return element.Year === 2014;
+  });
+  
+const winners = []
+const winner = winnerYear.map(function(item) {
+    //return winners.push(item["Win conditions"].includes("win"))                  
+});
+//console.log(winner);
 
 
 /* Task 2: Create a function called  getFinals that takes `data` as an argument and returns an array of objects with only finals data */
 
-function getFinals(/* code here */) {
+function getFinals(data) {
 
-    /* code here */
+    finalsData = data.filter(function(element){
+    return element.data
+    });
 
 };
-
+console.log(getFinals(fifaData));
 /* Task 3: Implement a higher-order function called `getYears` that accepts the callback function `getFinals`, and returns an array called `years` containing all of the years in the dataset */
 
 function getYears(/* code here */) {
