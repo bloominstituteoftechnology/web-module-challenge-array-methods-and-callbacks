@@ -83,7 +83,7 @@ function getYears(callback) {
 
     const years = callback.map(function(element){
         return element.Year
-    })
+    });
 return years
 }
 
@@ -107,8 +107,10 @@ Parameters:
  * callback function getYears
  */
 
-function getWinnersByYear(/* code here */) {
-
+function getWinnersByYear(winCall, yCall) {
+   for (let i = 0; i < winCall.length && i < yCall.length; i++) {
+       return `In ${yCall[i]}, ${winCall[i]} won the world cup!`
+   }
 };
 
 getWinnersByYear();
