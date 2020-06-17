@@ -35,7 +35,7 @@ return item["Home Team Name"]
   console.log(allAwayN);
   */
 //(c) Home Team goals for 2014 world cup final
-/*const homeTeamGoals = fifaData.filter(function(element) {
+const homeTeamGoals = fifaData.filter(function(element) {
     
     return element.Year === 2014;
   });
@@ -43,9 +43,9 @@ return item["Home Team Name"]
     return item["Home Team Goals"]
    });
   console.log(allHtG);
-  */
+  
 //(d) Away Team goals for 2014 world cup final
-/*const awayTeamGoals = fifaData.filter(function(element) {
+const awayTeamGoals = fifaData.filter(function(element) {
     
     return element.Year === 2014;
   });
@@ -54,7 +54,7 @@ return item["Home Team Name"]
     return item["Away Team Goals"]
   });
   console.log(allAtG);
-*/
+
 //(e) Winner of 2014 world cup final */
 /*const winnerYear = fifaData.filter(function(element) {
     
@@ -115,21 +115,23 @@ Parameters:
 
 function getWinnersByYear(winCall, yCall) {
    for (let i = 0; i < winCall.length && i < yCall.length; i++) {
-       return `In ${yCall[i]}, ${winCall[i]["Home Team Name"]} won the world cup!`
+       return `In ${yCall[i]}, ${winCall[i]} won the world cup!`
    }
 };
 
 //console.log(getWinnersByYear(getFinals(fifaData), getYears(getFinals(fifaData)));
 
-/* Task 7: Write a function called `getAverageGoals` that accepts a parameter `data` and returns the the average number of home team goals and away team goals scored per match (Hint: use .reduce and do this in 2 steps) */
+/* Task 7: Write a function called `getAverageGoals` that accepts a parameter `data` and returns the average number of home team goals and away team
+ goals scored per match (Hint: use .reduce and do this in 2 steps) */
 
-function getAverageGoals(/* code here */) {
+function getAverageGoals() {
 
-    /* code here */
-
+    const homeG = (allHtG.reduce(function(acc, val) { return acc + val; }, 0))/allHtG.length
+    const awayG = (allAtG.reduce(function(acc, val) { return acc + val; }, 0))/allAtG.length
+    return `home :${homeG} and away: ${awayG}`
 };
 
-getAverageGoals();
+console.log(getAverageGoals());
 
 /// STRETCH 🥅 //
 
