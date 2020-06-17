@@ -35,6 +35,7 @@ return item["Home Team Name"]
   console.log(allAwayN);
   */
 //(c) Home Team goals for 2014 world cup final
+/*
 const homeTeamGoals = fifaData.filter(function(element) {
     
     return element.Year === 2014;
@@ -43,8 +44,9 @@ const homeTeamGoals = fifaData.filter(function(element) {
     return item["Home Team Goals"]
    });
   console.log(allHtG);
-  
+ */ 
 //(d) Away Team goals for 2014 world cup final
+/*
 const awayTeamGoals = fifaData.filter(function(element) {
     
     return element.Year === 2014;
@@ -54,7 +56,7 @@ const awayTeamGoals = fifaData.filter(function(element) {
     return item["Away Team Goals"]
   });
   console.log(allAtG);
-
+*/
 //(e) Winner of 2014 world cup final */
 /*const winnerYear = fifaData.filter(function(element) {
     
@@ -125,13 +127,18 @@ function getWinnersByYear(winCall, yCall) {
  goals scored per match (Hint: use .reduce and do this in 2 steps) */
 
 function getAverageGoals() {
-
-    const homeG = (allHtG.reduce(function(acc, val) { return acc + val; }, 0))/allHtG.length
-    const awayG = (allAtG.reduce(function(acc, val) { return acc + val; }, 0))/allAtG.length
-    return `home :${homeG} and away: ${awayG}`
+    const homeGames = data.map(function(item){
+        return item["Home Team Goals"]
+       });
+    const awayGames = data.map(function(item){
+        return item["Away Team Goals"]
+       });   
+    const homeG1 = (homeGames.reduce(function(acc, val) { return acc + val; }, 0))/allHtG.length
+    const awayG1 = (awayGames.reduce(function(acc, val) { return acc + val; }, 0))/allAtG.length
+    return `home :${homeG1} and away: ${awayG1}`
 };
 
-console.log(getAverageGoals());
+console.log(getAverageGoals(fifaData));
 
 /// STRETCH 🥅 //
 
