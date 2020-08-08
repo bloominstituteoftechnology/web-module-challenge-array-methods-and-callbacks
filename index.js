@@ -43,10 +43,10 @@ console.log(getFinals(fifaData));
 
 /* Task 3: Implement a higher-order function called `getYears` that accepts the callback function `getFinals`, and returns an array called `years` containing all of the years in the dataset */
 
-function getYears(getFinals) {
-    let finalsInfo = getFinals(fifaData);
+function getYears(callback) {
+    let data = callback(fifaData);
     let years = [];
-    finalsInfo.forEach((item) => {
+    data.forEach((item) => {
         years.push(item.Year);
     })
     return years;
