@@ -54,6 +54,12 @@ function getFinals(data) {
 };
 let aob = getFinals(fifaData);
 console.log(aob);
+aob.forEach(function (o) {
+    this.appendChild(document.createTextNode(Object.keys(o).map(function (k) {
+        return k + ': ' + JSON.stringify(o[k]);
+    }).join(', ')));
+    this.appendChild(document.createElement('br'));
+}, document.getElementById('Task2'));
 /* Task 3: Implement a higher-order function called `getYears` 
 that accepts the callback function `getFinals`, and returns an array called
  `years` containing all of the years in the dataset */
