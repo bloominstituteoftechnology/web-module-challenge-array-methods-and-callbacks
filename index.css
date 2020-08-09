@@ -50,6 +50,18 @@ footer, header, hgroup, menu, nav, section {
     width:96%;
     height:100%;
 }
+#Task3{
+    
+        display:flex;
+        justify-content: space-around;
+        align-content: center;
+        background:purple;
+        margin:1px;
+        padding:1px;
+        width:96%;
+        height:100%;
+    
+}
 div > p.Info{
     font-size:1rem;
     color:yellow;
