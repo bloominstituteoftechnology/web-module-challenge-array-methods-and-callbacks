@@ -17,24 +17,24 @@ const task1 = ()=>{
 let fourteen = fifaData.filter(a => a.Year == 2014);
 let task1Context = [];
 let ff = 0;
-// Show all the information from these teams 
-for( let f = 0; f < fourteen.length; f++ ){
-    //console.log('Home Team: '+fourteen[f]['Home Team Name'] +   ' Away Team: '+ fourteen[f]['Away Team Name']);
+    // Show all the information from these teams 
+    for( let f = 0; f < fourteen.length; f++ ){
+        //console.log('Home Team: '+fourteen[f]['Home Team Name'] +   ' Away Team: '+ fourteen[f]['Away Team Name']);
 
-    task1Context[ff] = 'Home Team: '+fourteen[f]['Home Team Name'] + ' Scored: ' + 
-    fourteen[f]['Home Team Goals'] +
-    ' Away Team: '+ fourteen[f]['Away Team Name'] + ' Scored: ' + fourteen[f]['Away Team Goals'] + '<br>';
-    ff +=1;
+        task1Context[ff] = 'Home Team: '+fourteen[f]['Home Team Name'] + ' Scored: ' + 
+        fourteen[f]['Home Team Goals'] +
+        ' Away Team: '+ fourteen[f]['Away Team Name'] + ' Scored: ' + fourteen[f]['Away Team Goals'] + '<br>';
+        ff +=1;
 
 
 }
 console.log(task1Context.length);
 let task1Str = '';
 var logElem = document.querySelector("div#Task1 > p.Info");
-for(let i = 0; i < task1Context.length; i++){
-    task1Str += task1Context[i];
-}
-logElem.innerHTML = task1Str;
+    for(let i = 0; i < task1Context.length; i++){
+        task1Str += task1Context[i];
+    }
+    logElem.innerHTML = task1Str;
 //document.getElementsByClassName("Info").innerHTML  = task1Context[0];
 }
 task1();
@@ -53,12 +53,13 @@ function getFinals(data) {
 
 };
 let aob = getFinals(fifaData);
-aob.forEach(function (o) {
-    this.appendChild(document.createTextNode(Object.keys(o).map(function (k) {
-        return k + ': ' + JSON.stringify(o[k]);
-    }).join(', ')));
-    this.appendChild(document.createElement('br'));
-}, document.getElementById('Task2'));
+// Just print out each object name value pairs
+    aob.forEach(function (o) {
+        this.appendChild(document.createTextNode(Object.keys(o).map(function (k) {
+            return k + ': ' + JSON.stringify(o[k]);
+        }).join(', ')));
+        this.appendChild(document.createElement('br'));
+    }, document.getElementById('Task2'));
 /* Task 3: Implement a higher-order function called `getYears` 
 that accepts the callback function `getFinals`, and returns an array called
  `years` containing all of the years in the dataset */
@@ -76,21 +77,40 @@ function getYears() {
 
 let y = getYears();
 let yrs = y();
-for(let a = 0; a < yrs.length; a++){
-    console.log(yrs[a]);
-}
+    console.log("Task3");
+    for(let a = 0; a < yrs.length; a++){
+        console.log(yrs[a]);
+    }
 /* Task 4: Implement a higher-order function called `getWinners`, 
 that accepts the callback function `getFinals()` and determine the winner 
 (home or away) of each `finals` game. Return the name of all winning countries 
 in an array called `winners` */ 
 
 function getWinners() {
+let winners = [];
+let hOa = getFinals(fifaData);
+    // See if home or away won and return the Team Country Name
+    hOa.forEach(function(o){
+        if(o['Home Team Goals'] > o['Away Team Goals']){
+            winners.push(o['Home Team Name']);
+        }else{
+            winners.push(o['Away Team Name']);
+        }
+    });
+       return winners; 
 
-    
+    };
 
-};
+let winners = getWinners();
+let tsk4Str = '';
+let task4Elm = document.querySelector("div#Task4 > p.Info");
+//console.log(winners[0]);
+// Make the task4 String from the array
+    for(let i = 0; i < winners.length; i++){
+        tsk4Str = tsk4Str+' '+winners[i];
+    }
+    task4Elm.innerHTML = tsk4Str;
 
-getWinners();
 
 /* Task 5: Implement a higher-order function called `getWinnersByYear`
  that accepts the following parameters and returns a set of strings "In {year}, 
@@ -102,7 +122,9 @@ Parameters:
  * callback function getYears
  */
 
-function getWinnersByYear() {
+function getWinnersByYear(getWinners,getYears) {
+let winners = getWinners();
+let yrs = getYears();
 
 };
 
