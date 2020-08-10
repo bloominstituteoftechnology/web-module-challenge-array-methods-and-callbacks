@@ -89,7 +89,8 @@ in an array called `winners` */
 function getWinners() {
 let winners = [];
 let hOa = getFinals(fifaData);
-    // See if home or away won and return the Team Country Name
+    return function p(){
+        // See if home or away won and return the Team Country Name
     hOa.forEach(function(o){
         if(o['Home Team Goals'] > o['Away Team Goals']){
             winners.push(o['Home Team Name']);
@@ -98,10 +99,12 @@ let hOa = getFinals(fifaData);
         }
     });
        return winners; 
+    }
 
     };
 
-let winners = getWinners();
+let win = getWinners();
+let winners = win();
 let tsk4Str = '';
 let task4Elm = document.querySelector("div#Task4 > p.Info");
 //console.log(winners[0]);
@@ -123,13 +126,34 @@ Parameters:
  */
 
 function getWinnersByYear(getWinners,getYears) {
-let winners = getWinners();
-let yrs = getYears();
+let winrs = getWinners();
+let winners = winrs();
+let y = getYears();
+let yrs = y();
+let restr = '';
+    return function f(){
+        // In what year did what winners win
+        for(let i = 0; i < yrs.length; i++){
+            for(let ii = 0; ii< fifaData.length; ii++){
+                if( fifaData[ii].Stage.match(/Final/)){
+                    fifaData.forEach(function(e){
+                        if(e['Home Team Goals'] > e['Away Team Goals']){
+                            restr = restr + ' In '+ e.Year+ ' '+e['Home Team Name'] + ' won the world cup! ';
+                        }else if(e['Away Team Goals'] > e['Home Team Goals']){
+                            restr = restr + ' In '+ e.Year+ ' '+e['Away Team Name'] + ' won the world cup! ';
+                        }
+                    });
+                }
+            }
+        }
+        return restr;
+    }
 
 };
 
-getWinnersByYear();
-
+let s = getWinnersByYear(getWinners,getYears);
+let st = s();
+console.log(st);
 /* Task 6: Write a function called `getAverageGoals` that accepts a parameter `data` 
 and returns the the average number of home team goals and away team goals scored per 
 match (Hint: use .reduce and do this in 2 steps) */
