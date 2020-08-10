@@ -12,13 +12,31 @@ console.log('its working');
 (d) Away Team goals for 2014 world cup final
 (e) Winner of 2014 world cup final */
 
-const mapHomeTeam = fifaData.filter(item => item.Year === 2014 && item.Stage === 'Final') 
+const filterHomeTeam = fifaData.filter(item => item.Year === 2014 && item.Stage === 'Final')
+console.log(item["Home Team Name"]);
+console.log(filterHomeTeam);
 
-console.log(mapHomeTeam)
+const filterAwayTeam = fifaData.filter(item => item.Year === 2014 && item.Stage === 'Final')
+console.log(item["Away Team Name"]);
+console.log(filterAwayTeam);
 
-const mapAwayTeam = fifaData.filter(item => item.Year === 2014 && item.Stage === 'Final') 
+const filterHomeGoals = fifaData.filter(item => item.Year === 2014 && item.Stage === 'Final')
+console.log(item["Home Team Goals"]);
+console.log(filterHomeGoals);
 
-console.log(mapAwayTeam)
+const filterAwayGoals = fifaData.filter(item => item.Year === 2014 && item.Stage === 'Final')
+console.log(item["Away Team Goals"]);
+console.log(filterAwayGoals);
+
+const winner = fifaData.filter(item => item.Year === 2014 && item.Stage === 'Final')
+if (item["Home Team Goals"] > item["Away Team Goals"]){
+    console.log(`${item["Home Team Name"]} won`);
+}else{
+    console.log(`${item["Away Team Name"]} won`);
+}
+
+console.log(winner);
+
 
 /* Task 2: Create a function called  getFinals that takes `data` as an argument and returns an array of objects with only finals data */
 
@@ -54,24 +72,25 @@ Parameters:
  * callback function getYears
  */
 
-function getWinnersByYear(cb1,cb2,cb3,data) {
-    let winners = cb1(cb3,data);
-    let years  = cb2(cb3,data);
-    let winningString = winners.array.forEach((item,index) => {
-        console.log(`in ${item}, ${winners[index]} won the world cup!`)
-    });
-};
+// function getWinnersByYear(cb1,cb2,cb3,data) {
+//     let winners = cb1(cb3,data);
+//     let years  = cb2(cb3,data);
+//     let winningString = winners.array.forEach((item,index) => {
+//         console.log(`in ${item}, ${winners[index]} won the world cup!`)
+//     });
+// };
 
-console.log(getWinnersByYear(getWinners, getYears, getFinals, fifaData));
+// console.log(getWinnersByYear(getWinners, getYears, getFinals, fifaData));
 
 /* Task 6: Write a function called `getAverageGoals` that accepts a parameter `data` and returns the the average number of home team goals and away team goals scored per match (Hint: use .reduce and do this in 2 steps) */
 
-function getAverageGoals(data) {
- return data.reduce(acc, current) => 
+// function getAverageGoals(data) {
+// let avgHomeGoals = math.round(data.reduce((acc ,index) => {return acc + index["Home Team Goals"]/ data.length}, 0))
+// let avgAwayGoals = math.round(data.reduce((acc ,index) => {return acc + index["Away Team Goals"]/ data.length}, 0))
+// return {home: avgHomeGoals, away: avgAwayGoals}
+// };
 
-};
-
-getAverageGoals(getAverageGoals(fifaData));
+// console.log(getAverageGoals(getAverageGoals(fifaData)));
 
 /// STRETCH 🥅 //
 
