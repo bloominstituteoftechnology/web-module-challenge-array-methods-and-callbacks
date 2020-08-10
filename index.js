@@ -21,7 +21,7 @@ fifaData.forEach((item) => {
         if(item["Home Team Goals"] > item["Away Team Goals"] ){
             console.log(`${item["Home Team Name"]} was the winner of the 2014 world cup final.`)
         }else{
-            console.log(`${item[" Team Name"]} was the winner of the 2014 world cup final.`)
+            console.log(`${item["Away Team Name"]} was the winner of the 2014 world cup final.`)
     
         }
     }
@@ -122,20 +122,37 @@ console.log(getAverageGoals(fifaData));
 Hint: Investigate your data to find "team initials"!
 Hint: use `.reduce` */
 
-function getCountryWins(/* code here */) {
+function getCountryWins(data) {
+    let winners = [];
+    data.forEach((item)=> {
+        if(item.Stage === 'Final'){
+            if(item["Home Team Goals"] > item["Away Team Goals"]){
+                winners.push(item["Home Team Initials"])
+            }else if(item["Home Team Goals"] < item["Away Team Goals"]){
+                winners.push(item["Away Team Initials"])
+            }
+        }
+    }) 
+    let winnerCount = winners.reduce((a,b)=>{
+            a[b] = a[b] + 1 || 1;
+            return a;
+    },{})
 
-    /* code here */
-
+    return winnerCount;
 };
 
-getCountryWins();
+console.log(getCountryWins(fifaData));
 
 
 /* Stretch 3: Write a function called getGoals() that accepts a parameter `data` and returns the team with the most goals score per appearance (average goals for) in the World Cup finals */
 
-function getGoals(/* code here */) {
+function getGoals(data) {
+    let awayScores = {};
+    let homeScores = {};
 
-    /* code here */
+    data.forEach((item) => {
+    
+    })
 
 };
 
