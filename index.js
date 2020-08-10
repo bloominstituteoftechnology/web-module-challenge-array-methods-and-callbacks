@@ -135,13 +135,15 @@ let restr = '';
         // In what year did what winners win
         for(let i = 0; i < yrs.length; i++){
             for(let ii = 0; ii< fifaData.length; ii++){
-                if( fifaData[ii].Stage.match(/Final/)){
+                if( yrs[i] === fifaData[ii].Year && fifaData[ii].Stage === "Final"){
                     fifaData.forEach(function(e){
                         if(e['Home Team Goals'] > e['Away Team Goals']){
                             restr = restr + ' In '+ e.Year+ ' '+e['Home Team Name'] + ' won the world cup! ';
                         }else if(e['Away Team Goals'] > e['Home Team Goals']){
                             restr = restr + ' In '+ e.Year+ ' '+e['Away Team Name'] + ' won the world cup! ';
-                        }
+                        }else if(e['Away Team Goals'] === e['Home Team Goals']){
+                            restr = restr + ' In '+ e.Year+ ' '+e['Away Team Name'] + ' tied with ' + e['Home Team Name'];
+                        }// else error control
                     });
                 }
             }
@@ -153,22 +155,36 @@ let restr = '';
 
 let s = getWinnersByYear(getWinners,getYears);
 let st = s();
-console.log(st);
-/* Task 6: Write a function called `getAverageGoals` that accepts a parameter `data` 
-and returns the the average number of home team goals and away team goals scored per 
+// Uncomment Task5
+//console.log(st);
+/* Task 6: Write a function called `getAverageGoals` that accepts a parameter 
+`data` 
+and returns the the average number of home team goals and away team goals
+ scored per 
 match (Hint: use .reduce and do this in 2 steps) */
 
-function getAverageGoals() {
+const getAverageGoals = (data) => {
 
+// Average number of home team goals and away team goals 
     
+let nR = data.reduce((a,b) =>{
+    
+    return a['Home Team Goals'] + b['Away Team Goals'] ;
+  },0);
 
+
+  
+
+return nR;
 };
 
-getAverageGoals();
-
+let avGoals = getAverageGoals(fifaData);
+// Why do I get NaN
+console.log(avGoals);
 /// STRETCH 🥅 //
 
-/* Stretch 1: Create a function called `getCountryWins` that takes the parameters `data`
+/* Stretch 1: Create a function called `getCountryWins` that takes the parameters
+ `data`
  and `team initials` and returns the number of world cup wins that country has had. 
 
 Hint: Investigate your data to find "team initials"!
