@@ -66,7 +66,7 @@ function getWinners(cb1) {
 
 };
 
-console.log(getWinners(getFinals()));
+console.log(getWinners(getFinals(fifaData)));
 
 /* Task 5: Implement a higher-order function called `getWinnersByYear` that accepts the following parameters and returns a set of strings "In {year}, {country} won the world cup!" 
 
