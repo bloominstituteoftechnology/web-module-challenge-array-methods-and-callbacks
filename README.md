@@ -49,7 +49,7 @@ Your goal today will be to manipulate the data using array methods and callbacks
 
 ### Task 1: Set up Project
 
-Using VSCode and a Command Line:
+Using VSCode and a Com mand Line:
 
 1. Fork repo and add TL as collaborator on Github.
 2. Clone your fork (not Lambda's repo by mistake!).
