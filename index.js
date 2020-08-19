@@ -6,12 +6,54 @@ console.log('its working');
 
 /*Task 1: Investigate the data above. Practice accessing data by console.log-ing the following pieces of data 
 
-(a) Home Team name for 2014 world cup final
-console.log(fifaDa)
-(b) Away Team name for 2014 world cup final
-(c) Home Team goals for 2014 world cup final
-(d) Away Team goals for 2014 world cup final
-(e) Winner of 2014 world cup final */
+(a) Home Team name for 2014 world cup final*/
+
+function getTeamName(array, year){
+    HomeTeamName = this.HomeTeamName
+    return HomeTeamName;
+}
+
+console.log(getHomeTeamName(fifaData, 2014));
+
+// (b) Away Team name for 2014 world cup final
+
+function getAwayTeamName(array, year){
+    AwayTeamName = this.AwayTeamName
+    return HomeTeamName;
+}
+
+console.log(getAwayTeamName(fifaData, 2014));
+
+// (c) Home Team goals for 2014 world cup final
+
+function getHomeTeamGoals(array, year){
+    HomeTeamGoals = this.HomeTeamGoals
+    return HomeTeamGoals;
+}
+
+console.log(getHomeTeamGoals(fifaData, 2014));
+
+// (d) Away Team goals for 2014 world cup final
+
+function getAwayTeamGoals(array, year){
+    AwayTeamGoals = this.AwayTeamGoals
+    return AwayTeamGoals;
+}
+
+console.log(getAwayTeamGoals(fifaData, 2014));
+
+// (e) Winner of 2014 world cup final */
+
+function getWinnerTeam(array, year){
+    if(HomeTeamGoals > AwayTeamGoals){
+        WinnerTeam = HomeTeamName 
+    }else if(AwayTeamGoals > HomeTeamGoals){
+        WinnerTeam = AwayTeamName
+    }
+    return WinnerTeam;
+}
+
+console.log(getWinnerTeam(fifaData, 2014));
 
 
 /* Task 2: Create a function called  getFinals that takes `data` as an argument and returns an array of objects with only finals data */
