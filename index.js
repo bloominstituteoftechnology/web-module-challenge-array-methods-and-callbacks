@@ -62,29 +62,26 @@ function getFinals(array) {
     const finalsdata = array.filter(function(item){
         return item.stage = "Group 4";
 }
-        console.log(finalsdata)
 }
 
 console.log(getFinals(fifaData));
 
 /* Task 3: Implement a higher-order function called `getYears` that accepts the callback function `getFinals`, and returns an array called `years` containing all of the years in the dataset */
 
-function getYears(array) {
+function getYears(getFinals) {
 
-    getFinals(array) {
+    getFinals() {
         const years = array.filter(function(item){
             return item.year = year;
-        }
-            console.log(years)
     }
-}
+    }
 
-console.log(getYears(fifaData))
+    console.log(getYears(fifaData));
 
 /* Task 4: Implement a higher-order function called `getWinners`, that accepts the callback function `getFinals()` and determine the winner (home or away) of each `finals` game. Return the name of all winning countries in an array called `winners` */ 
 
-function getWinners(fifaData) {
-    getFinals(fifaData) ;{
+function getWinners(fifaData, getFinals) {
+    getFinals() {
 
         const HomeTeamGoals = finalsdata.filter(function(item){
             return item.HomeTeamGoals = HomeTeamGoals;
@@ -104,11 +101,11 @@ function getWinners(fifaData) {
         }
     
         console.log(winners);
-
+    }
      }
 
 
-getWinners(fifaData);
+console.log(getWinners(fifaData));
 
 /* Task 5: Implement a higher-order function called `getWinnersByYear` that accepts the following parameters and returns a set of strings "In {year}, {country} won the world cup!" 
 
@@ -117,14 +114,14 @@ Parameters:
  * callback function getYears
  */
 
-function getWinnersByYear(array) {
+function getWinnersByYear(array, getWinners, getYears) {
     getWinners(array);
     getYears(array);
     return `In ${this[i].year}, ${this[i].name} won the world cup!`;
     }
-};
+}
 
-getWinnersByYear(fifaData);
+console.log(getWinnersByYear(fifaData));
 
 /* Task 6: Write a function called `getAverageGoals` that accepts a parameter `data` and returns the the average number of home team goals and away team goals scored per match (Hint: use .reduce and do this in 2 steps) */
 
