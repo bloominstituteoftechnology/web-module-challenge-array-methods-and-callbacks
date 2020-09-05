@@ -29,17 +29,20 @@ console.log(`Winner: ${taskOneWinner(home, away, homeGoals, awayGoals)}`)
 function taskOneWinner(hTeam, aTeam, hGoals, aGoals){
     if(hGoals>aGoals){return hTeam;}
     else if(aGoals>hGoals){return aTeam;}
-    else {return "Tie"}
+    else {return "Tie";}
 }
 
 /* Task 2: Create a function called  getFinals that takes `data` as an argument 
 and returns an array of objects with only finals data */
 
 function getFinals(data) {
-
-    data.fil
-
+   const finals = data.filter((item) => {
+        return item.Stage === 'Final';
+    })
+    return finals;
 };
+
+console.log(getFinals(fifaData));
 
 /* Task 3: Implement a higher-order function called `getYears` that accepts the callback 
 function `getFinals`, and returns an array called `years` containing all of the years in 
