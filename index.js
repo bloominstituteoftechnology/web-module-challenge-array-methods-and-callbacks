@@ -24,9 +24,9 @@ console.log(`Home Team: ${home}`)
 console.log(`Away Team: ${away}`)
 console.log(`${home} Goals: ${homeGoals}`)
 console.log(`${away} Goals: ${awayGoals}`)
-console.log(`Winner: ${taskOneWinner(home, away, homeGoals, awayGoals)}`)
+console.log(`Winner: ${gameWinner(home, away, homeGoals, awayGoals)}`)
 
-function taskOneWinner(hTeam, aTeam, hGoals, aGoals){
+function gameWinner(hTeam, aTeam, hGoals, aGoals){
     if(hGoals>aGoals){return hTeam;}
     else if(aGoals>hGoals){return aTeam;}
     else {return "Tie";}
@@ -48,25 +48,28 @@ console.log(getFinals(fifaData));
 function `getFinals`, and returns an array called `years` containing all of the years in 
 the dataset */
 
-function getYears(/* code here */) {
-
-    /* code here */
-
+function getYears(getFinals) {
+    const years = getFinals.map((item) => {
+        return {Year : item.Year}
+    })
+    return years
 };
 
-getYears();
+console.log(getYears(getFinals(fifaData)));
 
 /* Task 4: Implement a higher-order function called `getWinners`, that accepts 
 the callback function `getFinals()` and determine the winner (home or away) of each `finals` game. 
 Return the name of all winning countries in an array called `winners` */ 
 
-function getWinners(/* code here */) {
-
-    /* code here */
-
+function getWinners(getFinals) {
+    const winners = getFinals.map((item) => {
+        return {Winner : gameWinner(item["Home Team Name"], item["Away Team Name"],
+         item["Home Team Goals"], item["Away Team Goals"])}
+    })
+    return winners;
 };
 
-getWinners();
+console.log(getWinners(getFinals(fifaData)));
 
 /* Task 5: Implement a higher-order function called `getWinnersByYear` 
 that accepts the following parameters and returns a set of strings "In {year}, {country} won 
