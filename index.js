@@ -17,20 +17,27 @@ const twentyFourteen = fifaData.filter((item) => {
     return item.Year === 2014 && item.Stage === 'Final'})
 const home = twentyFourteen[0]["Home Team Name"]
 const away = twentyFourteen[0]["Away Team Name"]
+const homeGoals = twentyFourteen[0]["Home Team Goals"]
+const awayGoals = twentyFourteen[0]["Away Team Goals"]
 
-console.log(home)
-console.log()
-console.log(twentyFourteen[0]["Home Team Goals"])
-console.log(twentyFourteen[0]["Away Team Goals"])
+console.log(`Home Team: ${home}`)
+console.log(`Away Team: ${away}`)
+console.log(`${home} Goals: ${homeGoals}`)
+console.log(`${away} Goals: ${awayGoals}`)
+console.log(`Winner: ${taskOneWinner(home, away, homeGoals, awayGoals)}`)
 
-
+function taskOneWinner(hTeam, aTeam, hGoals, aGoals){
+    if(hGoals>aGoals){return hTeam;}
+    else if(aGoals>hGoals){return aTeam;}
+    else {return "Tie"}
+}
 
 /* Task 2: Create a function called  getFinals that takes `data` as an argument 
 and returns an array of objects with only finals data */
 
-function getFinals(/* code here */) {
+function getFinals(data) {
 
-    /* code here */
+    data.fil
 
 };
 
