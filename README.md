@@ -51,10 +51,10 @@ Your goal today will be to manipulate the data using array methods and callbacks
 
 Using VSCode and a Command Line:
 
-1. Fork repo and add TL as collaborator on Github.
-2. Clone your fork (not Lambda's repo by mistake!).
-3. `cd` into your newly cloned repository.
-4. Create a new branch by typing `git checkout -b <firstName-lastName>`.
+1. Fork repo and add TL as collaborator on Github. x
+2. Clone your fork (not Lambda's repo by mistake!). x
+3. `cd` into your newly cloned repository. x
+4. Create a new branch by typing `git checkout -b <firstName-lastName>`. x
 
 ### Task 2: Minimum Viable Product
 
