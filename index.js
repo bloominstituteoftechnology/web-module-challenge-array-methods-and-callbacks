@@ -118,13 +118,23 @@ console.log(getAverageGoals(fifaData));
 Hint: Investigate your data to find "team initials"!
 Hint: use `.reduce` */
 
-function getCountryWins(/* code here */) {
-
-    /* code here */
-
+function getWinnersInitials(getFinals){
+    const winners = getFinals.map((item) => {
+        return {initials : gameWinner(item["Home Team Initials"], item["Away Team Initials"],
+         item["Home Team Goals"], item["Away Team Goals"])}
+    })
+    return winners;
 };
 
-getCountryWins();
+
+function getCountryWins(getWinnersInitials, teamInitials) {
+    const countryWins = getWinnersInitials.filter((item, index) => {
+       return teamInitials === item.initials;
+    })
+    return countryWins.length;
+};
+
+console.log(getCountryWins(getWinnersInitials(getFinals(fifaData)), "BRA"));
 
 
 /* Stretch 3: Write a function called getGoals() that accepts 
