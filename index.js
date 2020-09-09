@@ -102,7 +102,7 @@ function getAverageGoals(data) {
         return total += goals["Home Team Goals"]/data.length;
     }, 0)
     const awayTeam = data.reduce((total, goals) => {
-        return total += goals["Away Team Goals"/data.length];
+        return total += goals["Away Team Goals"]/data.length;
     }, 0)
 
     return {"Home Team Avg" : homeTeam, "Away Team Avg" : awayTeam}
@@ -128,7 +128,7 @@ function getWinnersInitials(getFinals){
 
 
 function getCountryWins(getWinnersInitials, teamInitials) {
-    const countryWins = getWinnersInitials.filter((item, index) => {
+    const countryWins = getWinnersInitials.filter((item) => {
        return teamInitials === item.initials;
     })
     return countryWins.length;
