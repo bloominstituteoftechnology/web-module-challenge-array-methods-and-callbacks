@@ -3,23 +3,59 @@ console.log(fifaData);
 
 console.log('its working');
 // ⚽️ M  V P ⚽️ //
+//Assistant 1: "CRISTOPHE Henry (BEL)"
+// Assistant 2: "REGO Gilberto (BRA)"
+// Attendance: 4444
+// Away Team Goals: 1
+// Away Team Initials: "MEX"
+// Away Team Name: "Mexico"
+// City: "Montevideo"
+// Datetime: "13 Jul 1930 - 15:00"
+// Half-time Away Goals: 0
+// Half-time Home Goals: 3
+// Home Team Goals: 4
+// Home Team Initials: "FRA"
+// Home Team Name: "France"
+// MatchID: 1096
+// Referee: "LOMBARDI Domingo (URU)"
+// RoundID: 201
+// Stadium: "Pocitos"
+// Stage: "Group 1"
+// Win conditions: ""
+// Year: 1930
+// __proto__: Object
+// 1: {Year: 1930, Datetime: "13 Jul 1930 - 15:00", Stage: "Group 4", Stadium: "Parq
 
 /* Task 1: Investigate the data above. Practice accessing data by console.log-ing the following pieces of data 
-
 (a) Home Team name for 2014 world cup final
 (b) Away Team name for 2014 world cup final
 (c) Home Team goals for 2014 world cup final
 (d) Away Team goals for 2014 world cup final
 (e) Winner of 2014 world cup final */
 
+const fifaTeams = [];
+
+fifaData.forEach(function(x){
+    return fifaTeams.push(`${x["Year"]}, ${x["Home Team Name"]}, ${x["Away Team name"]}`);
+  });
+  
+  console.log(fifaTeams);
+  
+
 
 /* Task 2: Create a function called  getFinals that takes `data` as an argument and returns an array of objects with only finals data */
 
-function getFinals(/* code here */) {
-
-    /* code here */
-
+ function getfinals(x){
+        const getFinals = fifaData.push(`${x["finals"]}`);
+    return getfinals(x)
 };
+      
+    
+
+console.log(getFinals(x));   
+
+
+ 
 
 /* Task 3: Implement a higher-order function called `getYears` that accepts the callback function `getFinals`, and returns an array called `years` containing all of the years in the dataset */
 
