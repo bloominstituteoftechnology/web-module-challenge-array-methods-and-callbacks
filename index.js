@@ -4,42 +4,96 @@ console.log(fifaData);
 console.log('its working');
 // ⚽️ M  V P ⚽️ //
 
-/* Task 1: Investigate the data above. Practice accessing data by console.log-ing the following pieces of data 
+// //  Task 1: Investigate the data above. Practice accessing data by console.log-ing the following pieces of data 
 
-(a) Home Team name for 2014 world cup final
-(b) Away Team name for 2014 world cup final
-(c) Home Team goals for 2014 world cup final
-(d) Away Team goals for 2014 world cup final
-(e) Winner of 2014 world cup final */
+// // (a) Home Team name for 2014 world cup final
+// // const homeName = fifaData.filter(function(name) {
+// //     if(name.Year === 2014 && name.Stage === 'Final') {
+// //         console.log(name['Home Team Name'])
+// //     }
 
+// // });
+// // console.log(homeName)
+    
+    const finals2014 = fifaData.filter(item =>
+        item.Year === 2014 && item.Stage === 'Final')
+
+    
+
+// // // (b) Away Team name for 2014 world cup final
+// // const awayName = fifaData.filter(function(name) {
+// // if(name.Year === 2014 && name.Stage === 'Final') {
+// //     console.log(name["Away Team Name"])
+// // }
+// // })
+// // console.log(awayName)
+
+// // (c) Home Team goals for 2014 world cup final
+// // const homeTeamGoals = fifaData.filter(function(name){
+// //     if (name.Year === 2014 && name.Stage === 'Final') {
+// //         console.log(name['Home Team Goals'])
+// //     }
+// // })
+        console.log('Task 1 C',finals2014[0]["Home Team Goals"])
+// // console.log(homeTeamGoals)
+// // // (d) Away Team goals for 2014 world cup final
+// // const awayTeamGoals = fifaData.filter(function(name){
+// //     if (name.Year === 2014 && name.Stage === 'Final') {
+// //         console.log(name['Away Team Goals'])
+// //     }
+// // })
+// // (e) Winner of 2014 world cup final 
+// const bigWinner = fifaData.filter(function(name){
+//     if (name.Year === 2014 && name.Stage === 'Final' && name['Away Team Goals'] >= name['Home Team Goals']) {
+//         console.log(name['Away Team Name'])
+       
+//     } else if(name.Year === 2014 && name.Stage === 'Final' && name['Away Team Goals'] <= name['Home Team Goals']) {
+//         console.log(name['Home Team Name'])
+//     }
+// })
 
 /* Task 2: Create a function called  getFinals that takes `data` as an argument and returns an array of objects with only finals data */
 
-function getFinals(/* code here */) {
+function getFinals(data) {
+let result = data.filter(finalsData => finalsData.Stage === 'Final')
+console.log(result)
+return result
+}
 
-    /* code here */
+let plugMe = getFinals(fifaData);
 
-};
+    
+
+
 
 /* Task 3: Implement a higher-order function called `getYears` that accepts the callback function `getFinals`, and returns an array called `years` containing all of the years in the dataset */
 
-function getYears(/* code here */) {
+// function getYears(cb) {
 
-    /* code here */
+//     let finalYears = cb.map(finalsYears => finalsYears.Year)
+//     console.log(finalYears)
+//     return finalYears
 
-};
+// };
 
-getYears();
+// console.log(getYears(getFinals(fifaData)));
 
 /* Task 4: Implement a higher-order function called `getWinners`, that accepts the callback function `getFinals()` and determine the winner (home or away) of each `finals` game. Return the name of all winning countries in an array called `winners` */ 
 
-function getWinners(/* code here */) {
+function getWinners(getFinalsCb) {
 
-    /* code here */
+   let homeWinners = getFinalsCb.filter(winner => winner['Home Team Goals'] >= winner['Away Team Goals']
+   );
+   
+   let awayWinners = getFinalsCb.filter(winner => winner['Home Team Goals'] < winner['Away Team Goals']);
+       console.log(homeWinners[5])
+    let allWinners = getFinalsCb.foreach(winners => winners)
+   return `The Home Team Winners Are ${homeWinners} And The Away Team Winners Are ${[awayWinners.City]}`
+    
 
 };
 
-getWinners();
+console.log(getWinners(getFinals(fifaData)));
 
 /* Task 5: Implement a higher-order function called `getWinnersByYear` that accepts the following parameters and returns a set of strings "In {year}, {country} won the world cup!" 
 
