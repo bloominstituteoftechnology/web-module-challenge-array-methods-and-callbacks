@@ -62,12 +62,6 @@ Find the file `index.js` and complete the tasks until all of your tests pass.
 
 You may want to use the [World Cup summary data](https://www.foxsports.com/soccer/fifa-world-cup/history) on Fox Sports to check your math as you go.
 
-### Task 2b: Exit Ticket
-
-Once you begin, you will have 15 minutes to answer the questions [here](https://app.codesignal.com/public-test/pHkwTDmFG4moZNJWy/64uEYwk5AxxRxE).
-
-The completion of these questions is mandatory for MVP. However, passing the quiz doesn't affect your standing as a Lambda School student whatsoever. This is Lambda School testing itself! Please answer honestly and to the best of your ability without using external references.
-
 ### Task 3: Stretch Goals
 
 After you have completed the requirements, create a new file called `stretch.js` and practice with Array methods more.
