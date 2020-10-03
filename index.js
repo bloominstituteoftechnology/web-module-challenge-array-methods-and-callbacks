@@ -54,7 +54,16 @@ containing all of the years in the dataset */
 
 
 
+function getYears(data, getFinals) {
+    
+    return getFinals(data).map(function (item) {
+        return item.Years;
+    });
+}
 
+console.log(getYears(fifaData, getFinals));
+
+ 
 
 
 /* Task 4: Implement a higher-order function called `getWinners`, that accepts the callback function `getFinals()` 
