@@ -14,35 +14,32 @@ console.log('its working');
 // (e) Winner of 2014 world cup final 
 
 
-const teamName = fifaData.filter(function (item) {
+const array = fifaData.filter(function (item) {
     return item.Year === 2014 && item.Stage === 'Final';
 });
 
-
-console.log(teamName[0]["Home Team Name"]);
-console.log(teamName[0]["Away Team Name"]);
-console.log(teamName[0]["Home Team Goals"]);
-console.log(teamName[0]["Away Team Goals"]);
-console.log(teamName[0]["Winner of World Cup 2014"]);
-
+console.log(array);
+console.log(array[0]["Home Team Name"]);
+console.log(array[0]["Away Team Name"]);
+console.log(array[0]["Home Team Goals"]);
+console.log(array[0]["Away Team Goals"]);
+console.log(array[0]["Winner2014"]);
 
 /* Task 2: Create a function called  getFinals that takes `data` as an argument and returns an teamName of objects 
 with only finals data */
 
 
-
-
 function getFinals(data) {
-    const array = data.filter(function (item) {
-        
-        return item.Stage === 'Final'
-    });
 
-    return teamName;
+    const array = data.filter(function (item) {
+
+        return item.Stage === "Final";
+});
+
+        return array;
 }
 
 console.log(getFinals(fifaData));
-
 
 
 
@@ -52,18 +49,19 @@ console.log(getFinals(fifaData));
 containing all of the years in the dataset */
 
 
-
-
 function getYears(data, getFinals) {
-    
+
     return getFinals(data).map(function (item) {
-        return item.Years;
-    });
+
+    return item.Years;
+
+});
+
 }
 
 console.log(getYears(fifaData, getFinals));
 
- 
+
 
 
 /* Task 4: Implement a higher-order function called `getWinners`, that accepts the callback function `getFinals()` 
@@ -71,6 +69,26 @@ and determine the winner (home or away) of each `finals` game. Return the name o
 teamName called `winners` */ 
 
 
+function getWinners(data, getFinals) {
+
+    let winners = getFinals(data).map(function (item) {
+    
+        if (item["Home Team Goals"] > item["Away Team Goals"]) {
+            return item['Home Team Name'];
+    
+        } else if (item['Away Team Name'] > item["Home Team Goals"]) {
+            return item['Away Team Name'];
+    
+        } else if (item['Home Team Goals'] === item['Away Team Goals']) {
+            return item['Win condition'];
+    
+        }
+    });
+    
+    return winners;
+};
+
+console.log(getWinners(fifaData, getFinals));
 
 
 
