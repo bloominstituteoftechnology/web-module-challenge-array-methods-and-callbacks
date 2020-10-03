@@ -104,6 +104,24 @@ console.log(getWinners(fifaData, getFinals));
 // callback function getYears
 
 
+function getWinnersByYear(getWinners, getYears) {
+
+    let winners = getWinners(fifaData, getFinals);
+    let years = getYears(fifaData, getFinals);
+    let yearlyWinners = [];
+
+    console.log(winners);
+    console.log(years);  
+
+    winners.forEach(function (item, index) {
+                yearlyWinners.push(`in ${years[index]}, ${item} won the world cup`)
+    });
+
+    console.log(winners);
+    return yearlyWinners;
+};
+
+console.log(getWinnersByYear(getWinners, getYears));
 
 
 
