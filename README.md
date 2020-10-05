@@ -51,10 +51,10 @@ Your goal today will be to manipulate the data using array methods and callbacks
 
 Using VSCode and a Command Line:
 
-1. Fork repo and add TL as collaborator on Github. DONE
-2. Clone your fork (not Lambda's repo by mistake!). DONE
-3. `cd` into your newly cloned repository. DONE
-4. Create a new branch by typing `git checkout -b <firstName-lastName>`. DONE
+1.[X] Fork repo and add TL as collaborator on Github.  
+2.[X] Clone your fork (not Lambda's repo by mistake!).  
+3.[X] `cd` into your newly cloned repository.  
+4.[X] Create a new branch by typing `git checkout -b <firstName-lastName>`.  
 
 ### Task 2: Minimum Viable Product
 
@@ -74,7 +74,7 @@ After you have completed the requirements, create a new file called `stretch.js`
 
 See if you can complete one or more of the following challenges:
 
-- [ ] Create a function that takes country initials as a parameter and returns their total number of World Cup appearances.
+- [X] Create a function that takes country initials as a parameter and returns their total number of World Cup appearances.
 - [ ] Account for ties in your 'finals' data set
 - [ ] Create a function that takes country initials as a parameter and determines how many goals that country has scored in World Cup games since 1930.
 - [ ] Use `.map` to format country names into `<h1>` HTML headers.
