@@ -4,13 +4,18 @@ console.log(fifaData);
 console.log('its working');
 // ⚽️ M  V P ⚽️ //
 
-/* Task 1: Investigate the data above. Practice accessing data by console.log-ing the following pieces of data 
+//Task 1: Investigate the data above. Practice accessing data by console.log-ing the following pieces of data 
 
-(a) Home Team name for 2014 world cup final
-(b) Away Team name for 2014 world cup final
-(c) Home Team goals for 2014 world cup final
-(d) Away Team goals for 2014 world cup final
-(e) Winner of 2014 world cup final */
+//(a) Home Team name for 2014 world cup final
+console.log(fifaData[828]["Home Team Name"]);
+//(b) Away Team name for 2014 world cup final
+console.log(fifaData[828]["Away Team Name"]);
+//(c) Home Team goals for 2014 world cup final
+console.log(fifaData[828]["Home Team Goals"]);
+//(d) Away Team goals for 2014 world cup final
+console.log(fifaData[828]["Away Team Goals"]);
+//(e) Winner of 2014 world cup final */
+console.log(fifaData[828]["Win conditions"]);
 
 
 /* Task 2: Create a function called  getFinals that takes `data` as an argument and returns an array of objects with only finals data */
@@ -46,17 +51,16 @@ array called `winners` */
 
 function getWinners(callback) {
 
-    callback.forEach(function(obj){
+    let winners = callback.map(function(obj){
         if(obj["Home Team Goals"] > obj["Away Team Goals"]){
-            return obj["Win conditions"] = `${obj["Home Team Name"]} wins by point lead.`; 
-        } else if(obj["Away Team Goals"] > obj["Home Team Goals"]) {
-            return obj["Win conditions"] = `${obj["Away Team Name"]} wins by point lead.`;
-        }else if(obj["Home Team Goals"] === obj["Away Team Goals"]){
-            return obj["Win conditions"] = `Tie game.`;
+            return obj["Home Team Name"];
+        }else if(obj["Home Team Goals"] < obj["Away Team Goals"]){
+            return obj["Away Team Name"];
+        }else{
+            return obj["Win conditions"];
         }
     })
-    return callback;
-
+    return winners;
 };
 
 console.log(getWinners(getFinals(fifaData)));
