@@ -22,7 +22,7 @@ console.log(fifaData[828]["Win conditions"]);
 
 function getFinals(data) {
 
-    const finals = data.filter((obj)=>{
+    const finals = data.filter((obj) => {
         return obj["Stage"] === "Final";
     })
     return finals;
@@ -57,7 +57,8 @@ function getWinners(callback) {
         }else if(obj["Home Team Goals"] < obj["Away Team Goals"]){
             return obj["Away Team Name"];
         }else{
-            return obj["Win conditions"];
+            const penaltyName = obj["Win conditions"].split(" ");
+            return penaltyName[0];
         }
     })
     return winners;
@@ -65,28 +66,31 @@ function getWinners(callback) {
 
 console.log(getWinners(getFinals(fifaData)));
 
-/* Task 5: Implement a higher-order function called `getWinnersByYear` that accepts the following parameters and returns a set of strings "In {year}, {country} won the world cup!" 
+/* Task 5: Implement a higher-order function called `getWinnersByYear` that accepts the following 
+parameters and returns a set of strings "In {year}, {country} won the world cup!" 
 
 Parameters: 
  * callback function getWinners
  * callback function getYears
  */
 
-function getWinnersByYear(/* code here */) {
+function getWinnersByYear(cbFinals, cbWinners, cbYears) {
+    let winningTeams = cbFinals.reduce(function(cbWinners, CbYears){
+        
+    })
+    return winningTeams;
+};
+
+console.log(getWinnersByYear((getFinals(fifaData)), (getWinners(getFinals(fifaData))), (getYears(getFinals(fifaData)))));
+
+/* Task 6: Write a function called `getAverageGoals` that accepts a parameter `data` and returns the the average
+ number of home team goals and away team goals scored per match (Hint: use .reduce and do this in 2 steps) */
+
+function getAverageGoals(data) {
 
 };
 
-getWinnersByYear();
-
-/* Task 6: Write a function called `getAverageGoals` that accepts a parameter `data` and returns the the average number of home team goals and away team goals scored per match (Hint: use .reduce and do this in 2 steps) */
-
-function getAverageGoals(/* code here */) {
-
-    /* code here */
-
-};
-
-getAverageGoals();
+getAverageGoals(fifaData);
 
 /// STRETCH 🥅 //
 
