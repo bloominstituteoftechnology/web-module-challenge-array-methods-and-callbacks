@@ -62,10 +62,10 @@ console.log(getFinals(fifaData));
 function getYears(arr) {
     let years = [];
     for (i in arr){
-        getFinals(arr.Years)
+         getFinals(arr[0].Year);
+        years.push (getFinals) 
     }
-    
-
+    return years;
 };
 
 console.log(getYears(fifaData));
@@ -74,7 +74,7 @@ console.log(getYears(fifaData));
 
 function getWinners(arr, callBack) {
     for (i in arr){
-        callBack(arr[i].)
+        callBack(arr[i])
     }
 };
 
