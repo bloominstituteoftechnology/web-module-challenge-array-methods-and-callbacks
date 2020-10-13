@@ -15,31 +15,51 @@ console.log('its working');
 
 /* Task 2: Create a function called  getFinals that takes `data` as an argument and returns an array of objects with only finals data */
 
-function getFinals(/* code here */) {
+function getFinals(data) {
 
-    /* code here */
-
-};
-
-/* Task 3: Implement a higher-order function called `getYears` that accepts the callback function `getFinals`, and returns an array called `years` containing all of the years in the dataset */
-
-function getYears(/* code here */) {
-
-    /* code here */
+    const finals = data.filter((obj)=>{
+        return obj["Stage"] === "Final";
+    })
+    return finals;
 
 };
 
-getYears();
+console.log(getFinals(fifaData));
 
-/* Task 4: Implement a higher-order function called `getWinners`, that accepts the callback function `getFinals()` and determine the winner (home or away) of each `finals` game. Return the name of all winning countries in an array called `winners` */ 
+/* Task 3: Implement a higher-order function called `getYears` that accepts the callback function `getFinals`, 
+and returns an array called `years` containing all of the years in the dataset */
 
-function getWinners(/* code here */) {
+function getYears(callback) {
 
-    /* code here */
+    const years = callback.map(function(callback){
+        return callback["Year"];
+    })
+    return years;
 
 };
 
-getWinners();
+console.log(getYears(getFinals(fifaData)));
+
+/* Task 4: Implement a higher-order function called `getWinners`, that accepts the callback function `getFinals()` 
+and determine the winner (home or away) of each `finals` game. Return the name of all winning countries in an 
+array called `winners` */ 
+
+function getWinners(callback) {
+
+    callback.forEach(function(obj){
+        if(obj["Home Team Goals"] > obj["Away Team Goals"]){
+            return obj["Win conditions"] = `${obj["Home Team Name"]} wins by point lead.`; 
+        } else if(obj["Away Team Goals"] > obj["Home Team Goals"]) {
+            return obj["Win conditions"] = `${obj["Away Team Name"]} wins by point lead.`;
+        }else if(obj["Home Team Goals"] === obj["Away Team Goals"]){
+            return obj["Win conditions"] = `Tie game.`;
+        }
+    })
+    return callback;
+
+};
+
+console.log(getWinners(getFinals(fifaData)));
 
 /* Task 5: Implement a higher-order function called `getWinnersByYear` that accepts the following parameters and returns a set of strings "In {year}, {country} won the world cup!" 
 
