@@ -67,11 +67,7 @@ console.log(getYears(getFinals(fifaData)));
 function getWinners(cb) {
     const winners = []
     cb.map(function (team){
-        if (team['Away Team Goals'] > team['Home Team Goals']){
-            winners.push(team['Away Team Name'])
-        }else{
-            winners.push(team['Home Team Name'])
-        }
+        team['Away Team Goals'] > team['Home Team Goals'] ? winners.push(team['Away Team Name']) : winners.push(team['Home Team Name'])
     })
     return winners
 
