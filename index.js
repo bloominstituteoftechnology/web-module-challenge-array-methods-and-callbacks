@@ -40,9 +40,11 @@ fifaData.filter(function(fifa){
 
 /* Task 2: Create a function called  getFinals that takes `data` as an argument and returns an array of objects with only finals data */
 
-function getFinals(/* code here */) {
+function getFinals(data) {
 
-    /* code here */
+    return data.filter(function(team){
+        return team.Stage === 'Final'
+    })
 
 };
 
