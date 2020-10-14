@@ -2,32 +2,55 @@ import { fifaData } from './fifa.js';
 console.log(fifaData);
 
 console.log('its working');
+
+
 // ⚽️ M  V P ⚽️ //
 
 /* Task 1: Investigate the data above. Practice accessing data by console.log-ing the following pieces of data 
 
 (a) Home Team name for 2014 world cup final
+let hTeam = fifaData.filter["Home Team Name"]=>{
+    return team.year = 2014
+})
+console.log(hTeam);
+
 (b) Away Team name for 2014 world cup final
+let aTeam = fifaData.filter["Away Team Name"]=>{
+    return team.year = 2014
+})
+console.log(aTeam);
+
 (c) Home Team goals for 2014 world cup final
+let hGoals = fifaData.filter["Home Team Goals"]=>{
+    return team.year = 2014
+})
+console.log(hGoals);
+
 (d) Away Team goals for 2014 world cup final
+let aGoals = fifaData.filter["Away Team Goals"]=>{
+    return team.year = 2014
+})
+console.log(aGoals);
+
 (e) Winner of 2014 world cup final */
 
 
 /* Task 2: Create a function called  getFinals that takes `data` as an argument and returns an array of objects with only finals data */
 
-function getFinals(/* code here */) {
-
-    /* code here */
-
+function getFinals() {
+    for(let i = o; i < Array.length; i++){
+        if (year > 1960){
+            return stadium;
+        }
+    }
 };
-
+    console.log (getFinals);
 /* Task 3: Implement a higher-order function called `getYears` that accepts the callback function `getFinals`, and returns an array called `years` containing all of the years in the dataset */
 
-function getYears(/* code here */) {
+function getYears(fifaData) {
+    return fifaData.year;
 
-    /* code here */
-
-};
+   }
 
 getYears();
 
