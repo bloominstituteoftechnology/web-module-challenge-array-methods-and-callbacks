@@ -1,5 +1,6 @@
-export const fifaData = [
+const fifaData = [
   {
+    
     "Year": 1930,
     "Datetime": "13 Jul 1930 - 15:00",
     "Stage": "Group 1",
@@ -22,6 +23,7 @@ export const fifaData = [
     "Away Team Initials": "MEX"
   },
   {
+    
     "Year": 1930,
     "Datetime": "13 Jul 1930 - 15:00",
     "Stage": "Group 4",
@@ -43,7 +45,7 @@ export const fifaData = [
     "Home Team Initials": "USA",
     "Away Team Initials": "BEL"
   },
-  {
+  {//index2
     "Year": 1930,
     "Datetime": "14 Jul 1930 - 12:45",
     "Stage": "Group 2",
@@ -65,7 +67,7 @@ export const fifaData = [
     "Home Team Initials": "YUG",
     "Away Team Initials": "BRA"
   },
-  {
+  {//index3
     "Year": 1930,
     "Datetime": "14 Jul 1930 - 14:50",
     "Stage": "Group 3",
@@ -87,7 +89,7 @@ export const fifaData = [
     "Home Team Initials": "ROU",
     "Away Team Initials": "PER"
   },
-  {
+  {//index4
     "Year": 1930,
     "Datetime": "15 Jul 1930 - 16:00",
     "Stage": "Group 1",
@@ -109,7 +111,7 @@ export const fifaData = [
     "Home Team Initials": "ARG",
     "Away Team Initials": "FRA"
   },
-  {
+  {//index5
     "Year": 1930,
     "Datetime": "16 Jul 1930 - 14:45",
     "Stage": "Group 1",
@@ -329,7 +331,7 @@ export const fifaData = [
     "Home Team Initials": "ARG",
     "Away Team Initials": "CHI"
   },
-  {
+  {//index15
     "Year": 1930,
     "Datetime": "26 Jul 1930 - 14:45",
     "Stage": "Semi-finals",
@@ -439,7 +441,7 @@ export const fifaData = [
     "Home Team Initials": "HUN",
     "Away Team Initials": "EGY"
   },
-  {
+  {//index20
     "Year": 1934,
     "Datetime": "27 May 1934 - 16:30",
     "Stage": "Preliminary round",
@@ -879,7 +881,7 @@ export const fifaData = [
     "Home Team Initials": "ITA",
     "Away Team Initials": "NOR"
   },
-  {
+  {//index40
     "Year": 1938,
     "Datetime": "05 Jun 1938 - 17:30",
     "Stage": "First round",
@@ -1099,7 +1101,7 @@ export const fifaData = [
     "Home Team Initials": "HUN",
     "Away Team Initials": "SWE"
   },
-  {
+  {//index50
     "Year": 1938,
     "Datetime": "16 Jun 1938 - 18:00",
     "Stage": "Semi-finals",
