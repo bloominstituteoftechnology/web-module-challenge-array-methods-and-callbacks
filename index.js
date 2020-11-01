@@ -125,7 +125,7 @@ function getWinnersByYear(data, callback1, callback2) {
     let winnerStatement = years.map((year, i) => { // declare var for index
   
       let country = countries[i];
-      // console.log(`In ${year}, ${country} won the world cup!`);
+      console.log(`In ${year}, ${country} won the world cup!`);
   
     }) // end of .map loop
   
@@ -180,34 +180,154 @@ return `Average home team goals was ${aveHome} per match.  Average away team goa
 Hint: Investigate your data to find "team initials"!
 Hint: use `.reduce` */
 
-function getCountryWins(/* code here */) {
+function getCountryWins(data, teamInitials) {
+    let countryName = convertTeamInitialsToCountryName(data, teamInitials); // gives me country name in a string
+    
+    let winners = getWinners(data, getFinals(data)); // array of country names in strings
+    console.log(winners);
+    
+    let numberOfWorldCupWins = 0;
+    winners.forEach(winner => {
+      if (winner === countryName) {
+        numberOfWorldCupWins += 1;
+      }
+    })
+    
+    return numberOfWorldCupWins;
+    } // end of function
+    
+// TEST CODE
+var output = getCountryWins(fifaData, "FRA");
+console.log(output);
+    
+// THESE ARE MY HELPER FUNCTIONS:
 
-    /* code here */
+// function getWinners(data, callback) // returns an array of country winner names
 
-};
+// function getFinals(data) // returns an array of smaller objects with only finals data
 
-getCountryWins();
+function convertTeamInitialsToCountryName(data, teamInitials) { // helper func to convert teamInitials to country name string
+    let filteredElement = data.filter(element => element["Home Team Initials"] === teamInitials); // returns an array 
 
+    let countryName = "";
+    countryName = filteredElement[0]["Home Team Name"];
+
+    return countryName; // returns a string of country name
+}
 
 /* Stretch 3: Write a function called getGoals() that accepts a parameter `data` and returns the team with the most goals score per appearance (average goals for) in the World Cup finals */
 
-function getGoals(/* code here */) {
-
-    /* code here */
-
-};
-
-getGoals();
+function getGoals(data) {
+    let teamWithHighestAverageGoals = "";
+    let highestAverageGoals = 0;
+  
+    let finalsArray = getFinals(data); // get relevant finalsData from larger data set
+  
+  // use .map to make a library of team names and goals, returns an array of objects
+    let totalGoals = {}; // makes an object library with cumulative scores
+    let numGamesPlayed = {};
+    finalsArray.forEach(element => {  
+      
+        if (totalGoals[element["Home Team Name"]] === undefined) { // conditional 
+          totalGoals[element["Home Team Name"]] = element["Home Team Goals"];
+          numGamesPlayed[element["Home Team Name"]] = 1;
+        } else {
+          totalGoals[element["Home Team Name"]] += element["Home Team Goals"];
+          numGamesPlayed[element["Home Team Name"]] += 1;
+        }
+        
+        if (totalGoals[element["Away Team Name"]] === undefined) { // conditional
+          totalGoals[element["Away Team Name"]] = element["Away Team Goals"];
+          numGamesPlayed[element["Away Team Name"]] = 1;
+        } else {
+          totalGoals[element["Away Team Name"]] += element["Away Team Goals"];
+          numGamesPlayed[element["Away Team Name"]] += 1;
+        }
+      return totalGoals;
+    }) // end of .map loop
+  // end of my library maker
+  
+    // console.log(totalGoals);
+    // console.log(numGamesPlayed);
+  
+  
+    for (team in totalGoals) { // for in loop over totalGoals object, get aveGoals & assign teamWithHighestAverageGoals
+      let goals = totalGoals[team];
+  
+      let gamesPlayed = numGamesPlayed[team];
+  
+      let aveGoals = goals / gamesPlayed;
+  
+      if (aveGoals > highestAverageGoals) {
+        highestAverageGoals = aveGoals;
+        teamWithHighestAverageGoals = team;
+      }
+    }
+    return teamWithHighestAverageGoals;
+  };
+  
+  // HELPER FUNCTIONS:  
+  // function getFinals(data) // returns array with relevant finals data
+  
+  // TEST CODE
+  var output = getGoals(fifaData);
+  console.log(output);
 
 
 /* Stretch 4: Write a function called badDefense() that accepts a parameter `data` and calculates the team with the most goals scored against them per appearance (average goals against) in the World Cup finals */
 
-function badDefense(/* code here */) {
-
-    /* code here */
-
-};
-
-badDefense();
+function badDefense(data,) {
+    let teamWithHighestAverageGoalsAgainstThem = "";
+    let highestAverageGoalsAgainstThem = 0;
+  
+    let finalsArray = getFinals(data); // get relevant finalsData from larger data set
+  
+  // use .map to make a library of team names and goals, returns an array of objects
+    let totalGoals = {}; // makes an object library with cumulative scores
+    let numGamesPlayed = {};
+    finalsArray.forEach(element => {  
+      
+        if (totalGoals[element["Home Team Name"]] === undefined) { // conditional 
+          totalGoals[element["Home Team Name"]] = element["Away Team Goals"];
+          numGamesPlayed[element["Home Team Name"]] = 1;
+        } else {
+          totalGoals[element["Home Team Name"]] += element["Away Team Goals"];
+          numGamesPlayed[element["Home Team Name"]] += 1;
+        }
+        
+        if (totalGoals[element["Away Team Name"]] === undefined) { // conditional
+          totalGoals[element["Away Team Name"]] = element["Home Team Goals"];
+          numGamesPlayed[element["Away Team Name"]] = 1;
+        } else {
+          totalGoals[element["Away Team Name"]] += element["Home Team Goals"];
+          numGamesPlayed[element["Away Team Name"]] += 1;
+        }
+      return totalGoals;
+    }) // end of .map loop
+  // end of my library maker
+  
+    // console.log(totalGoals);
+    // console.log(numGamesPlayed);
+  
+  
+    for (team in totalGoals) { // for in loop over totalGoals object, get aveGoals & assign teamWithHighestAverageGoals
+      let goals = totalGoals[team];
+  
+      let gamesPlayed = numGamesPlayed[team];
+  
+      let aveGoals = goals / gamesPlayed;
+  
+      if (aveGoals > highestAverageGoalsAgainstThem) {
+        highestAverageGoalsAgainstThem = aveGoals;
+        teamWithHighestAverageGoalsAgainstThem = team;
+      }
+    }
+    return teamWithHighestAverageGoalsAgainstThem;
+  
+  };
+  
+  // TEST CODE
+  var output = badDefense(fifaData);
+  console.log(output);
 
 /* If you still have time, use the space below to work on any stretch goals of your chosing as listed in the README file. */
