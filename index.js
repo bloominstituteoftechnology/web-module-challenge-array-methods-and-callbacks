@@ -12,26 +12,91 @@ console.log('its working');
 (d) Away Team goals for 2014 world cup final    "Away Team Goals": 0,
 (e) Winner of 2014 world cup final */           //"Win conditions": "Germany win after extra time" 
 
-function isYear2014 (arrayOfYears){
-    for (let i = 0; i < arrayOfYears.length-1; i++) {
-        if (arrayOfYears["Years"] === 2014 && arrayOfYears["Stage"] === "finals"){
-            
-            return arrayOfYears["Home Team Name"];
+//function isYear2014 (arrayOfYears){
+//   for (let i = 0; i < arrayOfYears.length-1; i++) {
+//      if (arrayOfYears["Years"] === 2014 && arrayOfYears["Stage"] === "finals"){
+//           
+//            return arrayOfYears["Home Team Name"];
+//
+//        }
+//    } 
+//}   
+//console.log(isYear2014(fifaData));
 
-        }
-    } 
-}   
-console.log(isYear2014(fifaData));
+//Skeleton Syntax of .forEach()
+//fifaData.forEach(function(item, index){
+//    console.log(item.Stage);
+//    console.log(index);
+//  }); 
+
+
+// ~~ EXAMPLE #1
+// console.log('~~~ Example #1');
+// // Find the "2014" game that was the "Final"
+// const worldCupFinal2014 = fifaData.find(fifaMatch => fifaMatch["Year"] === 2014 && fifaMatch["Stage"] === "Final");
+// // Determine if the home team one
+// const isHomeTeamWinner = worldCupFinal2014["Home Team Goals"] > worldCupFinal2014["Away Team Goals"];
+// // Log the specific data for the 2014 Final
+// console.log(`a. Home Team name for 2014 world cup final: ${worldCupFinal2014["Home Team Name"]}`);
+// console.log(`b. Away Team name for 2014 world cup final: ${worldCupFinal2014["Away Team Name"]}`);
+// console.log(`c. Home Team goals for 2014 world cup final: ${worldCupFinal2014["Home Team Goals"]}`);
+// console.log(`d. Away Team goals for 2014 world cup final: ${worldCupFinal2014["Away Team Goals"]}`);
+// console.log(`e. Winner of 2014 world cup final: ${isHomeTeamWinner ? 'Home Team' : 'Away Team'}`);
+
+
+// // ~~ EXAMPLE #2
+// console.log('~~~ Example #2');
+// // This is what we're trying to find in our array
+// let foundWorldCupFinal2014;
+// // Iterate over each fifa match in the array of fifa matches (fifa data)
+// fifaData.forEach(function(fifaMatch, index) {
+//     // Check to see if the current fifa match:
+//     // 1. Took place in 2014
+//     // 2. Is a match in the "Final" stage
+//     if(fifaMatch["Year"] === 2014 && fifaMatch["Stage"] === "Final") {
+//         // If it is, we have found our match!
+//         // Assign it to a variable outside the scope of the forEach so we can use it
+//         foundWorldCupFinal2014 = fifaMatch;
+//     }
+// });
+// // Log the specific data for the 2014 Final
+// console.log(`a. Home Team name for 2014 world cup final: ${foundWorldCupFinal2014["Home Team Name"]}`);
+// console.log(`b. Away Team name for 2014 world cup final: ${foundWorldCupFinal2014["Away Team Name"]}`);
+// console.log(`c. Home Team goals for 2014 world cup final: ${foundWorldCupFinal2014["Home Team Goals"]}`);
+// console.log(`d. Away Team goals for 2014 world cup final: ${foundWorldCupFinal2014["Away Team Goals"]}`);
+// console.log(`e. Winner of 2014 world cup final: ${isHomeTeamWinner ? 'Home Team' : 'Away Team'}`);
+
+
+
+
+let finalIndex2014 = [];
+fifaData.forEach(function(item, index){
+    if (item.Stage === "Final" && item.Year === 2014) {
+         finalIndex2014.push(index); 
+    }
+})
+
+console.log(finalIndex2014);
+console.log(`The Home Team name for the 2014 World Cup final : ${fifaData[828]["Home Team Name"]}`);
+
+
+
+
 
 
 
 /* Task 2: Create a function called  getFinals that takes `data` as an argument and returns an array of objects with only finals data */
 
-function getFinals(data) {
+//function getFinals(data) {
 
-    
+//    return  = []
 
-};
+//};
+
+//const arrayOfFinals = array.map(callBackFunction(item){
+   // return item.Stage === 'finals';
+//});
+//[console.log(arrayOfFinals)
 
 /* Task 3: Implement a higher-order function called `getYears` that accepts the callback function `getFinals`, and returns an array called `years` containing all of the years in the dataset */
 
