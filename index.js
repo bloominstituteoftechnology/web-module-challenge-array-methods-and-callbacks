@@ -12,6 +12,24 @@ console.log("its working");
 (d) Away Team goals for 2014 world cup final
 (e) Winner of 2014 world cup final */
 
+let wc14 = fifaData.find(match => {
+    return match.Stage == "Final" && match.Year == 2014});
+
+console.log(wc14["Home Team Name"]);
+
+console.log(wc14["Away Team Name"]);
+
+console.log(wc14["Home Team Goals"]);
+
+console.log(wc14["Away Team Goals"]);
+
+if (wc14["Home Team Goals"] > wc14["Away Team Goals"]) {
+    console.log(wc14["Home Team Name"],"is the winner of the 2014 world cup final!!");
+
+}else {
+    console.log(wc14["Away Team Name"],"is the winner of the 2014 world cup final!!");
+
+}
 
 /* Task 2: Create a function called  getFinals that takes `data` as an argument and returns an array of objects with only finals data */
 
@@ -109,8 +127,10 @@ function getAverageGoals( cb ) {
     
     let total = cb.reduce((HowManyGoals, game) => {
         HowManyGoals.goalsAway += game["Away Team Goals"];
+
         HowManyGoals.goalsHome += game["Home Team Goals"];
             return HowManyGoals;
+
     }, {goalsAway: 0, goalsHome: 0});
 
     let averageAway = total.goalsAway / cb.length;
