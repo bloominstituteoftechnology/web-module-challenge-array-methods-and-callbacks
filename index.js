@@ -81,13 +81,7 @@ getWinnersByYear();
 
 function getAverageGoals(data) {
 
-    let averageGoals = data.reduce ((total, e) => {
-        let sum = total + e["Home Team Goals"]
-    })
-   return sum 
-};
-
-console.log(getAverageGoals(getWinners));
+;
 
 /// STRETCH 🥅 //
 
