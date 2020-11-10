@@ -1,6 +1,7 @@
 import { fifaData } from './fifa.js';
 
 // ⚽️ M  V P ⚽️ //
+//test
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 1: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Investigate the data above. Practice accessing data by console.log-ing the following pieces of data note, you may want to filter the data first 😉*/
