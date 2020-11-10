@@ -26,7 +26,7 @@ function getFinals(/* code here */) {
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
-Implement a higher-order function called `getYears` that accepts the callback function `getFinals`, and returns an array called `years` containing all of the years in the dataset */
+Implement a higher-order function called `getYears` that accepts two arguments: `data`, and the callback function `getFinals`, and returns an array called `years` containing all of the years in the dataset */
 
 function getYears(/* code here */) {
     /* code here */
@@ -36,7 +36,7 @@ function getYears(/* code here */) {
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
-Implement a higher-order function called `getWinners`, that accepts the callback function `getFinals()` and determine the winner (home or away) of each `finals` game. Return the name of all winning countries in an array called `winners` */ 
+Implement a higher-order function called `getWinners`, that accepts two arguments: `data`, as well as the callback function `getFinals()`, and determine the winner (home or away) of each `finals` game. Return the name of all winning countries in an array called `winners` */ 
 
 function getWinners(/* code here */) {
     /* code here */
@@ -49,6 +49,7 @@ function getWinners(/* code here */) {
 Implement a higher-order function called `getWinnersByYear` that accepts the following parameters and returns a set of strings "In {year}, {country} won the world cup!" 
 
 Parameters: 
+ * data
  * callback function getWinners
  * callback function getYears
  */
