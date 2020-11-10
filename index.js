@@ -34,17 +34,18 @@ Implement a higher-order function called `getYears` that accepts the callback fu
 
 // const years = fifaData.map(item => item["Year"]);
 
-const getYears = fifaData.map(function(item){
-    return item["Year"];
-});
-
-console.log(getYears);
-
+function getYears(callBack){
+     const years = callBack.map(function(callBack){
+      return callBack.Year
+    });
+    return years;
+}
+getYears(fifaData);
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Implement a higher-order function called `getWinners`, that accepts the callback function `getFinals()` and determine the winner (home or away) of each `finals` game. Return the name of all winning countries in an array called `winners` */ 
 
-function getWinners(/* code here */) {
-    /* code here */
+function getWinners(callBack) {
+   
 }
 
 
