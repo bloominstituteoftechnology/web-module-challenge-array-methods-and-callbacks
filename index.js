@@ -85,6 +85,8 @@ function getAverageGoals(data) {
    });
    return averageGoal;
 }
+    
+
 
 
 
