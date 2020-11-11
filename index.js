@@ -57,7 +57,7 @@ Create a function called  getFinals that takes `data` as an argument and returns
 
 const func = getFinals(data) = {
     fifaData.filter((match) => {
-        return match.year === 2014 && match.stage === "Final"
+        return match.year === 2014 && match.stage === "Final" //yikes
 }
 
 
