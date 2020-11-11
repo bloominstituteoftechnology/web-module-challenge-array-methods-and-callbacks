@@ -27,6 +27,8 @@ function getFinals(data) {
   return data.filter(item => item.Stage === "Final")
 }
 
+// console.log(getFinals(fifaData));
+
 //RAR Note: this function is being used to find all the pieces of data that are from have the stage "Final". We will be using this moving forward to receive this particular data. 
 
 
@@ -35,6 +37,7 @@ Implement a higher-order function called `getYears` that accepts the callback fu
 
 function getYears(getFinals) {
    let years = getFinals.map(item => item.Year);
+//    console.log(years);
    return years;
 }
 
@@ -60,8 +63,13 @@ Parameters:
  * callback function getYears
  */
 
-function getWinnersByYear(getWinners, getYears){
-    
+function getWinnersByYear(data, getYears, getWinners){
+    let winners = getWinners(data);
+    let years = getYears(data);
+    const final = [];
+    winners.forEach((item, index) => final.push(`In ${years[index]}, ${item} won the world cup!`));
+
+    return final;
 }
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
