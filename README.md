@@ -3,11 +3,11 @@
 ## Advanced JavaScript
 
 ## Array Methods and Callbacks
-*Note*: Please add the LIVE server extension to your visual studio code and use it for this project. https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer - this will make viewing your data easier. 
+*Note*: Please add the LIVE server extension to your visual studio code and use it for this project. https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer - you will not be able to view this data in the browser or see your console logs without it. 
 
 ## Objectives
 
-- Array Methods - demonstrate ability to use `.forEach` `.map` `.reduce` `.filter` and describe their use cases
+- Array Methods - demonstrate ability to use `.forEach()` `.map()` `.reduce()` `.filter()` and describe their use cases
 - Callbacks - demonstrate the proper use a of a callback function by passing a function to another function as a parameter
   
 ## Introduction
@@ -49,12 +49,12 @@ Your goal today will be to manipulate the data using array methods and callbacks
 
 ### Task 1: Set up Project
 
-Using VSCode and a Command Line:
-
-1. Fork repo
-2. Clone your fork (not Lambda's repo by mistake!).
-3. `cd` into your newly cloned repository.
-4. Create a new branch by typing `git checkout -b <firstName-lastName>`.
+1. Fork the repo
+2. Clone your forked version of the repo
+3. cd into your repo and create a branch with your first and last name
+4. open the terminal in your vs code and type `npm install`
+5. next type `npm run test:watch` in your terminal
+6. Complete your work making regular commits, once you have all your tests passing and you are ready to submit your work please see canvas for instructions on how to submit
 
 ### Task 2: Minimum Viable Product
 
@@ -71,7 +71,7 @@ See if you can complete one or more of the following challenges:
 - [ ] Create a function that takes country initials as a parameter and returns their total number of World Cup appearances.
 - [ ] Account for ties in your 'finals' data set
 - [ ] Create a function that takes country initials as a parameter and determines how many goals that country has scored in World Cup games since 1930.
-- [ ] Use `.map` to format country names into `<h1>` HTML headers.
+- [ ] Use `.map()` to format country names into `<h1>` HTML headers.
 
 ## FAQ
 
@@ -101,7 +101,4 @@ Win conditions": "France win on penalties (3 - 4)",
 
 ## Submission Format
 
-Follow these steps for completing your project.
-
-- [ ] Submit a pull request to merge Branch into master (student's Repo). Please don't merge your own pull request.
-
+Please see Canvas for cohort specific submission instructions
