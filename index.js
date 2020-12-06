@@ -6,9 +6,26 @@ import { fifaData } from './fifa.js';
 Practice accessing data by console.log-ing the following pieces of data note, you may want to filter the data first 😉*/
 
 //(a) Home Team name for 2014 world cup final
+const filteredFinal = fifaData.filter((item) => {
+    return item.Stage === 'final';
+}); 
+const filtered2014 = fifaData.filter((item) => {
+return item.Year === 2014;
+});
+const filteredFinal2014 = filtered2014.push(filteredFinal)
+
+console.log(filteredFinal2014.City);
+
+// const homeTeamFinals = .filter((item)=> {
+//     return item["Home Team Name"];
+// });
+// console.log(homeTeamFinals);
 
 //(b) Away Team name for 2014 world cup final
-
+// const awayTeamFinals = filteredFinal.filter((item) => {
+//     return item["Away Team Name"];
+// });
+// console.log(awayTeamFinals);
 //(c) Home Team goals for 2014 world cup final
 
 //(d) Away Team goals for 2014 world cup final
@@ -24,9 +41,13 @@ Use getFinals to do the following:
 hint - you should be looking at the stage key inside of the objects
 */
 
-function getFinals(/* code here */) {
-   /* code here */
+function getFinals(data) {
+const finals = data.filter((items) => {
+    return items.Stage === "Final"
+})
+return finals;
 }
+console.log(getFinals(fifaData));
 
 
 
@@ -36,9 +57,14 @@ Use the higher-order function called getYears to do the following:
 2. Receive a callback function getFinals from task 2 
 3. Return an array called years containing all of the years in the getFinals data set*/
 
-function getYears(/* code here */) {
-    /* code here */
+function getYears(array,callback) {
+const finals = callback;
+ const years = array.filter((item) => {
+    return item.Year;
+})
+return years;
 }
+// console.log(getYears(fifaData,getFinals));
 
 
 
