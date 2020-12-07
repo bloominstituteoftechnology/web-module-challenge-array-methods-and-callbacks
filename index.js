@@ -4,7 +4,7 @@ import { fifaData } from './fifa.js';
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 1: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Practice accessing data by console.log-ing the following pieces of data note, you may want to filter the data first 😉*/
-
+console.log(fifaData[0]["Half-time Home Goals"]);
 //(a) Home Team name for 2014 world cup final
 const filteredFinal = fifaData.filter((item) => {
     if(item.Stage === 'Final' && item.Year === 2014){
@@ -68,7 +68,7 @@ hint - you should be looking at the stage key inside of the objects
 function getFinals(data) {
 const finals = data.filter((items) => {
     return items.Stage === "Final"
-})
+}) 
 return finals;
 }
 console.log(getFinals(fifaData));
@@ -84,13 +84,15 @@ Use the higher-order function called getYears to do the following:
 function getYears(array,callback) {
     const finals = callback(array)
     const years = finals.map((item) => {
-    return {
-        "years": item.Year
-    };
+        return item.Year
 })
-console.log(years);
+return years;
 }
 getYears(fifaData,getFinals);
+
+
+
+
 
 
 
@@ -103,11 +105,19 @@ Use the higher-order function getWinners to do the following:
 3. Determines the winner (home or away) of each `finals` game. 
 4. Returns the names of all winning countries in an array called `winners` */ 
 
-function getWinners(array, ) {
-    /* code here */
-}
-
-
+function getWinners(array, callback) {
+    const finals = callback(array);
+    const winners = finals.map((game) => {
+        if(game["Away Team Goals"] > game["Home Team Goals"]){
+            return game["Away Team Name"]
+          }else{
+              return game["Home Team Name"]
+          }
+          }
+    )
+    return winners; 
+        }
+getWinners(fifaData, getFinals);
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Use the higher-order function getWinnersByYear to do the following:
@@ -119,9 +129,16 @@ Use the higher-order function getWinnersByYear to do the following:
 hint: the strings returned need to exactly match the string in step 4.
  */
 
-function getWinnersByYear(/* code here */) {
-    /* code here */
+function getWinnersByYear(array, callbackYears, callbackWinners) {
+    const years = callbackYears(array);
+    const winners = callbackWinners(array);
+    const winnersYears = winners + years  ;
+    const finalArray = winnersYears.map((item) => {
+        return `In ${item.Year}, ${item.country} won the world cup!`
+    }) 
+    return finalArray;
 }
+getWinnersByYear(fifaData,getYears,getWinners);
 
 
 
