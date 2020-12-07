@@ -4,17 +4,31 @@ import { fifaData } from './fifa.js';
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 1: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Practice accessing data by console.log-ing the following pieces of data note, you may want to filter the data first 😉*/
+const gamesIn2014 = fifaData.filter((team) => {
+    return team["Year"] === 2014;
+});
+
+console.log(gamesIn2014);
 
 //(a) Home Team name for 2014 world cup final
 
+console.log(gamesIn2014[56]["Home Team Name"]);
+
 //(b) Away Team name for 2014 world cup final
+
+console.log(gamesIn2014[56]["Away Team Name"]);
 
 //(c) Home Team goals for 2014 world cup final
 
+console.log(gamesIn2014[56]["Home Team Goals"]);
+
 //(d) Away Team goals for 2014 world cup final
 
-//(e) Winner of 2014 world cup final */
+console.log(gamesIn2014[56]["Away Team Goals"]);
 
+//(e) Winner of 2014 world cup final 
+
+console.log(gamesIn2014[56]["Win conditions"]); 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Use getFinals to do the following:
@@ -24,11 +38,11 @@ Use getFinals to do the following:
 hint - you should be looking at the stage key inside of the objects
 */
 
-function getFinals(/* code here */) {
-   /* code here */
+function getFinals(data) {
+   
 }
 
-
+getFinals(fifaData);
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use the higher-order function called getYears to do the following: 
@@ -132,6 +146,7 @@ function foo(){
     console.log('its working');
     return 'bar';
 }
+
 export default{
     foo,
     getFinals,
@@ -139,4 +154,4 @@ export default{
     getWinners,
     getWinnersByYear,
     getAverageGoals
-}
+} 
