@@ -7,7 +7,7 @@ Practice accessing data by console.log-ing the following pieces of data note, yo
 const gamesIn2014 = fifaData.filter((team) => {
     return team["Year"] === 2014;
 });
-
+/*
 console.log(gamesIn2014);
 
 //(a) Home Team name for 2014 world cup final
@@ -29,7 +29,7 @@ console.log(gamesIn2014[56]["Away Team Goals"]);
 //(e) Winner of 2014 world cup final 
 
 console.log(gamesIn2014[56]["Win conditions"]); 
-
+*/
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Use getFinals to do the following:
 1. Receive data as a parameter
@@ -39,7 +39,10 @@ hint - you should be looking at the stage key inside of the objects
 */
 
 function getFinals(data) {
-   
+  let filterTeamsInFinals = data.filter((team) => {
+      return {"Stage": team["Stage"] == "Final", "Teams": team["Home Team Name"] && team["Away Team Name"]};
+  })
+  return filterTeamsInFinals;
 }
 
 getFinals(fifaData);
