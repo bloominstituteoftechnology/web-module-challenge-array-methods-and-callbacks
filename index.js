@@ -5,16 +5,32 @@ import { fifaData } from './fifa.js';
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 1: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Practice accessing data by console.log-ing the following pieces of data note, you may want to filter the data first 😉*/
 
+const data2014 = fifaData.filter(function([sparklePony]){  // this const is a copy of the OG, and you can work out of that "branch"
+    return (sparklePony[1] === 2014 && sparklePony[3] === "Final"); // using .filter lets you pull data to work with, 
+});
+
+
+
+
+
+
+
+
+
+
+
+
 //(a) Home Team name for 2014 world cup final
-
+// console.log(fifaData(["Home Team Name"]); // compare to the one below
+console.log(data2014[0]["Home Team Name"]); // structure goes like log(array[index][key value]); remember the jar analogy, what are you reaching for
 //(b) Away Team name for 2014 world cup final
-
+console.log(data2014[0]["Away Team Name"]);
 //(c) Home Team goals for 2014 world cup final
-
+console.log(data2014[0]["Home Team Goals"]);
 //(d) Away Team goals for 2014 world cup final
-
+console.log(data2014[0]["Away Team Goals"]);
 //(e) Winner of 2014 world cup final */
-
+console.log(data2014[0]["Win Conditions"]);
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Use getFinals to do the following:
