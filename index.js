@@ -7,33 +7,41 @@ Practice accessing data by console.log-ing the following pieces of data note, yo
 
 //(a) Home Team name for 2014 world cup final
 
-console.log(fifaData[850]["Home Team Name"]);
+console.log(fifaData[828]["Home Team Name"]);
 
 //(b) Away Team name for 2014 world cup final
-console.log(fifaData[850]["Away Team Name"]);
+console.log(fifaData[828]["Away Team Name"]);
 
 //(c) Home Team goals for 2014 world cup final
-console.log(fifaData[850]["Home Team Goals"]);
+console.log(fifaData[828]["Home Team Goals"]);
 
 //(d) Away Team goals for 2014 world cup final
-console.log(fifaData[850]["Away Team Goals"]);
+console.log(fifaData[828]["Away Team Goals"]);
 
 //(e) Winner of 2014 world cup final */
-console.log(fifaData[850]["Away Team Initials"]);
+console.log(fifaData[828]["Away Team Initials"]);
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Use getFinals to do the following:
-1. Receive data as a parameter
+1. Receive data as a parameterß
 2. Return an array of objects with the data of the teams that made it to the final stage
+
+
 
 hint - you should be looking at the stage key inside of the objects
 */
-
-function getFinals(/* code here */) {
+var arr=[]
+function getFinals(fifaData) {
    /* code here */
+   for(var i = 0; i < fifaData.length; i++){
+       if(fifaData[i].Stage == "Final" && fifaData[i].Year == "2014"){
+            console.log(fifaData[i])
+            
+       }
+   }
 }
-
-
+console.log(arr)
+getFinals(fifaData)
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use the higher-order function called getYears to do the following: 
