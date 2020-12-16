@@ -24,9 +24,10 @@ Use getFinals to do the following:
 hint - you should be looking at the stage key inside of the objects
 */
 
-function getFinals() {
-   
+function getFinals(data) {
+   return data;
 }
+console.log(getFinals(fifaData))
 
 
 
