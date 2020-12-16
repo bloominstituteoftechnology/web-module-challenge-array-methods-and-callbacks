@@ -21,27 +21,28 @@ console.log(fifaData[828]["Away Team Goals"]);
 //(e) Winner of 2014 world cup final */
 console.log(fifaData[828]["Away Team Initials"]);
 
+
+
+
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Use getFinals to do the following:
 1. Receive data as a parameterß
 2. Return an array of objects with the data of the teams that made it to the final stage
-
-
-
 hint - you should be looking at the stage key inside of the objects
 */
 var arr=[]
 function getFinals(fifaData) {
-   /* code here */
+ 
    for(var i = 0; i < fifaData.length; i++){
-       if(fifaData[i].Stage == "Final" && fifaData[i].Year == "2014"){
-            console.log(fifaData[i])
-            
+       if(fifaData[i].Stage == "Final"){
+            arr push.fifaData[i];
        }
    }
-}
-console.log(arr)
 getFinals(fifaData)
+
+
+
+
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use the higher-order function called getYears to do the following: 
@@ -49,9 +50,15 @@ Use the higher-order function called getYears to do the following:
 2. Receive a callback function getFinals from task 2 
 3. Return an array called years containing all of the years in the getFinals data set*/
 
-function getYears(/* code here */) {
-    /* code here */
+function getYears(getFinals) {
+    arr push.getFinals[1];
 }
+
+getYears(getFinals)
+
+
+
+
 
 
 
