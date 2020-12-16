@@ -6,10 +6,20 @@ import { fifaData } from './fifa.js';
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 1: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Investigate the data above. Practice accessing data by console.log-ing the following pieces of data note, you may want to filter the data first 😉*/
 
-//(a) Home Team name for 2014 world cup final
-const final2014 = fifaData.filter((match) => {
-   return match.year === 2014 && match.stage === "Final" // conditional
+//(a) Home Team name for 2014 world cup finals
+
+//.filter for final in stage
+
+let taskOne=fifaData.filter(item => {
+    return item.Stage==="Final"
 })
+
+console.log(taskOne)
+
+
+// const final2014 = fifaData.filter((match) => {
+//    return match.year === 2014 && match.stage === "Final" // conditional
+//})
 /*homeTeam2014 = [
     {
     "Year": 2014, //randomword
@@ -34,7 +44,7 @@ const final2014 = fifaData.filter((match) => {
     "Away Team Initials": "ARG"
     }
 ] */
-console.log(final2014[0]['Home Team Data']);
+//console.log(final2014[0]['Home Team Data']);
 
 
 
@@ -43,22 +53,47 @@ console.log(final2014[0]['Home Team Data']);
 //     return //to locate data in object = conditional
 //     [awayTeam2015[0]["Away Team Name"] [//access the object and pull out value associated with the away team key
 // })
-console.log(final2014[0]["Away Team Data"]);
+//console.log(final2014[0]["Away Team Data"]);
 //(c) Home Team goals for 2014 world cup final
-console.log(final2014[0]["Home Team Goals"]);
+//console.log(final2014[0]["Home Team Goals"]);
 //(d) Away Team goals for 2014 world cup final
-console.log(final2014[0]["Away Team Goals"]);
+//console.log(final2014[0]["Away Team Goals"]);
 //(e) Winner of 2014 world cup final */
-console.log(final2014[0]["Home Team Name"]);
+//console.log(final2014[0]["Home Team Name"]);
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Create a function called  getFinals that takes `data` as an argument and returns an array of objects with only finals data */
 
-const func = getFinals(data) = {
-    fifaData.filter((match) => {
-        return match.year === 2014 && match.stage === "Final" //yikess
+function getFinals(data) {
+  data.filter(item.Stage==='Final')
+  
+
+
+
+
+
+//   first attempt lol
+//   let finalArray=[];
+  
+//   for (let i=0;i<data.length;i++){
+//     filterer()
+//     return finalArray;
+//   }
+
+//   const filterer=function(data,value){
+//     if (value==="Final"){
+//         finalArray.push(data[i])
+//     }
+//   }
+  
 }
+
+
+    // attempt 1 lol
+    // arrayTask2.filter((match) => {
+    //     return match.year === 2014 && match.stage === "Final" //yikess
+
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
