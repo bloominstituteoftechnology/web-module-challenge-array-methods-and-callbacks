@@ -53,7 +53,6 @@ Use the higher-order function called getYears to do the following:
 function getYears(getFinals) {
     arr push.getFinals[1];
 }
-
 getYears(getFinals)
 
 
@@ -71,8 +70,7 @@ Use the higher-order function getWinners to do the following:
 
 function getWinners(/* code here */) {
     /* code here */
-}
-
+ This is the most i know how to do, I plan on repeating the unit;
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -89,7 +87,7 @@ function getWinnersByYear(/* code here */) {
     /* code here */
 }
 
-
+if 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use the higher order function getAverageGoals to do the following: 
