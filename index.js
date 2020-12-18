@@ -28,13 +28,13 @@ console.log(data2014[0]["Win conditions"]);
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Use getFinals to do the following:
-1. Receive data as a parameter  / dataParam is the arg
+1. Receive data as a parameter 
 2. Return an array of objects with the data of the teams that made it to the final stage
 
 hint - you should be looking at the stage key inside of the objects -  .stage
 */
 
-function getFinals(dataParam) {
+function getFinals(dataParam) { // dataParam is the arg
     const getSquads = dataParam.filter(function(jar){
         return jar.Stage === "Final"; // .notation or ["bracket"] notation , also check for cap errors
     });
@@ -49,9 +49,9 @@ Use the higher-order function called getYears to do the following:
 2. Receive a callback function getFinals from task 2     // getFinalsCB
 3. Return an array called years containing all of the years in the getFinals data set*/       
 
-function getYears(){
-    const years = fifaData.map(function(item){
-        return item.Year;  // make sure to copy the exact notation of the items inside the array Year vs year
+function getYears(arrParam, getFinalsCB){
+    const years = arrParam.map(getFinalsCB(index){
+        return index[Year];  // make sure to copy the exact notation of the items inside the array: Year vs year
     });
         return years;
 }
@@ -89,12 +89,14 @@ Use the higher-order function getWinnersByYear to do the following:
 hint: the strings returned need to exactly match the string in step 4.
  */
 
-function getWinnersByYear(arrArr, getYearsCB, getWinnersCB) {
-    let arrArr = [];
-    let getYearsCB = getYears(getFinalsCB(item));
-    let getWinnersCB = getWinners(getFinals(arr));
-
-    return `In ${year}, ${country} won the world cup!`;
+function getWinnersByYear(arrArray, getYearsCB, getWinnersCB) {
+    let newArr = [];
+    let years = getYearsCB(arrArray, getFinals);
+    let winners = getWinnersCB(arrArray, getFinals);
+    for(let i =0; i< years.length;i++){
+      newArr.push(`In ${years[i]}, ${winners[i]} won the world cup!`);  
+    }
+    return newArr;
 }
 
 
@@ -104,22 +106,29 @@ Use the higher order function getAverageGoals to do the following:
  1. Receive the callback function getFinals from task 2 ensure you pass in the data as an argument
  2. Return the the average number of the total home team goals and away team goals scored per match and round to the second decimal place. 
  
+CB func of getFinals as an arg
+return avg # of TOTAL HOME TEAM GOALS and AWAY TEAM GOALS per MATCH and round the valuo
+
  (Hint: use .reduce and do this in 2 steps) 
  
  Example of invocation: getAverageGoals(getFinals(fifaData));
 */
+function getAverageGoals(getFinalsCB){
+    let avgGoals = getFinalsCB.reduce((count, obj) => count +(obj["Home Team Goals"] + obj["Away Team Goals"]),0)/getFinalsCB.length;
+    return avgGoals.toFixed(2);
+}
 
-function getAverageGoals(getFinalsCB, thing) {
-    let avgHomeGoals = thing.reduce(function(accumulator, item){
-        return accumulator + item["Home Team Goals"];
-    },0)/data.length;
-    let avgAwayGoals = thing.reduce(function(accumulator, item){
-        return accumulator + item["Away Team Goals"];    
-    },0)/thing.length;
-    const totalGoals = avgHomeGoals + avgAwayGoals
-    return totalGoals.toFixed(2); // need to understand the toFixed Method, why 2? for specificity of decimals
 
-} 
+// function getAverageGoals(getFinalsCB, item) {
+//     let avgHomeGoals = thing.reduce(getFinalsCB(accumulator, item){
+//         return accumulator + item["Home Team Goals"];
+//     },0)/item.length;
+//     let avgAwayGoals = thing.reduce(getFinalsCB(accumulator, item){
+//         return accumulator + item["Away Team Goals"];    
+//     },0)/item.length;
+//     const totalGoals = avgHomeGoals + avgAwayGoals
+//     return totalGoals.toFixed(2); // need to understand the toFixed Method, why 2? for specificity of decimals
+// } 
 
 /// 🥅 STRETCH 🥅 ///
 
