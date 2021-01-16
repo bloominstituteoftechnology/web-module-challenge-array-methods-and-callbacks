@@ -1,4 +1,4 @@
-export const fifaData = [
+const fifaData = [
   {
     "Year": 1930,
     "Datetime": "13 Jul 1930 - 15:00",
@@ -18722,3 +18722,5 @@ export const fifaData = [
     "Away Team Initials": "NED"
   },
 ]
+
+module.exports = {fifaData};
