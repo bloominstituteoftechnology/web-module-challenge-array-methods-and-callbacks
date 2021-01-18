@@ -6,14 +6,37 @@ import { fifaData } from './fifa.js';
 Practice accessing data by console.log-ing the following pieces of data note, you may want to filter the data first 😉*/
 
 //(a) Home Team name for 2014 world cup final
+let filteredYear = fifaData.filter(function(item){
+    return Year = 2014
+})
+let homeTeamYear = filteredYear.filter(function(item){
+    return item[5]
+})
+homeTeamYear();
 
 //(b) Away Team name for 2014 world cup final
+let awayTeamYear = filteredYear.filter(function(item){
+    return item[8]
+})
+awayTeamYear();
 
 //(c) Home Team goals for 2014 world cup final
+let homeTeamGoals = filteredYear.filter(function(item){
+    return item[6]
+})
+homeTeamGoals();
 
 //(d) Away Team goals for 2014 world cup final
+let awayTeamGoals = filteredYear.filter(function(item){
+    return item[7]
+})
+awayTeamGoals();
 
 //(e) Winner of 2014 world cup final */
+let winnerYear = filteredYear.filter(function(item){
+    return item[6]
+})
+homeTeamYear();
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -24,11 +47,11 @@ Use getFinals to do the following:
 hint - you should be looking at the stage key inside of the objects
 */
 
-function getFinals(/* code here */) {
-   /* code here */
-}
+let getFinals = fifaData.map(function(item) {
+    return item[ 7, 8 ];
+})
 
-
+console.log(getFinals);
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use the higher-order function called getYears to do the following: 
@@ -36,11 +59,11 @@ Use the higher-order function called getYears to do the following:
 2. Receive a callback function getFinals from task 2 
 3. Return an array called years containing all of the years in the getFinals data set*/
 
-function getYears(/* code here */) {
-    /* code here */
-}
+let getYears = fifaData.map(function(item) {
+    return item[1];
+})
 
-
+console.log(getYears);
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use the higher-order function getWinners to do the following:  
@@ -49,9 +72,11 @@ Use the higher-order function getWinners to do the following:
 3. Determines the winner (home or away) of each `finals` game. 
 4. Returns the names of all winning countries in an array called `winners` */ 
 
-function getWinners(/* code here */) {
-    /* code here */
-}
+let getWinners = fifaData.map(function(item) {
+    return item[1];
+})
+
+console.log(getYears);
 
 
 
