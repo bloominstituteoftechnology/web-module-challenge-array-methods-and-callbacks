@@ -12,24 +12,34 @@ console.log('its working');
 (d) Away Team goals for 2014 world cup final
 (e) Winner of 2014 world cup final */
 
+let fourteeth = fifaData.filter(data => data.Year === 2014 );
+
+console.log(fourteeth);
 
 /* Task 2: Create a function called  getFinals that takes `data` as an argument and returns an array of objects with only finals data */
 
-function getFinals(/* code here */) {
+function getFinals() {
+ 
+    const filter = fifaData.filter(data => data.Stage === "Final")  
 
-    /* code here */
-
+    return filter
 };
+
+getFinals()
+
 
 /* Task 3: Implement a higher-order function called `getYears` that accepts the callback function `getFinals`, and returns an array called `years` containing all of the years in the dataset */
 
-function getYears(/* code here */) {
+function getYears(getFinals ) {
 
-    /* code here */
-
-};
-
-getYears();
+    let years = fifaData.map(data => data.Year)
+    
+    console.log(years)
+    
+    
+    };
+    
+    getYears();
 
 /* Task 4: Implement a higher-order function called `getWinners`, that accepts the callback function `getFinals()` and determine the winner (home or away) of each `finals` game. Return the name of all winning countries in an array called `winners` */ 
 
