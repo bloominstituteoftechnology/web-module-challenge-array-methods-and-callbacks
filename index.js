@@ -1,5 +1,5 @@
 import { fifaData } from './fifa.js';
-
+goals = fifaData.item[6 , 7];
 // ⚽️ M  V P ⚽️ //
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 1: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -73,10 +73,12 @@ Use the higher-order function getWinners to do the following:
 4. Returns the names of all winning countries in an array called `winners` */ 
 
 let getWinners = fifaData.map(function(item) {
-    return item[1];
+    return home_team_goals > away_team_goals;
+} else {
+    return away_team_goals > home_team_goals
 })
 
-console.log(getYears);
+console.log(getWinners);
 
 
 
@@ -90,10 +92,11 @@ Use the higher-order function getWinnersByYear to do the following:
 hint: the strings returned need to exactly match the string in step 4.
  */
 
-function getWinnersByYear(/* code here */) {
-    /* code here */
-}
+let getWinnersByYear = getWinners.map(function(item){
+   return $`"In "{this.year}"," `{this.country}` " won the world cup!"`
+})
 
+console.log(getWinners);
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -106,9 +109,9 @@ Use the higher order function getAverageGoals to do the following:
  Example of invocation: getAverageGoals(getFinals(fifaData));
 */
 
-function getAverageGoals(/* code here */) {
-   /* code here */
-}
+let getAverageGoals = fifaData.reduce(function(accumulator, item[6 , 7]){
+   return item.goals = accumulator
+}, 0)
 
 
 
