@@ -1,19 +1,31 @@
 import { fifaData } from './fifa.js';
+//console.log(fifaData);
+//console.log('its working');
 
 // ⚽️ M  V P ⚽️ //
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 1: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Practice accessing data by console.log-ing the following pieces of data note, you may want to filter the data first 😉*/
 
-//(a) Home Team name for 2014 world cup final
+//(a) Home Team name for 2014 world cup finalß
+let homeTeam = fifaData.filter(function (item){
+    return item.Year === 2014 && item.Stage === "Final"
+});
+
+console.log(homeTeam[0]["Home Team Name"]);
+console.log(homeTeam); 
 
 //(b) Away Team name for 2014 world cup final
+console.log(homeTeam[0]["Away Team Name"]);
 
 //(c) Home Team goals for 2014 world cup final
+console.log(homeTeam[0]["Home Team Goals"]);
 
 //(d) Away Team goals for 2014 world cup final
+console.log(homeTeam[0]["Away Team Goals"]);
 
 //(e) Winner of 2014 world cup final */
+console.log(homeTeam[0]);
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -24,10 +36,15 @@ Use getFinals to do the following:
 hint - you should be looking at the stage key inside of the objects
 */
 
-function getFinals(/* code here */) {
-   /* code here */
-}
-
+function getFinals(data){
+   let finalStage = data.filter(function(item){
+       return item.Stage === "Final"; //returns each item (object) in array that the property of stage is equal to 'Final.' 
+       //.filter only returns specfic data
+       //quicker way to do a for loop with an if statement inside
+   });
+   return finalStage; //gives access to finalStage on line 40
+};
+console.log(getFinals(fifaData));//gets the teams that made it to the finals
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -36,10 +53,15 @@ Use the higher-order function called getYears to do the following:
 2. Receive a callback function getFinals from task 2 
 3. Return an array called years containing all of the years in the getFinals data set*/
 
-function getYears(/* code here */) {
+function getYears(fifaData, getFinals) {
     /* code here */
+    let finalStage = getFinals(fifaData); //assigning finalStage array of filtered items matching the final stage, this is doing same as line 45. 
+    let years = finalStage.map(function(item){
+        return item.Year;
+    });
+    return years;
 }
-
+console.log(getYears(fifaData, getFinals));
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -49,8 +71,10 @@ Use the higher-order function getWinners to do the following:
 3. Determines the winner (home or away) of each `finals` game. 
 4. Returns the names of all winning countries in an array called `winners` */ 
 
-function getWinners(/* code here */) {
+function getWinners(array, getFinals) {
     /* code here */
+    //let winners = getWinners.
+   // return winners;
 }
 
 
