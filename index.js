@@ -14,6 +14,11 @@ Practice accessing data by console.log-ing the following pieces of data note, yo
 //(d) Away Team goals for 2014 world cup final
 
 //(e) Winner of 2014 world cup final */
+console.log("Home Team name for 2014 world cup final")
+console.log("Away Team name for 2014 world cup final")
+console.log("Home Team goals for 2014 world cup final")
+console.log("Away Team goals for 2014 world cup final")
+console.log("Winner of 2014 world cup final ")
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -24,8 +29,11 @@ Use getFinals to do the following:
 hint - you should be looking at the stage key inside of the objects
 */
 
-function getFinals(/* code here */) {
-   /* code here */
+function getFinals(data) {
+    for (let i = 0; i < fifaData.length;i++){
+        let fifaStage = fifaData[i].Stage;
+    }
+    return fifaData;
 }
 
 
@@ -140,3 +148,4 @@ export default{
     getWinnersByYear,
     getAverageGoals
 }
+
