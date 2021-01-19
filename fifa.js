@@ -127,7 +127,7 @@ export const fifaData = [
     "Assistant 1": "APHESTEGUY Martin (URU)",
     "Assistant 2": "LANGENUS Jean (BEL)",
     "RoundID": 201,
-    "MatchID": 1095,z
+    "MatchID": 1095,
     "Home Team Initials": "CHI",
     "Away Team Initials": "MEX"
   },

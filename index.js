@@ -85,14 +85,28 @@ Use the higher-order function getWinnersByYear to do the following:
 hint: the strings returned need to exactly match the string in step 4.
  */
 
-function getWinnersByYear(arr, callback1,callback2) {
-    const yearsArrayy = callback1(arr,getFinals)
-    const winnerOfYear = callback2(arr,getFinals);
+/*function getWinnersByYear(arr, callbackYear,callbackWinner) {
+    const yearsArrayy = callbackYear(arr,getFinals)
+    const winnerOfYear = callbackWinner(arr,getFinals);
     const stringsThatSay =`In ${years}, ${winner} won the world cup! ` 
     return stringsThatSay;
 }
 console.log(getWinnersByYear(fifaData,getYears,getWinners));
-
+*/
+function getWinnersByYear(arr, callbackYear,callbackWinner) {
+    let callbackYearArr = callbackYear(arr, getFinals);
+    let callbackWinnerArr = callbackWinner(arr, getFinals);
+    let stringYearArr = []; let stringwinnerArr = []; stringsThatSay = [];
+    // ittrate through arrays and push items.
+    callbackYearArr.forEach(item =>stringYearArr.push(item));
+    callbackWinnerArr.forEach(item =>stringwinnerArr.push(item));
+    //itterate through arrays and push items to the stringsThatSay array.
+    stringYearArr.filter(function(item,index){
+        stringsThatSay.push(`In ${item}, ${stringwinnerArr[index]} won the world cup! `)
+    })
+    return stringsThatSay;
+}
+console.log(getWinnersByYear(fifaData,getYears,getWinners));
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -105,12 +119,16 @@ Use the higher order function getAverageGoals to do the following:
  Example of invocation: getAverageGoals(getFinals(fifaData));
 */
 
-function getAverageGoals(/* code here */) {
-   /* code here */
+function getAverageGoals(callback, data) {
+let totalHomeGoals = callback.reduce((acc, goals)=>{
+    return acc += goals["Home Team Goals"]},0);
+let totalAwayGoals = callback.reduce((acc, goals)=>{
+    return acc += goals["Away Team Goals"]},0);
+let averageGoals = ((totalAwayGoals + totalHomeGoals)/19).toFixed(2);
+return averageGoals;
+ 
 }
-
-
-
+getAverageGoals(getFinals(fifaData));
 
 /// 🥅 STRETCH 🥅 ///
 
