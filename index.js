@@ -34,7 +34,7 @@ function getFinals(data){
     });
    return teamsArray;
 }
-console.log(getFinals(fifaData));
+getFinals(fifaData);
  
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -43,17 +43,15 @@ Use the higher-order function called getYears to do the following:
 2. Receive a callback function getFinals from task 2 
 3. Return an array called years containing all of the years in the getFinals data set*/
 
-// function getYears(teamsArray,callback) {
-//     let teamsInFinal = callback(teamsArray);
-//     let years = teamsInFinal.map(teamsArray.years);
-//     return years;
-// }
-// console.log(getYears(fifaData,getFinals))
 function getYears (array,callback){
     const teamYears = callback(array);
     
-}
-getYears(fifaData,getFinals)
+    const years = teamYears.map((teamData)=>{
+        return teamData.Year
+    });
+    return years
+};
+getYears(fifaData,getFinals);
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use the higher-order function getWinners to do the following:  
@@ -62,10 +60,20 @@ Use the higher-order function getWinners to do the following:
 3. Determines the winner (home or away) of each `finals` game. 
 4. Returns the names of all winning countries in an array called `winners` */ 
 
-// function getWinners(teamsArray,callback) {
-//     let callback = getFinals()
-    
+function getWinners(array,cb) {
+   let teamWinner = cb(array)
 
+   let winners = teamWinner.map ((teamName)=>{
+        if(teamName['Home Team Goals'] > teamName['Away Team Goals']){
+            return teamName['Home Team Name']
+        }else {
+            return teamName['Away Team Name']
+        }      
+       })
+       return winners
+   }
+    
+getWinners(fifaData,getFinals)
 
 
 
@@ -79,10 +87,15 @@ Use the higher-order function getWinnersByYear to do the following:
 hint: the strings returned need to exactly match the string in step 4.
  */
 
-function getWinnersByYear(/* code here */) {
-    /* code here */
-}
+function getWinnersByYear(array, callback, cb) {
+    let winnerName = cb(array)
+    let yearsPlayed = callback(array)
 
+
+    let yearArray = yearsPlayed.map ((item)=>{return item})
+    let nameArray = winnerName.map ((item)=>{return item})
+}
+getWinnersByYear(fifaData,getWinners,getYears)
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
