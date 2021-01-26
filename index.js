@@ -13,7 +13,11 @@ Practice accessing data by console.log-ing the following pieces of data note, yo
 
 //(d) Away Team goals for 2014 world cup final
 
-//(e) Winner of 2014 world cup final */
+//(e) Winner of 2014 world cup final (*/
+
+
+
+
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -24,10 +28,13 @@ Use getFinals to do the following:
 hint - you should be looking at the stage key inside of the objects
 */
 
-function getFinals(/* code here */) {
-   /* code here */
-}
-
+function getFinals(data) {
+    return data.filter((item)=>{
+      return item.Stage === 'Final';
+    })
+ }
+ 
+ console.log(getFinals(fifaData));
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
