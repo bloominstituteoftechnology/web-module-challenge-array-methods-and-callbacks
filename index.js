@@ -15,7 +15,25 @@ Practice accessing data by console.log-ing the following pieces of data note, yo
 
 //(e) Winner of 2014 world cup final (*/
 
-
+const newArray = fifaData.filter((item)=> {
+    return item.Year === 2014 && item.Stage === 'Final';
+    });
+const homeTeamName = newArray.map((item)=>{
+return item['Home Team Name'];
+    });
+const awayTeamName = newArray.map((item)=>{
+    return item['Away Team Name'];
+    });
+const homeTeamGoals = newArray.map((item)=>{
+    return item['Home Team Goals'];
+    });
+const awayTeamGoals = newArray.map((item)=>{
+    return item['Away Team Goals'];
+    });
+console.log(homeTeamName);
+console.log(awayTeamName);
+console.log(homeTeamGoals);
+console.log(awayTeamGoals);
 
 
 
