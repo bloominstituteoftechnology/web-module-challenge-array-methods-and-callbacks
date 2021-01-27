@@ -150,16 +150,19 @@ function getAverageGoals(finals) {
     const awayWinsList = awayTeamGoals.map((item)=> item["Away Team Goals"]);
     console.log(awayWinsList);
     
-    avgHome = homeWinsList.reduce((getSum, finals) =>{
+    const sumHome = homeWinsList.reduce((getSum, finals) =>{
       return (getSum + finals);
-    },0) / finals.length;
+    },0);
+    avgHome = (sumHome / finals.length).toFixed(2);
     console.log(avgHome);
     
-    avgAway = awayWinsList.reduce((getSum, finals) =>{
-      return (getSum + finals);
-    },0) / finals.length;
+    const sumAway = awayWinsList.reduce((getSum, finals) =>{
+        return (getSum + finals);
+      },0);
+    avgAway = (sumAway / finals.length).toFixed(2);
     console.log(avgAway);
-    return avgHome, avgAway;
+        return `${parseFloat(avgHome)} + ${parseFloat(avgAway)`};
+   
   }
   console.log(getAverageGoals(getFinals(fifaData)));
 
