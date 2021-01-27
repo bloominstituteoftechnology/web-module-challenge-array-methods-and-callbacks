@@ -115,8 +115,11 @@ hint: the strings returned need to exactly match the string in step 4.
  */
 
 function getWinnersByYear(array, getYearsCb, getWinnersCb) {
-    const getString = [];
-    getString.push(`In ${getYearsCb(array, getFinals)}, ${getWinnersCb(array, getFinals)} won the world cup`);
+    var getString = [];
+    const getYears = getYearsCb(array, getFinals);
+    const getWinners = getWinnersCb(array, getFinals);
+  getString.push(`In ${getYears}, ${getWinners} won the world cup!`);
+  return getString;
 }
   
   console.log(getWinnersByYear(fifaData, getYears, getWinners));
