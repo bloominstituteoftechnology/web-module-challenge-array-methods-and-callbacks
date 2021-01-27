@@ -100,7 +100,7 @@ function getWinners(array, finals) {
     return winners;
 }
   
-  console.log(getWinners(fifaData, getFinals))
+  console.log(getWinners(fifaData, getFinals));
 
 
 
@@ -115,15 +115,13 @@ hint: the strings returned need to exactly match the string in step 4.
  */
 
 function getWinnersByYear(array, getYearsCb, getWinnersCb) {
-    var getString = [];
     const getYears = getYearsCb(array, getFinals);
     const getWinners = getWinnersCb(array, getFinals);
-  getString.push(`In ${getYears}, ${getWinners} won the world cup!`);
+    const getString = getWinners.map((x, y )=>(`In ${getYears[y]}, ${x} won the world cup!`));
   return getString;
 }
   
   console.log(getWinnersByYear(fifaData, getYears, getWinners));
-
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -164,8 +162,8 @@ function getAverageGoals(finals) {
       },0);
     avgAway = (sumAway / finals.length).toFixed(2);
     console.log(avgAway);
-        return `${parseFloat(avgHome)} + ${parseFloat(avgAway)`};
-   
+    const average = parseFloat(avgHome) + parseFloat(avgAway);
+        return `${average}`;
   }
   console.log(getAverageGoals(getFinals(fifaData)));
 
