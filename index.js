@@ -84,21 +84,21 @@ function getWinners(array, finals) {
     
     // Get home team victories
     const homeTeamWins = list.filter((score) =>{
-      return score['Home Team Goals'] > score['Away Team Goals'];
-      });//List by countries
+        return score['Home Team Goals'] > score['Away Team Goals'];
+        });//List by countries
     const homeWinsList = homeTeamWins.map((item)=> item["Home Team Name"]);
     console.log(homeWinsList);
     
     //Get away team victories
     const awayTeamWins = list.filter((score) =>{
-      return score['Away Team Goals'] > score['Home Team Goals'];
+        return score['Away Team Goals'] > score['Home Team Goals'];
       }); //List by countries
     const awayWinsList = awayTeamWins.map((item)=> item["Away Team Name"]);
     console.log(awayWinsList);
   
     winners.push(...homeWinsList, ...awayWinsList);
-      return winners;
-  }
+    return winners;
+}
   
   console.log(getWinners(fifaData, getFinals))
 
@@ -114,9 +114,12 @@ Use the higher-order function getWinnersByYear to do the following:
 hint: the strings returned need to exactly match the string in step 4.
  */
 
-function getWinnersByYear(/* code here */) {
-    /* code here */
+function getWinnersByYear(array, getYearsCb, getWinnersCb) {
+    const getString = [];
+    getString.push(`In ${getYearsCb(array, getFinals)}, ${getWinnersCb(array, getFinals)} won the world cup`);
 }
+  
+  console.log(getWinnersByYear(fifaData, getYears, getWinners));
 
 
 
@@ -130,9 +133,35 @@ Use the higher order function getAverageGoals to do the following:
  Example of invocation: getAverageGoals(getFinals(fifaData));
 */
 
-function getAverageGoals(/* code here */) {
-   /* code here */
-}
+function getAverageGoals(finals) {
+    const list = finals;
+    var avgHome = [];
+    var avgAway = [];
+    //Create array of filtered objects with finals data
+    const homeTeamGoals = list.filter((game) => game['Home Team Goals']);
+      console.log(homeTeamGoals);
+      //Create array of final scores for Home Team
+    const homeWinsList = homeTeamGoals.map((item)=> item["Home Team Goals"]);
+    console.log(homeWinsList);
+    //Create array of filtered objects with finals data
+    const awayTeamGoals = list.filter((game) => game['Away Team Goals']);
+      console.log(homeTeamGoals);
+      //Create array of final scores for Away Team
+    const awayWinsList = awayTeamGoals.map((item)=> item["Away Team Goals"]);
+    console.log(awayWinsList);
+    
+    avgHome = homeWinsList.reduce((getSum, finals) =>{
+      return (getSum + finals);
+    },0) / finals.length;
+    console.log(avgHome);
+    
+    avgAway = awayWinsList.reduce((getSum, finals) =>{
+      return (getSum + finals);
+    },0) / finals.length;
+    console.log(avgAway);
+    return avgHome, avgAway;
+  }
+  console.log(getAverageGoals(getFinals(fifaData)));
 
 
 
