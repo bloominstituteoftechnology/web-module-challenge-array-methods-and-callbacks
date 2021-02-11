@@ -11,24 +11,24 @@ const newYear = fifaData.filter(x => x.Year === 2014)
 const final = newYear.filter(x => x.Stage === 'Final')
 // console.log(final)
 
-//(a) Home Team name for 2014 world cup final
-console.log(final[0]['Home Team Name'])
+// //(a) Home Team name for 2014 world cup final
+// console.log(final[0]['Home Team Name'])
 
-//(b) Away Team name for 2014 world cup final
-console.log(final[0]['Away Team Name'])
+// //(b) Away Team name for 2014 world cup final
+// console.log(final[0]['Away Team Name'])
 
-//(c) Home Team goals for 2014 world cup final
-console.log(final[0]['Home Team Goals'])
+// //(c) Home Team goals for 2014 world cup final
+// console.log(final[0]['Home Team Goals'])
 
-//(d) Away Team goals for 2014 world cup final
-console.log(final[0]['Away Team Goals'])
+// //(d) Away Team goals for 2014 world cup final
+// console.log(final[0]['Away Team Goals'])
 
 //(e) Winner of 2014 world cup final */
-if(final[0]['Home Team Goals'] > final[0]['Away Team Goals']){
-    console.log(`The winner of the 2014 WC was ${final[0]['Home Team Name']}`)
-} else {
-    console.log(`The winner of the 2014 WC was ${final[0]['Away Team Name']}`)
-}
+// if(final[0]['Home Team Goals'] > final[0]['Away Team Goals']){
+//     console.log(`The winner of the 2014 WC was ${final[0]['Home Team Name']}`)
+// } else {
+//     console.log(`The winner of the 2014 WC was ${final[0]['Away Team Name']}`)
+// }
 
 
 
@@ -40,9 +40,19 @@ Use getFinals to do the following:
 hint - you should be looking at the stage key inside of the objects
 */
 
-function getFinals(/* code here */) {
-   /* code here */
+const finals = fifaData.filter((x) => x.Stage === 'Final')
+const finalsTeams = finals.map((x) => {
+    return {"Home Team Name": x['Home Team Name'], "Away Team Name": x['Away Team Name']}
+})
+
+// console.log(finalsTeams)
+
+
+function getFinals(finalsTeams) {
+    return finalsTeams
 }
+
+
 
 
 
