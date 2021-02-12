@@ -107,9 +107,9 @@ const finalsWinnerByYear = finals.map(function(x){
         return {'Winner': x['Away Team Name'], 'Year': x['Year']}
     }
 });
-// for (let i = 0; i < finalsWinnerByYear.length; i++){
-//     console.log(`In ${finalsWinnerByYear[i]['Year']}, ${finalsWinnerByYear[i]['Winner']} won the world cup!`)
-// }
+for (let i = 0; i < finalsWinnerByYear.length; i++){
+    console.log(`In ${finalsWinnerByYear[i]['Year']}, ${finalsWinnerByYear[i]['Winner']} won the world cup!`)
+}
 
 
 
@@ -121,11 +121,14 @@ function getWinnersByYear(finals) {
             return {'Winner': x['Away Team Name'], 'Year': x['Year']}
         }
     });
-    
-        
+    const finalsStatement = []
+    for (let i = 0; i < finalsWinnerByYear.length; i++){
+        finalsStatement.push(`In ${finalsWinnerByYear[i]['Year']}, ${finalsWinnerByYear[i]['Winner']} won the world cup!`)
+    }
+    return finalsStatement       
 }
 
-console.log(getWinnersByYear(finals))
+
 
 
 
