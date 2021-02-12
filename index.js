@@ -5,29 +5,27 @@ import { fifaData } from './fifa.js';
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 1: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Practice accessing data by console.log-ing the following pieces of data note, you may want to filter the data first 😉*/
 
-const newYear = fifaData.filter(x => x.Year === 2014)
-// console.log(newYear)
+// const final2014 = fifaData.filter(x => x.Year === 2014 && x.Stage === 'Final')
+// // console.log(newYear)
+// console.log(final2014)
 
-const final = newYear.filter(x => x.Stage === 'Final')
-// console.log(final)
+// // //(a) Home Team name for 2014 world cup final
+// console.log(final2014[0]['Home Team Name'])
 
-// //(a) Home Team name for 2014 world cup final
-// console.log(final[0]['Home Team Name'])
+// // //(b) Away Team name for 2014 world cup final
+// console.log(final2014[0]['Away Team Name'])
 
-// //(b) Away Team name for 2014 world cup final
-// console.log(final[0]['Away Team Name'])
+// // //(c) Home Team goals for 2014 world cup final
+// console.log(final2014[0]['Home Team Goals'])
 
-// //(c) Home Team goals for 2014 world cup final
-// console.log(final[0]['Home Team Goals'])
+// // //(d) Away Team goals for 2014 world cup final
+// console.log(final2014[0]['Away Team Goals'])
 
-// //(d) Away Team goals for 2014 world cup final
-// console.log(final[0]['Away Team Goals'])
-
-//(e) Winner of 2014 world cup final */
-// if(final[0]['Home Team Goals'] > final[0]['Away Team Goals']){
-//     console.log(`The winner of the 2014 WC was ${final[0]['Home Team Name']}`)
+// //(e) Winner of 2014 world cup final */
+// if(final2014[0]['Home Team Goals'] > final2014[0]['Away Team Goals']){
+//     console.log(`The winner of the 2014 WC was ${final2014[0]['Home Team Name']}`)
 // } else {
-//     console.log(`The winner of the 2014 WC was ${final[0]['Away Team Name']}`)
+//     console.log(`The winner of the 2014 WC was ${final2014[0]['Away Team Name']}`)
 // }
 
 
@@ -42,7 +40,7 @@ hint - you should be looking at the stage key inside of the objects
 
 const finals = fifaData.filter((x) => x.Stage === 'Final')
 const finalsTeams = finals.map((x) => {
-    return {"Home Team Name": x['Home Team Name'], "Away Team Name": x['Away Team Name']}
+    return {"Home Team": x['Home Team Name'], "Away Team": x['Away Team Name']}
 })
 
 // console.log(finalsTeams)
@@ -53,18 +51,22 @@ function getFinals(finalsTeams) {
 }
 
 
-
-
-
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use the higher-order function called getYears to do the following: 
 1. Receive an array
 2. Receive a callback function getFinals from task 2 
 3. Return an array called years containing all of the years in the getFinals data set*/
 
-function getYears(/* code here */) {
-    /* code here */
-}
+function getYears(fifaData) {
+    const years = fifaData.map((x) => x.Year);
+    const unique = (value, index, self) => {
+    return self.indexOf(value) === index
+  };
+    const uniqueYears = years.filter(unique)
+    return uniqueYears;
+};
+
+
 
 
 
@@ -75,8 +77,16 @@ Use the higher-order function getWinners to do the following:
 3. Determines the winner (home or away) of each `finals` game. 
 4. Returns the names of all winning countries in an array called `winners` */ 
 
-function getWinners(/* code here */) {
-    /* code here */
+function getWinners(finals) {
+    const finalsWinner = finals.map(function(x){
+        if(x['Home Team Goals'] > x['Away Team Goals']) {
+            return x['Home Team Name']
+        } else {
+            return x['Away Team Name']
+        }
+    });
+
+    return finalsWinner;
 }
 
 
@@ -90,10 +100,33 @@ Use the higher-order function getWinnersByYear to do the following:
 
 hint: the strings returned need to exactly match the string in step 4.
  */
+const finalsWinnerByYear = finals.map(function(x){
+    if(x['Home Team Goals'] > x['Away Team Goals']) {
+        return {'Winner': x['Home Team Name'], 'Year': x['Year']}
+    } else {
+        return {'Winner': x['Away Team Name'], 'Year': x['Year']}
+    }
+});
+// for (let i = 0; i < finalsWinnerByYear.length; i++){
+//     console.log(`In ${finalsWinnerByYear[i]['Year']}, ${finalsWinnerByYear[i]['Winner']} won the world cup!`)
+// }
 
-function getWinnersByYear(/* code here */) {
-    /* code here */
+
+
+function getWinnersByYear(finals) {
+    const finalsWinnerByYear = finals.map(function(x){
+        if(x['Home Team Goals'] > x['Away Team Goals']) {
+            return {'Winner': x['Home Team Name'], 'Year': x['Year']}
+        } else {
+            return {'Winner': x['Away Team Name'], 'Year': x['Year']}
+        }
+    });
+    
+        
 }
+
+console.log(getWinnersByYear(finals))
+
 
 
 
