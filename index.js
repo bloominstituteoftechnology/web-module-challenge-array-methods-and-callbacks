@@ -4,25 +4,36 @@ import { fifaData } from './fifa.js';
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 1: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Practice accessing data by console.log-ing the following pieces of data note, you may want to filter the data first 😉*/
+let finals2014 = [];
+
+function theFinal(oneYear) {
+	finals2014 = oneYear.filter(
+		fifaData => fifaData.Year === 2014 && fifaData.Stage === 'Final'
+	);
+	return finals2014;
+}
+
+finals2014 = theFinal(fifaData);
 
 //(a) Home Team name for 2014 world cup final
-let theFinal = fifaData.filter(function (arr) {
-	arr.Year === 2014 && arr.Stage === 'Final';
-});
-
-console.log(theFinal['Home Team Name']);
+const homeTeam2014 = finals2014.map(data => data['Home Team Name']);
+console.log(homeTeam2014);
 
 //(b) Away Team name for 2014 world cup final
-console.log(theFinal['Away Team Name']);
+const awayTeam2014 = finals2014.map(data => data['Away Team Name']);
+console.log(awayTeam2014);
 
 //(c) Home Team goals for 2014 world cup final
-console.log(theFinal['Home Team Goals']);
+const homeGoals2014 = finals2014.map(data => data['Home Team Goals']);
+console.log(homeGoals2014);
 
 //(d) Away Team goals for 2014 world cup final
-console.log(theFinal['Away Team Goals']);
+const awayGoals2014 = finals2014.map(data => data['Away Team Goals']);
+console.log(awayGoals2014);
 
 //(e) Winner of 2014 world cup final */
-console.log(theFinal['Win conditions']);
+const winner2014 = finals2014.map(data => data['Win conditions']);
+console.log(winner2014);
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Use getFinals to do the following:
@@ -43,8 +54,12 @@ Use the higher-order function called getYears to do the following:
 2. Receive a callback function getFinals from task 2 
 3. Return an array called years containing all of the years in the getFinals data set*/
 
-function getYears(/* code here */) {
-	/* code here */
+function getYears(anArray, callback) {
+	let years;
+
+	years = callback(anArray);
+
+	return years.map(a => a.Year);
 }
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
