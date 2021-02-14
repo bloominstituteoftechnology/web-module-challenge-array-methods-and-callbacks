@@ -105,16 +105,24 @@ Use the higher-order function getWinnersByYear to do the following:
 hint: the strings returned need to exactly match the string in step 4.
  */
 
+// function getWinnersByYear(fifaData, getYears, getWinners) {
+// 	const array = [];
+// 	for (let i = 0; i < fifaData.length; i++) {
+// 		array.push(
+// 			`In ${getYears(fifaData, getFinals)[i]}, ${
+// 				getWinners(fifaData, getFinals)[i]
+// 			} won the world cup!`,
+// 		);
+// 	}
+// 	return array;
+// }
+
 function getWinnersByYear(fifaData, getYears, getWinners) {
-	const array = [];
-	for (let i = 0; i < fifaData.length; i++) {
-		array.push(
-			`In ${getYears(fifaData, getFinals)[i]}, ${
-				getWinners(fifaData, getFinals)[i]
-			} won the world cup!`,
-		);
-	}
-	return array;
+	return fifaData.map((data, i) => {
+		return `In ${getYears(fifaData, getFinals)[i]}, ${
+			getWinners(fifaData, getFinals)[i]
+		} won the world cup!`;
+	});
 }
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
