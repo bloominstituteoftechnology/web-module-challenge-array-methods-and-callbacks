@@ -5,16 +5,49 @@ import { fifaData } from './fifa.js';
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 1: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Practice accessing data by console.log-ing the following pieces of data note, you may want to filter the data first 😉*/
 
+
 //(a) Home Team name for 2014 world cup final
+
+var finals = fifaData.filter((item)=> {
+    return item.Year == 2014 && item.Stage == "Final";
+});
+finals;
+console.log(finals[0]["Home Team name"]);
+
 
 //(b) Away Team name for 2014 world cup final
 
+var finals = fifaData.filter((item)=> {
+    return item.Year == 2014 && item.Stage == "Final";
+});
+finals;
+console.log(finals[0]["Away Team name"]);
+
+
 //(c) Home Team goals for 2014 world cup final
+
+var finals = fifaData.filter((item)=> {
+    return item.Year == 2014 && item.Stage == "Final";
+});
+finals;
+console.log(finals[0]["Home Team goals"]);
 
 //(d) Away Team goals for 2014 world cup final
 
+var finals = fifaData.filter((item)=> {
+    return item.Year == 2014 && item.Stage == "Final";
+});
+finals;
+console.log(finals[0]["Away Team goals"]);
+
+
 //(e) Winner of 2014 world cup final */
 
+var finals = fifaData.filter((item)=> {
+    return item.Year == 2014 && item.Stage == "Final";
+});
+finals;
+console.log(finals[0]['Win conditions']);
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Use getFinals to do the following:
@@ -24,9 +57,13 @@ Use getFinals to do the following:
 hint - you should be looking at the stage key inside of the objects
 */
 
-function getFinals(/* code here */) {
-   /* code here */
-}
+function getFinals(fifaData) {
+    finals = fifaData.filter(function (item) {
+        return item.Stage == "Final";
+    });
+    return finals;
+  }
+  console.log(fifaData.Stage);
 
 
 
