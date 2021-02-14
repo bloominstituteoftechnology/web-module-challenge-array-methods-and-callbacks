@@ -103,6 +103,7 @@ function getWinners(finals) {
       }
       return winningTeam;
     });
+}
    console.log(fifaData,getFinals,winningTeam);
 
 
