@@ -7,6 +7,7 @@ Practice accessing data by console.log-ing the following pieces of data note, yo
 
 //(a) Home Team name for 2014 world cup final
 
+/* 
 function homeTeams(fifaData) {
 	let array = [];
 	for (let i = 0; i < fifaData.length; i++) {
@@ -16,47 +17,44 @@ function homeTeams(fifaData) {
 	}
 	console.log(array);
 }
+*/
+
+function homeTeams(fifaData) {
+	const array = [];
+	fifaData.filter((data) => data.Stage === Final && data.Year === 2014);
+	array.push(data["Home Team Name"]);
+	console.log(array);
+}
 
 //(b) Away Team name for 2014 world cup final
+
 function awayTeams(fifaData) {
-	let array = [];
-	for (let i = 0; i < fifaData.length; i++) {
-		if (fifaData[i].Year === 2014 && fifaData[i].Stage === Final) {
-			array.push(fifaData[i]["Away Team Name"]);
-		}
-	}
+	const array = [];
+	fifaData.filter((data) => data.Stage === Final && data.Year === 2014);
+	array.push(data["Away Team Name"]);
 	console.log(array);
 }
 
 //(c) Home Team goals for 2014 world cup final
 function homeTeamGoals(fifaData) {
-	let array = [];
-	for (let i = 0; i < fifaData.length; i++) {
-		if (fifaData[i].Year === 2014 && fifaData[i].Stage === Final) {
-			array.push(fifaData[i]["Home Team Goals"]);
-		}
-	}
+	const array = [];
+	fifaData.filter((data) => data.Stage === Final && data.Year === 2014);
+	array.push(data["Home Team Goals"]);
 	console.log(array);
 }
 
 //(d) Away Team goals for 2014 world cup final
 function awayTeamGoals(fifaData) {
-	let array = [];
-	for (let i = 0; i < fifaData.length; i++) {
-		if (fifaData[i].Year === 2014 && fifaData[i].Stage === Final) {
-			array.push(fifaData[i]["Away Team Goals"]);
-		}
-	}
+	const array = [];
+	fifaData.filter((data) => data.Stage === Final && data.Year === 2014);
+	array.push(data["Away Team Goals"]);
 	console.log(array);
 }
 //(e) Winner of 2014 world cup final */
 function winner(fifaData) {
-	let array = [];
-	for (let i = 0; i < fifaData.length; i++) {
-		if (fifaData[i].Year === 2014 && fifaData[i].Stage === Final) {
-			array.push(fifaData[i]["Win Conditions"]);
-		}
-	}
+	const array = [];
+	fifaData.filter((data) => data.Stage === Final && data.Year === 2014);
+	array.push(data["Win Conditions"]);
 	console.log(array);
 }
 
@@ -108,11 +106,15 @@ hint: the strings returned need to exactly match the string in step 4.
  */
 
 function getWinnersByYear(fifaData, getYears, getWinners) {
-	const string = `In ${year}, ${country} won the world cup!`;
-	const year = getYears(fifaData, getFinals(fifaData));
-	const country = getWinners(fifaData, getFinals(fifaData));
-
 	const array = [];
+	for (let i = 0; i < fifaData.length; i++) {
+		array.push(
+			`In ${getYears(fifaData, getFinals)[i]}, ${
+				getWinners(fifaData, getFinals)[i]
+			} won the world cup!`,
+		);
+	}
+	return array;
 }
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
