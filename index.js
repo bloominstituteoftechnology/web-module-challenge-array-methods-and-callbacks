@@ -107,9 +107,9 @@ const finalsWinnerByYear = finals.map(function(x){
         return {'Winner': x['Away Team Name'], 'Year': x['Year']}
     }
 });
-for (let i = 0; i < finalsWinnerByYear.length; i++){
-    console.log(`In ${finalsWinnerByYear[i]['Year']}, ${finalsWinnerByYear[i]['Winner']} won the world cup!`)
-}
+// for (let i = 0; i < finalsWinnerByYear.length; i++){
+//     console.log(`In ${finalsWinnerByYear[i]['Year']}, ${finalsWinnerByYear[i]['Winner']} won the world cup!`)
+// }
 
 
 
@@ -143,9 +143,36 @@ Use the higher order function getAverageGoals to do the following:
  Example of invocation: getAverageGoals(getFinals(fifaData));
 */
 
-function getAverageGoals(/* code here */) {
-   /* code here */
+
+
+let homeTeamGoals = [];
+for (let i = 0; i < finals.length; i++) {
+    homeTeamGoals.push(finals[i]['Home Team Goals'])
 }
+
+let awayTeamGoals = [];
+for (let i = 0; i < finals.length; i++) {
+    awayTeamGoals.push(finals[i]['Away Team Goals'])
+}
+    
+const reducer = (acc, current) => acc + current;
+function getAvgGoals(array, reducerCode) {
+    return (array.reduce(reducerCode)) / (array.length)
+  }
+
+const homeAvg = getAvgGoals(homeTeamGoals, reducer)
+const awawyAvg = getAvgGoals(awayTeamGoals, reducer)
+
+console.log(homeAvg)
+console.log(awawyAvg)
+ 
+
+function getAverageGoals(homeAvg, awawyAvg) {
+    return homeAvg + awawyAvg
+};
+
+console.log(getAverageGoals(homeAvg, awawyAvg))
+
 
 
 
