@@ -79,7 +79,7 @@ Use the higher-order function getWinners to do the following:
 3. Determines the winner (home or away) of each `finals` game. 
 4. Returns the names of all winning countries in an array called `winners` */ 
 
-const getWinners = (array1, cb) => {
+    const getWinners = (array1, cb) => {
     let winners = [];
     let finalTeams = cb(array1);
  
@@ -107,7 +107,7 @@ Use the higher-order function getWinnersByYear to do the following:
 hint: the strings returned need to exactly match the string in step 4.
  */
 
-function getWinnersByYear(anArray, cb1, cb2) {
+    const getWinnersByYear = (anArray, cb1, cb2)=> {
     let year = cb1(anArray, getFinals);
     let country = cb2(anArray, getFinals);
     let winners = [];
