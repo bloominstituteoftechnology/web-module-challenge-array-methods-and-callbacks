@@ -115,12 +115,11 @@ Use the higher order function getAverageGoals to do the following:
 */
 
 function getAverageGoals(callback) {
-	let newArray = parseFloat(callback.map(callback => callback['Home Team Goals'] && callback['Away Team Goals']) / callback.length).toFixed(2);
+	let subArray = callback.map(callback => callback['Home Team Goals'] && callback['Away Team Goals']);
+	let newArray = (subArray.reduce((a, b) => a + b) + subArray.reduce((a, b) => a + b)) / subArray.length;
 
 	return newArray;
 }
-
-console.log(getAverageGoals(fifaData));
 
 /// 🥅 STRETCH 🥅 ///
 
