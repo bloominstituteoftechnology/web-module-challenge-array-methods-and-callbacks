@@ -23,11 +23,17 @@ Use getFinals to do the following:
 
 hint - you should be looking at the stage key inside of the objects
 */
+// function getFinals(/* code */) {
+//     /* code */
+// }
 
-function getFinals(/* code here */) {
-   /* code here */
+function getFinals(ary) {
+    let result = ary.filter(item => item.Stage = "Final");
+    return result;
 }
 
+getFinals(fifaData);
+// console.log(getFinals(fifaData));
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -40,18 +46,36 @@ function getYears(/* code here */) {
     /* code here */
 }
 
+// function getYears(ary, callback) {
+//     let aryitems = [];
+//     if (for )
+//         callback.forEach(yearsNum => aryitems.map)
 
+//     const years = 
+//     return years;
+
+// }
+
+// console.log(getYears(fifaData, getFinals));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use the higher-order function getWinners to do the following:  
 1. Receives an array
 2. Receives the callback function getFinals from task 2 
 3. Determines the winner (home or away) of each `finals` game. 
-4. Returns the names of all winning countries in an array called `winners` */ 
+4. Returns the names of all winning countries in an array called `winners` */
 
-function getWinners(/* code here */) {
-    /* code here */
+
+function getWinners(/**  */) {
+    /**  */
 }
+
+// function getWinners(ary, callback) {
+//     callback.map(item => "Home Team Goals" > "Away Team Goals");
+//     return "Home Team Name"
+// }
+
+// getWinners(fifaData, getFinals);
 
 
 
@@ -82,7 +106,7 @@ Use the higher order function getAverageGoals to do the following:
 */
 
 function getAverageGoals(/* code here */) {
-   /* code here */
+    /* code here */
 }
 
 
@@ -128,11 +152,11 @@ function badDefense(/* code here */) {
 
 
 /* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑 */
-function foo(){
+function foo() {
     console.log('its working');
     return 'bar';
 }
-export default{
+export default {
     foo,
     getFinals,
     getYears,
