@@ -75,9 +75,18 @@ Use the higher-order function getWinnersByYear to do the following:
 hint: the strings returned need to exactly match the string in step 4.
  */
 
-function getWinnersByYear( /* code here */ ) {
-    /* code here */
+function getWinnersByYear(fifaData, getYears, getWinners) {
+    const winnersByYear = [];
+    const winners = getWinners(fifaData, getYears(getFinals(fifaData)));
+    const years = (getYears(getFinals(fifaData)));
+    years.forEach((year, i) => winnersByYear.push(`In ${year}, ${winners[i]} won the world cup!`))
+    return winnersByYear;
 }
+
+function getWinnersMuchFaster(data, cb) {
+    return cb(data).map(year => `In ${year.Year}, ${year['Home Team Goals'] > year['Away Team Goals'] ? year['Home Team Name'] : year['Away Team Name']} won the world cup!`);
+}
+console.log(getWinnersMuchFaster(fifaData, getFinals));
 
 
 
