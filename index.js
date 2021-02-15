@@ -31,7 +31,6 @@ function getFinals(arr) {
     return finalTeams
 }
 
-
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use the higher-order function called getYears to do the following: 
 1. Receive an array
@@ -44,8 +43,6 @@ function getYears(arr, cb) {
     })
     return finalYears
 }
-
-
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use the higher-order function getWinners to do the following:  
@@ -67,8 +64,6 @@ function getWinners(arr, cb) {
     return winners
 }
 
-
-
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Use the higher-order function getWinnersByYear to do the following:
 1. Receive an array
@@ -79,17 +74,15 @@ Use the higher-order function getWinnersByYear to do the following:
 hint: the strings returned need to exactly match the string in step 4.
  */
 
-function getWinnersByYear(arr, cbYears, cbWinners) {
+function getWinnersByYear(arr, cbYears, cbWinners, cbFinal) {
     let stringArray = []
-    let years = cbYears(arr, getFinals)
-    let winners = cbWinners(arr, getFinals)
-    for (let i in years) {
-        stringArray.push(`In ${years[i]}, ${winners[i]} won the world cup!`)
+    cbYears(arr, cbFinal)
+    cbWinners(arr, cbFinal)
+    for (let i in cbYears(arr, cbFinal)) {
+        stringArray.push(`In ${cbYears(arr, cbFinal)[i]}, ${cbWinners(arr, cbFinal)[i]} won the world cup!`)
     }
     return stringArray
 }
-
-
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use the higher order function getAverageGoals to do the following: 
@@ -110,9 +103,6 @@ function getAverageGoals(cbFinals) {
     }, 0)
     return ((homeGoals / cbFinals.length) + (awayGoals / cbFinals.length)).toFixed(2)
 }
-
-
-
 
 /// 🥅 STRETCH 🥅 ///
 
