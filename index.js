@@ -103,6 +103,8 @@ function getWinners(finals) {
       }
       return winningTeam;
     });
+
+    return winners;
 }
    console.log(fifaData,getFinals,winningTeam);
 
@@ -118,12 +120,24 @@ Use the higher-order function getWinnersByYear to do the following:
 hint: the strings returned need to exactly match the string in step 4.
  */
 
-function getWinnersByYear(/* code here */) {
-    /* code here */
+function getWinnersByYear(years, winners) {
+    let winnersByYear = [];
+
+
+    for(let i = 0; i < years.length; i++) {
+      let winner = `In ${years[i]}, ${winners[i]} won the world cup!`;
+      winnersByYear.push(winner);
+    }
+    return winnersByYear;
 }
 
 
+console.log(getWinnersByYear(getYears(fifaData, getFinals), getWinners(fifaData, getFinals)));
 
+
+
+
+q
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use the higher order function getAverageGoals to do the following: 
  1. Receive the callback function getFinals from task 2 ensure you pass in the data as an argument
@@ -134,11 +148,19 @@ Use the higher order function getAverageGoals to do the following:
  Example of invocation: getAverageGoals(getFinals(fifaData));
 */
 
-function getAverageGoals(/* code here */) {
-   /* code here */
-}
-
-
+function getAverageGoals(finals) {
+    let goalsPerMatch = finals.map(function(item){
+      let homeGoals = item['Home Team Goals'];
+      let awayGoals = item['Away Team Goals'];
+      return homeGoals + awayGoals;
+    });
+ 
+ 
+    let totalGoals = goalsPerMatch.reduce((total, goals) => total + goals);
+    return (totalGoals / goalsPerMatch.length).toFixed(2);
+ }
+ console.log(getAverageGoals(getFinals(fifaData)));
+ 
 
 
 /// 🥅 STRETCH 🥅 ///
