@@ -115,10 +115,11 @@ Use the higher order function getAverageGoals to do the following:
 */
 
 function getAverageGoals(callback) {
-	let subArray = callback.map(callback => callback['Home Team Goals'] && callback['Away Team Goals']);
-	let newArray = (subArray.reduce((a, b) => a + b) + subArray.reduce((a, b) => a + b)) / subArray.length;
+	let homeArray = callback.map(callback => callback['Home Team Goals']);
+	let awayArray = callback.map(callback => callback['Away Team Goals']);
+	let subArray = homeArray.reduce((a, b) => a + b, 0) + awayArray.reduce((a, b) => a + b, 0);
 
-	return newArray;
+	return parseFloat(subArray / callback.length).toFixed(2);
 }
 
 /// 🥅 STRETCH 🥅 ///
