@@ -129,7 +129,7 @@ Use the higher order function getAverageGoals to do the following:
  Example of invocation: getAverageGoals(getFinals(fifaData));
 */
 
-function getAverageGoals(cb) {
+    const getAverageGoals = (cb)=> {
     let homeAverage = cb.reduce(function (acc, item) {
         return acc + item['Home Team Goals'];
       }, 0);
