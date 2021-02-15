@@ -53,7 +53,7 @@ Use the higher-order function getWinners to do the following:
 
 function getWinners(arr, cb) {
     let winners = []
-    cb(arr)
+    // cb(arr)
     for (let i in cb(arr)) {
         if (cb(arr)[i]["Home Team Goals"] > cb(arr)[i]["Away Team Goals"]) {
             winners.push(cb(arr)[i]["Home Team Name"])
@@ -76,8 +76,8 @@ hint: the strings returned need to exactly match the string in step 4.
 
 function getWinnersByYear(arr, cbYears, cbWinners, cbFinal) {
     let stringArray = []
-    cbYears(arr, cbFinal)
-    cbWinners(arr, cbFinal)
+    // cbYears(arr, cbFinal)
+    // cbWinners(arr, cbFinal)
     for (let i in cbYears(arr, cbFinal)) {
         stringArray.push(`In ${cbYears(arr, cbFinal)[i]}, ${cbWinners(arr, cbFinal)[i]} won the world cup!`)
     }
