@@ -7,8 +7,8 @@ Practice accessing data by console.log-ing the following pieces of data note, yo
 
 // (a) Home Team name for 2014 world cup final
 
-let homeTeam = fifaData.filter(function (boo) {
- if(boo.Stage === 'Final' && boo.Year === 2014){
+let homeTeam = fifaData.filter(function (item) {
+ if(item.Stage === 'Final' && item.Year === 2014){
      console.log(item["Home Team Name"])
  }
   
@@ -17,29 +17,39 @@ let homeTeam = fifaData.filter(function (boo) {
  
   //(b) Away Team name for 2014 world cup final
 
-  let awayName = fifaData.filter(function (item) {
-    return item.Stage === 'Final' && item.Year === 2014;
-  });
-  console.log(awayName)
+
+  let awayTeam = fifaData.filter(function (boo) {
+    if(boo.Stage === 'Final' && boo.Year === 2014){
+        console.log(boo["Away Team Name"])
+    }
+     
+     });
+     console.log(awayTeam )
 
   //(c) Home Team goals for 2014 world cup final
 
   let homeGoals = fifaData.filter(function (item) {
-    return item.Stage === 'Final' && item.Year === 2014;
+    if (item.Stage === 'Final' && item.Year === 2014){
+     console.log(item["Home Team Goals"])
+    }
   });
   console.log(homeGoals)
 
   //(d) Away Team goals for 2014 world cup final
 
   let awayGoals = fifaData.filter(function (item) {
-    return item.Stage === 'Final' && item.Year === 2014;
+    if(item.Stage === 'Final' && item.Year === 2014){
+        console.log(item["Away Team Goals"])
+    }
   });
  console.log(awayGoals)
 
   //(e) Winner of 2014 world cup final */
 
   let winner = fifaData.filter(function (item) {
-    return item.Stage === 'Final' && item.Year === 2014;
+    if(item.Stage === 'Final' && item.Year === 2014){
+        console.log(item[""])
+    }
   });
  console.log(winner)
 
@@ -58,12 +68,15 @@ hint - you should be looking at the stage key inside of the objects
 */
 
    const getFinals = (fifaData) => {
-   let finalTeam = fifaData.filter(function (item){
-       return item.stage === "final";
+   let finalTeam = fifaData.map(function (item){
+       if(item.Stage === "Final"){
+           return item.Stage
+       };
+       return finalTeam;
    })
 
-console.log(finalTeam)
-}
+
+   }
 
 
 
