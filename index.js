@@ -62,7 +62,7 @@ function getWinners(getArray, callbackFunc) {
         } else if(item["Home Team Goals"] < item["Away Team Goals"]) {
             return item["Away Team Name"]
         } else {
-            return "its a Tie!"
+            return "Tie"
         }
     })
     return winners;
@@ -79,13 +79,16 @@ Use the higher-order function getWinnersByYear to do the following:
 
 hint: the strings returned need to exactly match the string in step 4.
  */
+function getWinnersByYear(anArr, cbYears, cbWinners) {
+    let fifaYears = cbYears(anArr);
+    let theWinners = cbWinners(anArr);
+    let gameWON = [];
 
-function getWinnersByYear(anArr, cbOne, cbTwo) {
-    
+    for(let i = 0; i < theWinners.length; i++) {
+        if(theWinners[i] != "Tie!") gameWON.push(`In${fifaYears[i]}, ${theWinners[i]} won the World Cup!`)
+    }
+    return gameWON;
 }
-
-
-
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use the higher order function getAverageGoals to do the following: 
  1. Receive the callback function getFinals from task 2 ensure you pass in the data as an argument
@@ -96,10 +99,9 @@ Use the higher order function getAverageGoals to do the following:
  Example of invocation: getAverageGoals(getFinals(fifaData));
 */
 
-function getAverageGoals(/* code here */) {
-   /* code here */
+function getAverageGoals(array) {
 }
-
+ 
 
 
 
