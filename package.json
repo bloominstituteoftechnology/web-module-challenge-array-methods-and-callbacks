@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "## Advanced JavaScript",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "jest",
     "test:watch": "jest --verbose --watchAll"
@@ -24,5 +25,8 @@
     "babel-jest": "^26.3.0",
     "eslint": "^7.10.0",
     "jest": "^26.4.2"
+  },
+  "dependencies": {
+    "milsymbol": "^2.0.0"
   }
 }
