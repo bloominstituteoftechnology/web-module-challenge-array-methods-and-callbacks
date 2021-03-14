@@ -88,7 +88,7 @@ let getAverageGoals = (arrCB) => {
         return accumulator + data["Home Team Goals"] + data["Away Team Goals"];
     },0)
     return (total/ arrCB.length).toFixed(2);
- }
+ } 
 
 /// 🥅 STRETCH 🥅 ///
 
