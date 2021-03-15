@@ -6,8 +6,10 @@ import { fifaData } from './fifa.js';
 Practice accessing data by console.log-ing the following pieces of data note, you may want to filter the data first 😉*/
 
 //(a) Home Team name for 2014 world cup final
-const homeTeam2014 = fifaData.filter(x=>x.Year === 2014).filter(x=>x.Stage === 'Final')[0]['Home Team Name'];
+const homeTeam2014 = fifaData.filter(x=>x.Year === 2014 && x.Stage === 'Final')[0]['Home Team Name'];
 console.log(homeTeam2014);
+
+
 //(b) Away Team name for 2014 world cup final
 const awayTeam2014 = fifaData.filter(x=>x.Year === 2014).filter(x=>x.Stage === 'Final')[0]['Away Team Name'];
 console.log(awayTeam2014);
@@ -35,7 +37,7 @@ hint - you should be looking at the stage key inside of the objects
 function getFinals(data) {
     return data.filter(x => x.Stage === 'Final');
 }
-console.log(getFinals(fifaData));
+console.log("Task 2:", getFinals(fifaData));
 
 
 
@@ -46,10 +48,11 @@ Use the higher-order function called getYears to do the following:
 3. Return an array called years containing all of the years in the getFinals data set*/
 
 function getYears(arr, cb) {
-    let years = cb(arr).filter(x => x.Year)
+    let years = cb(arr).map(x => x.Year);
+    return years;
 }
 
-console.log(getYears(fifaData, getFinals(data)));
+console.log("Task 3: ", getYears(fifaData, getFinals));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use the higher-order function getWinners to do the following:  
@@ -58,10 +61,22 @@ Use the higher-order function getWinners to do the following:
 3. Determines the winner (home or away) of each `finals` game. 
 4. Returns the names of all winning countries in an array called `winners` */ 
 
-function getWinners(/* code here */) {
-    /* code here */
-}
+function getWinners(arr, cb) {
+    let winners = [];
+    let homeTeamScores = cb(arr).map(x => x['Home Team Goals'])
+    let awayTeamScores = cb(arr).map(x => x['Away Team Goals'])
+    let homeTeamNames = cb(arr).map(x => x['Home Team Name'])
+    let awayTeamNames = cb(arr).map(x => x['Away Team Name'])
 
+    test = cb(arr).filter(x => {
+        x['Home Team Goals'] > x['Away Team Goals'] ? winners.push(x['Home Team Name'] : winners.push(x['Away Team Name']))
+    })
+
+    
+    
+    
+};
+console.log("Task 4", getWinners(fifaData, getFinals))
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
