@@ -125,15 +125,23 @@ Use the higher-order function getWinnersByYear to do the following:
 hint: the strings returned need to exactly match the string in step 4.
  */
 
-function getWinnersByYear(arr, cb, cbWinner) {
-    /* code here */
-    // const cupWinner = cbWinner(arr);
-    // const cupYear = cb(arr);
+function getWinnersByYear(arr, cbYear, cbWinner) {
+  /* code here */
+ const cupYear = cbYear(arr).map((data) => {
+   return data
+ })
+ // return cupYear 
+ 
+ const cupWinner = cbWinner(arr).map((data) => {
+   return data
+ })
+ 
+ // return cupWinner
 
-    // return `In ${cupYear}, ${cupWinner} won the world cup!`
+Return `In ${cupYear}, ${cupWinner} won the world cup!`
 }
 
-// getWinnersByYear(fifaData, getYears, getWinners)
+getWinnersByYear(fifaData, getYears, getWinners);
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
