@@ -44,12 +44,14 @@ Use the higher-order function called getYears to do the following:
 3. Return an array called years containing all of the years in the getFinals data set*/
 
 function getYears (arr,cb){
-    let data = arr.filter((cb)=>{
-        return cb.Year
-    });
-    return data
+    const years = []
+
+    cb(arr).filter((item)=>{
+        years.push(item.Year)
+    })
+    return years
 }
-getYears(fifaData,getYears);
+getYears(fifaData,getFinals);
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use the higher-order function getWinners to do the following:  
@@ -71,7 +73,7 @@ function getWinners(array,cb) {
        return winners
    }
     
-getWinners(fifaData,getFinals)
+console.log(getWinners(fifaData,getFinals))
 
 
 
@@ -86,15 +88,9 @@ hint: the strings returned need to exactly match the string in step 4.
  */
 
 function getWinnersByYear(array, callback, cb) {
-    let winnerName = cb(array)
     
-
-
-    let yearArray = yearsPlayed.map ((item)=>{return item})
-    let nameArray = winnerName.map ((item)=>{return item})
+getWinnersByYear(fifaData,getYears,getWinners)
 }
-getWinnersByYear(fifaData,getWinners,getYears)
-
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use the higher order function getAverageGoals to do the following: 
