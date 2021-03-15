@@ -5,20 +5,20 @@ import { fifaData } from './fifa.js';
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 1: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Practice accessing data by console.log-ing the following pieces of data note, you may want to filter the data first 😉*/
-let Final = fifaData.filter(function (Home) {
+let final = fifaData.filter(function (Home) {
     return Home.Year == 2014 && Home.Stage == "Final";
 });
 
 //(a) Home Team name for 2014 world cup final
-console.log(Final[0]["Home Team Name"])
+console.log(final[0]["Home Team Name"])
 //(b) Away Team name for 2014 world cup final
-console.log(Final[0]["Away Team Name"])
+console.log(final[0]["Away Team Name"])
 //(c) Home Team goals for 2014 world cup final
-console.log(Final[0]["Home Team Goals"])
+console.log(final[0]["Home Team Goals"])
 //(d) Away Team goals for 2014 world cup final
-console.log(Final[0]["Away Team Goals"])
+console.log(final[0]["Away Team Goals"])
 //(e) Winner of 2014 world cup final */
-console.log(Final[0]["Win conditions"])
+console.log(final[0]["Win conditions"])
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Use getFinals to do the following:
@@ -89,7 +89,7 @@ hint: the strings returned need to exactly match the string in step 4.
 
 function getWinnersByYear(array, callback, cb) {
     let winnerName = cb(array)
-    let yearsPlayed = callback(array)
+    
 
 
     let yearArray = yearsPlayed.map ((item)=>{return item})
