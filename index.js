@@ -43,10 +43,9 @@ Use the higher-order function called getYears to do the following:
 2. Receive a callback function getFinals from task 2 
 3. Return an array called years containing all of the years in the getFinals data set*/
 
-function getYears (arr,cb){
+function getYears(arr,cb){
     const years = []
-
-    cb(arr).filter((item)=>{
+        cb(arr).filter((item)=>{
         years.push(item.Year)
     })
     return years
@@ -60,18 +59,20 @@ Use the higher-order function getWinners to do the following:
 3. Determines the winner (home or away) of each `finals` game. 
 4. Returns the names of all winning countries in an array called `winners` */ 
 
-function getWinners(array,cb) {
-   let teamWinner = cb(array)
+function getWinners(arr,cb) {
+   let teamWinner = []
 
-   let winners = teamWinner.map ((teamName)=>{
-        if(teamName['Home Team Goals'] > teamName['Away Team Goals']){
-            return teamName['Home Team Name']
-        }else {
-            return teamName['Away Team Name']
-        }      
-       })
-       return winners
-   }
+  cb(arr).filter((item)=>{
+       if(item["Home Team Goals"] > item["Away Team Goals"]){
+           teamWinner.push(item["Home Team Name"]);
+
+       } else if(item["Home Team Goals"] < item["Away Team Goals"]);{
+               teamWinner.push(item["Away Team Name"])
+       }
+       
+   }) 
+return teamWinner
+}
     
 console.log(getWinners(fifaData,getFinals))
 
@@ -87,10 +88,18 @@ Use the higher-order function getWinnersByYear to do the following:
 hint: the strings returned need to exactly match the string in step 4.
  */
 
-function getWinnersByYear(array, callback, cb) {
-    
-getWinnersByYear(fifaData,getYears,getWinners)
+function getWinnersByYear(fifaData, getYears, getWinners) {
+    /* code here */
+    let year = getYears(fifaData);
+    let winners = getWinners(fifaData);
+    let newArray=[];
+    for(let i=0;i< winners.length; i++){
+        newArray.push(`In ${year[i]}, ${winners[i]} won the world cup!` )
+    }
+    return newArray;
 }
+getWinnersByYear(fifaData,getYears,getWinners)
+
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use the higher order function getAverageGoals to do the following: 
