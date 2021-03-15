@@ -24,10 +24,30 @@ Use getFinals to do the following:
 hint - you should be looking at the stage key inside of the objects
 */
 
-function getFinals(/* code here */) {
-   /* code here */
-}
+function getFinals(finalstage) {
+    var finalobj=[];
+    var element={};
+   for(let i = 0; i < finalstage.length; i++) {
+      
+    if(finalstage[i].Stage=="Final")
+    {
+        element={};
+        element.Year=finalstage[i].Year;
+        element.Stage=finalstage[i].Stage;
+        element.Datetime=finalstage[i].Datetime;
+        element.City=finalstage[i].City;
+        element["Home Team Name"]=finalstage[i]["Home Team Name"];
+        element["Away Team Name"]=finalstage[i]["Away Team Name"];
+        element["Home Team Goals"]=finalstage[i]["Home Team Goals"];
+        element["Away Team Goals"]=finalstage[i]["Away Team Goals"];
+       
+        finalobj.push(element);
+    } 
+   }
 
+  return finalobj;
+}
+//console.log(getFinals(fifaData));
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -36,10 +56,13 @@ Use the higher-order function called getYears to do the following:
 2. Receive a callback function getFinals from task 2 
 3. Return an array called years containing all of the years in the getFinals data set*/
 
-function getYears(/* code here */) {
-    /* code here */
-}
 
+  
+
+function getYears(finaldata,callback) {
+   return callback(finaldata);
+}
+console.log(getYears(fifaData,getFinals));
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -49,9 +72,29 @@ Use the higher-order function getWinners to do the following:
 3. Determines the winner (home or away) of each `finals` game. 
 4. Returns the names of all winning countries in an array called `winners` */ 
 
-function getWinners(/* code here */) {
-    /* code here */
+function getWinners(finaldata,callback) {
+    let winners=[];
+    let winnersfinal=[];
+     winners= callback(finaldata);
+    //console.log(winners);
+    for(let i = 0; i < winners.length; i++) {
+      
+if((winners[i]["Home Team Goals"])>(winners[i]["Away Team Goals"]))
+{
+   
+    winnersfinal.push(winners[i]["Home Team Name"]);
+
 }
+else
+{
+    winnersfinal.push(winners[i]["Away Team Name"]);
+    
+}
+
+    }
+   return winnersfinal;
+}
+console.log(getWinners(fifaData,getFinals));
 
 
 
