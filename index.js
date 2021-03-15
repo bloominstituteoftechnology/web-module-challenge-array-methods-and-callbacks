@@ -130,15 +130,15 @@ function getWinnersByYear(arr, cbYear, cbWinner) {
  const cupYear = cbYear(arr).map((data) => {
    return data
  })
- // return cupYear 
+
  
  const cupWinner = cbWinner(arr).map((data) => {
    return data
  })
  
- // return cupWinner
 
-Return `In ${cupYear}, ${cupWinner} won the world cup!`
+
+return `In ${cupYear}, ${cupWinner} won the world cup!`
 }
 
 getWinnersByYear(fifaData, getYears, getWinners);
@@ -155,12 +155,16 @@ Use the higher order function getAverageGoals to do the following:
 */
 
 function getAverageGoals(cb) {
-   /* code here */
-   const homeTeamAverage = cb().reduce((accum, data) => {
-       return (accum + data['Home Team Goals']) / data.length
-   }, 0)
+  /* code here */
+  const homeTeamAverage = cb.reduce((accum, data) => {
+      return (accum + data['Home Team Goals']) / data.length
+  }, 0)
+  console.log(homeTeamAverage);
+  return homeTeamAverage;
+
 }
 
+console.log(getAverageGoals(getFinals(fifaData)));
 
 
 
