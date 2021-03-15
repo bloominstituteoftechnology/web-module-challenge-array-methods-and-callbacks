@@ -157,7 +157,12 @@ Use the higher order function getAverageGoals to do the following:
 function getAverageGoals(cb) {
   /* code here */
   const homeTeamAverage = cb.reduce((accum, data) => {
-      return (accum + data['Home Team Goals']) / data.length
+    let hTeam = accum + data['Home Team Goals'];
+    let aTeam = accum + data['Away Team Goals'];
+    let length = Object.keys(data).length;
+    // console.log('this is the length', length)
+    return (hTeam + aTeam) / length;
+    
   }, 0)
   console.log(homeTeamAverage);
   return homeTeamAverage;
