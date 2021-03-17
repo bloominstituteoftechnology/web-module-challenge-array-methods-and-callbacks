@@ -7,13 +7,41 @@ Practice accessing data by console.log-ing the following pieces of data note, yo
 
 //(a) Home Team name for 2014 world cup final
 
+const final = fifaData.filter((data) => {
+    return data.Year >= 2014 && data.Stage === "Final";
+ })
+
+let home2014 = final[0]["Home Team Name"];
+console.log("Home Team name for 2014 world cup final: " + home2014);
+
 //(b) Away Team name for 2014 world cup final
+
+let away2014 = final[0]["Away Team Name"];
+console.log("Away Team name for 2014 world cup final: " + away2014);
 
 //(c) Home Team goals for 2014 world cup final
 
+let homeGoals2014 = final[0]["Home Team Goals"];
+console.log("Home Team goals for 2014 world cup final: " + homeGoals2014);
+
 //(d) Away Team goals for 2014 world cup final
 
+let awayGoals2014 = final[0]["Away Team Goals"];
+console.log("Away Team goals for 2014 world cup final: " + awayGoals2014);
+
 //(e) Winner of 2014 world cup final */
+
+function winner2014() {
+    if (homeGoals2014 > awayGoals2014) {
+        return home2014;
+    } else {
+        return away2014;
+    }
+}
+
+let winner = winner2014();
+
+console.log("Winner of 2014 world cup final: " + winner);
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
