@@ -116,7 +116,7 @@ function getWinnersByYear(array, winningYear, winningCountry) {
     for (let i = 0; i < country.length; i++) {
         newArray.push('In ' + year[i] + ', ' + country[i] +  ' won the world cup!');
     }
-    console.log(newArray);
+    // console.log(newArray);
     return newArray;
 }
 
@@ -131,10 +131,13 @@ Use the higher order function getAverageGoals to do the following:
  Example of invocation: getAverageGoals(getFinals(fifaData));
 */
 
-function getAverageGoals(/* code here */) {
-   /* code here */
+function getAverageGoals(func) {
+   let averageGoals = func.reduce((total, data) => {
+       return total + data['Home Team Goals'] + data['Away Team Goals'];
+   }, 0)
+//    console.log(averageGoals / func.length).toFixed(2);
+   return (averageGoals / func.length).toFixed(2);
 }
-
 
 
 
