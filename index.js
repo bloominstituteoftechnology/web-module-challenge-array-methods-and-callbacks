@@ -7,14 +7,41 @@ Practice accessing data by console.log-ing the following pieces of data note, yo
 
 //(a) Home Team name for 2014 world cup final
 
+const HomeTeam = fifaData.filter(function(element){
+    return element.Year === 2014 && element.Stage === "Final";}).map(function(item){
+    return item["Home Team Name"];
+});
+console.log("Task 1a:",HomeTeam);
 //(b) Away Team name for 2014 world cup final
+
+const AwayTeam = fifaData.filter(function(element){
+    return element.Year === 2014 && element.Stage === "Final";}).map(function(item){
+    return item["Away Team Name"];
+});
+console.log("Task 1b:",AwayTeam);
 
 //(c) Home Team goals for 2014 world cup final
 
+const HomeTeamGoals = fifaData.filter(function(element){
+    return element.Year === 2014 && element.Stage === "Final";}).map(function(item){
+    return item["Home Team Goals"];
+});
+console.log("Task 1c:",HomeTeamGoals);
+
 //(d) Away Team goals for 2014 world cup final
 
-//(e) Winner of 2014 world cup final */
+const AwayTeamGoals = fifaData.filter(function(element){
+    return element.Year === 2014 && element.Stage === "Final";}).map(function(item){
+    return item["Away Team Goals"];
+});
+console.log("Task 1d:",AwayTeamGoals);
 
+//(e) Winner of 2014 world cup final */
+const Winner = fifaData.filter(function(element){
+    return element.Year === 2014 && element.Stage === "Final";}).map(function(item){
+    return item["Win conditions"];
+});
+console.log("Task 1e:",Winner);
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Use getFinals to do the following:
