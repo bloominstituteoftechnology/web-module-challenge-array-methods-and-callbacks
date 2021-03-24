@@ -144,12 +144,24 @@ Use the higher order function getAverageGoals to do the following:
  Example of invocation: getAverageGoals(getFinals(fifaData));
 */
 
-function getAverageGoals(/* code here */) {
+function getAverageGoals(getFinalsCB) {
    /* code here */
+   
+   let home = getFinalsCB(fifaData).reduce(function(acc,item){
+       return acc + item["Home Team Goals"];
+   },0);
+   let away = getFinalsCB(fifaData).reduce(function(acc,item){
+    return acc + item["Away Team Goals"];
+},0);
+    home = home / 19;
+    away = away / 19;
+    
+   let message = `Home: ${home.toFixed(2)} Away: ${away.toFixed(2)}`;
+   return message;
 }
 
 
-
+console.log("Task 6: ", getAverageGoals(getFinals));
 
 /// 🥅 STRETCH 🥅 ///
 
