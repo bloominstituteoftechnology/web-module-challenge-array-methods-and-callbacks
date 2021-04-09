@@ -40,7 +40,7 @@ function getFinals(array) {
   
   return result;
 }
-console.log(getFinals(fifaData));
+//  console.log(getFinals(fifaData));
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -50,11 +50,15 @@ Use the higher-order function called getYears to do the following:
 3. Return an array called years containing all of the years in the getFinals data set*/
 
 function getYears(array, callback) {
-    callback((x)=>{
-     
-    })
+let result = callback(array)
+let arr = [];
+  for(let i in result){
+      arr.push(result[i].Year);
+  }
+  console.log(arr)
+return arr;
 }
-getYears()
+getYears(fifaData,getFinals)
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
