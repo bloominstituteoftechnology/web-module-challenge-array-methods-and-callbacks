@@ -29,11 +29,13 @@ hint - you should be looking at the stage key inside of the objects
 */
 
 
+
 function getFinals(data) {
     return data.filter((data) => {
       return data.Stage === "Final";
     });
   }
+  
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
