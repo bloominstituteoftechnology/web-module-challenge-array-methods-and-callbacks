@@ -36,9 +36,7 @@ hint - you should be looking at the stage key inside of the objects
 */
 
 function getFinals(array) {
-  let result = array.filter(x=> x.Stage == "Final")
-  
-  return result;
+   return  array.filter(x=> x.Stage == "Final")
 }
 //   console.log(getFinals(fifaData));
 
@@ -50,8 +48,7 @@ Use the higher-order function called getYears to do the following:
 3. Return an array called years containing all of the years in the getFinals data set*/
 
 function getYears(array, callback) {
-let result = callback(array).map(i=>i["Year"])
-return result;
+return  callback(array).map(i=>i["Year"])
 }
 getYears(fifaData,getFinals)
 
@@ -83,9 +80,9 @@ hint: the strings returned need to exactly match the string in step 4.
  */
 
 function getWinnersByYear(arr,getYears, getWinners) {
-  let year = getYears(arr, getFinals);
+
   let winner = getWinners(arr,getFinals);
-  return year.map((i,index)=> `In ${year[index]}, ${winner[index]} won the world cup!`)
+  return getYears(arr, getFinals).map((i,index)=> `In ${i}, ${winner[index]} won the world cup!`)
 }
 
 getWinnersByYear(fifaData,getYears, getWinners)
@@ -100,13 +97,8 @@ Use the higher order function getAverageGoals to do the following:
  Example of invocation: getAverageGoals(getFinals(fifaData));
 */
 
-function getAverageGoals(callback) {
-   let x = callback;
-   let sum = 0;
-   for(let i =0; i< x.length; i++){
-      sum += (x[i]["Home Team Goals"] + x[i]["Away Team Goals"])
-   }
-  return (sum/x.length).toFixed(2);
+function getAverageGoals(callback) { 
+   return (callback.reduce((acc, item)=>{ return acc + item["Home Team Goals"] + item["Away Team Goals"]},0)/callback.length).toFixed(2); 
 }
 getAverageGoals(getFinals(fifaData))
 
