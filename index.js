@@ -50,13 +50,8 @@ Use the higher-order function called getYears to do the following:
 3. Return an array called years containing all of the years in the getFinals data set*/
 
 function getYears(array, callback) {
-let result = callback(array)
-let arr = [];
-  for(let i in result){
-      arr.push(result[i].Year);
-  }
-    // console.log("Years list :",arr)
-return arr;
+let result = callback(array).map(i=>i["Year"])
+return result;
 }
 getYears(fifaData,getFinals)
 
@@ -69,15 +64,8 @@ Use the higher-order function getWinners to do the following:
 4. Returns the names of all winning countries in an array called `winners` */ 
 
 function getWinners(array,callback) {
-   let teamFinal= callback(array);
    let arr = [];
-    teamFinal.filter(x=> {
-        if(x["Home Team Goals"]>= x["Away Team Goals"]){
-         arr.push(x["Home Team Name"])
-        }else{
-          arr.push(x["Away Team Name"])
-        }
-    })
+    callback(array).filter(x=>  (x["Home Team Goals"]>= x["Away Team Goals"])?arr.push(x["Home Team Name"]):arr.push(x["Away Team Name"]))
    
   return arr;
 }
@@ -97,12 +85,7 @@ hint: the strings returned need to exactly match the string in step 4.
 function getWinnersByYear(arr,getYears, getWinners) {
   let year = getYears(arr, getFinals);
   let winner = getWinners(arr,getFinals);
-  let result = [];
-  for(let i = 0; i< year.length; i++){
-      result.push(`In ${year[i]}, ${winner[i]} won the world cup!`)
-  }
-//   console.log(result)
-  return result;
+  return year.map((i,index)=> `In ${year[index]}, ${winner[index]} won the world cup!`)
 }
 
 getWinnersByYear(fifaData,getYears, getWinners)
