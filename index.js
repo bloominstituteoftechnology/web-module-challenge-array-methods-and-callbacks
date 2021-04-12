@@ -67,7 +67,7 @@ function getWinners(array,callback) {
   return arr;
 }
 
-console.log(getWinners(fifaData, getFinals))
+// getWinners(fifaData, getFinals)
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Use the higher-order function getWinnersByYear to do the following:
@@ -113,35 +113,20 @@ Create a function called `getCountryWins` that takes the parameters `data` and
 Hint: Investigate your data to find "team initials"!
 Hint: use `.reduce` */
 
-function getCountryWins(data, callback) {
-  let winners = callback(data,getFinals);
-  let filterCount = [];
-  let arr = [];
-  let count = 0;
-   for(let i =0; i< winners.length; i++){
-      let pick = winners[i];
-      filterCount[i] = winners.filter((x,i) => { if(x == pick){      
-        count = count +1;
-        arr.push(i)
-        return count;
-      }else{
-        return ;
-      }
-    } )
-    
-   }
- let array = filterCount.filter(x=> {return x.length})
-   let winnerCount = array.map(x=>{return { country:x[0], win:x.length}});
-   console.log("the winner",winnerCount)
+function getInitials(arr) {
+  let winners = [];
+  getFinals(arr).forEach(x => (x["Home Team Goals"] >= x["Away Team Goals"]) ? winners.push(x["Home Team Initials"]) : winners.push(x["Away Team Initials"]));
+  let winnersInit = {};
+  winners.forEach(i => winnersInit[i] = (winnersInit[i]||0)   + 1);
+  console.log(winnersInit)
+  return winnersInit;
 }
-getCountryWins(fifaData,getWinners);
+getInitials(fifaData);
 /* 💪💪💪💪💪 Stretch 2: 💪💪💪💪💪 
 Write a function called getGoals() that accepts a parameter `data` and returns the team with the most goals score per appearance (average goals for) in the World Cup finals */
 
-function getGoals(/* code here */) {
-
-    /* code here */
-
+function getGoals(data) {
+ 
 }
 
 
