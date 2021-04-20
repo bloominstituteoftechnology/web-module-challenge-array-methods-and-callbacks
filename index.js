@@ -18,7 +18,7 @@ console.log('taks 1c', finals2014[0]['Home Team Goals'])
 console.log('task 1d', finals2014[0]['Away Team Goals'])
 //(e) Winner of 2014 world cup final */
 console.log('task 1e', finals2014[0]['Win conditions'])
-
+//
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Use getFinals to do the following:
 1. Receive data as a parameter
