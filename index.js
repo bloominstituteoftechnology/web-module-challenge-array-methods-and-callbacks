@@ -33,7 +33,6 @@ function getFinals(data) {
   });
   return madefinals;
 }
-console.log(getFinals(fifaData));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use the higher-order function called getYears to do the following: 
@@ -66,6 +65,7 @@ function getWinners(array, getFinalsCB) {
   });
   return winners;
 }
+console.log("Task 4", getWinners(fifaData, getFinals));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Use the higher-order function getWinnersByYear to do the following:
@@ -78,13 +78,14 @@ hint: the strings returned need to exactly match the string in step 4.
  */
 
 function getWinnersByYear(array, getYearsCb, getWinnersCb) {
-  const newArray = [];
+  const state = [];
+  let win = getWinnersCb(array);
+  let year = getYearsCb(array);
 
-  array.forEach(function (currentValue) {
-    return newArray.push(currentValue.key);
+  year.forEach(function (item, index) {
+    return state.push(`In ${item}, ${win[index]} won the world cup!`);
   });
-
-  return "In `${year}`, `${country}` won the world cup!";
+  return state;
 }
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -97,8 +98,11 @@ Use the higher order function getAverageGoals to do the following:
  Example of invocation: getAverageGoals(getFinals(fifaData));
 */
 
-function getAverageGoals(/* code here */) {
-  /* code here */
+function getAverageGoals(data) {
+  let finalGames = data.map(function (item) {
+    return item["Home Team Goals"] + item["Away Team Goals"];
+  });
+  return (finalGames.reduce((a, b) => a + b) / finalGames.length).toFixed(2);
 }
 
 /// 🥅 STRETCH 🥅 ///
