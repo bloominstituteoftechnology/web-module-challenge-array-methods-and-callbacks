@@ -60,6 +60,10 @@ Use the higher-order function getWinners to do the following:
 3. Determines the winner (home or away) of each `finals` game. 
 4. Returns the names of all winning countries in an array called `winners` */ 
 
+// seems like it would be a if statement just not to sure how to set it up
+function getWinners(arr, getFinalsCb){
+
+}
 
 
 
@@ -73,10 +77,10 @@ Use the higher-order function getWinnersByYear to do the following:
 hint: the strings returned need to exactly match the string in step 4.
  */
 
-function getWinnersByYear(/* code here */) {
-    /* code here */
+// not sure how to access the country because I only see city in the data. unless im suppose to do some loop that says if this is the city then this is the country or something idk...
+function getWinnersByYear(arr, getYearsCb, getWinnersCb){
+    return `In ${arr.year}, ${arr.} won the world cup!`
 }
-
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -89,8 +93,9 @@ Use the higher order function getAverageGoals to do the following:
  Example of invocation: getAverageGoals(getFinals(fifaData));
 */
 
-function getAverageGoals(/* code here */) {
-   /* code here */
+// not the slightest clue 
+function getAverageGoals(getFinalsCb){
+    return 
 }
 
 
