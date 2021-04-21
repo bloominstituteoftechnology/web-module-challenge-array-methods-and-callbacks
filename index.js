@@ -27,10 +27,11 @@ Use getFinals to do the following:
 hint - you should be looking at the stage key inside of the objects
 */
 function getFinals(data) {
-    data.filter(function (item) {
-        return item.Stage === `Final`;
-     })
-};
+    const finals = data.filter(function(item){
+        return item.Stage === `Final`
+    })
+    return finals 
+}
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use the higher-order function called getYears to do the following: 
@@ -38,10 +39,10 @@ Use the higher-order function called getYears to do the following:
 2. Receive a callback function getFinals from task 2 
 3. Return an array called years containing all of the years in the getFinals data set*/
 
-function getYears (array, gettFinalscb){
-  return gettFinalscb(data)(item=> item.Year )
+function getYears (data, getFinalscb){
+  return getFinalscb(data).map(item => item.Year );
 
-
+}
 
 
 
@@ -52,9 +53,10 @@ Use the higher-order function getWinners to do the following:
 3. Determines the winner (home or away) of each `finals` game. 
 4. Returns the names of all winning countries in an array called `winners` */
 
-function getWinners(/* code here */) {
-    /* code here */
-}
+function getWinners(array, getFinalscb) {
+    return getFinalscb(array).map(score => score[`Home Team Goals`] > score[`Away Team Goals`] ? score[`Home Team Name`] : score[`Away Team Name`]);
+    
+    }
 
 
 
@@ -68,10 +70,16 @@ Use the higher-order function getWinnersByYear to do the following:
 hint: the strings returned need to exactly match the string in step 4.
  */
 
-function getWinnersByYear(array, getYearscb, getWinnersb) {
+function getWinnersByYear(array, getYearscb, getWinnercb) {
+   const worldcupwinners = [];
     let win = getWinnercb(array);
-    let year = getYearscb(array);
-}
+    let years = getYearscb(array);
+
+    years.forEach(function(item,i){
+        return worldcupwinners.push(`In ${item}, ${win[i]} won the world cup!`);
+    })
+       return worldcupwinners ;
+    }
 
 
 
@@ -87,7 +95,7 @@ Use the higher order function getAverageGoals to do the following:
 
 function getAverageGoals(data) {
     let finalgames = data.map(function(item){
-      item["Home Team Goals"] + item["Away Team Goals"]
+     return item["Home Team Goals"] + item["Away Team Goals"]
     });
    return (finalgames.reduce((a,b) => a+ b) / finalgames.length).toFixed(2);
 }
