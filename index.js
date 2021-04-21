@@ -28,6 +28,15 @@ function getFinals(/* code here */) {
    /* code here */
 }
 
+function getFinals(data){
+    newArray=[]
+    for (let i=0; i<data.length; i++){
+    if (data[i].stage === "Group 1"){
+        return newArray= [data[i].stage]
+    }
+ }    
+}
+
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
