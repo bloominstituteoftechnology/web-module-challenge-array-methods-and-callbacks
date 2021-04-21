@@ -4,16 +4,19 @@ import { fifaData } from './fifa.js';
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 1: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Practice accessing data by console.log-ing the following pieces of data note, you may want to filter the data first 😉*/
-
+const finals2014 = fifaData.filter(function(item){
+    return item.Year === 2014 && item.Stage === 'Final'
+});
 //(a) Home Team name for 2014 world cup final
-
+console.log('test 1a', finals2014[0]['Home Team Name']);
 //(b) Away Team name for 2014 world cup final
-
+console.log('test 1b', finals2014[0]['Away Team Name']);
 //(c) Home Team goals for 2014 world cup final
-
+console.log('test 1c',finals2014[0]['Home Team Goals']);
 //(d) Away Team goals for 2014 world cup final
-
+console.log('test 1d', finals2014[0]['Away Team Goals']);
 //(e) Winner of 2014 world cup final */
+console.log('test 1e', ); /* how to put a conditional inside the console.log, if possible */
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -78,9 +81,25 @@ Use the higher-order function getWinnersByYear to do the following:
 hint: the strings returned need to exactly match the string in step 4.
  */
 
-function getWinnersByYear(/* code here */) {
-    /* code here */
+function getWinnersByYear(array, getYears, getWinners) {
+    const country = getWinners(array,getFinals);
+    const year = getYears(array,getWinners);
+    
+    const result = country.map(function(x, item) {
+        return `In ${year[item]}, ${country[item]} won the world cup!`
+    });
+    return result
 }
+
+
+  /*  var ar1 = ['a1', 'a2', 'a3', 'a4', 'a5'];
+var ar2 = ['b1', 'b2', 'b3', 'b4', 'b5'];
+var armixed = ar1.map(function (x, i) { 
+                          return [x, ar2[i]] 
+                      });*/
+
+
+
 
 
 
