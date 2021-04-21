@@ -24,10 +24,8 @@ Use getFinals to do the following:
 hint - you should be looking at the stage key inside of the objects
 */
 
-function getFinals(/* code here */) {
-   /* code here */
-}
 
+// nor sure how to use the .map or .foreach method here and im not even sure i looped it correctly
 function getFinals(data){
     newArray=[]
     for (let i=0; i<data.length; i++){
@@ -45,8 +43,12 @@ Use the higher-order function called getYears to do the following:
 2. Receive a callback function getFinals from task 2 
 3. Return an array called years containing all of the years in the getFinals data set*/
 
-function getYears(/* code here */) {
-    /* code here */
+// Incomplete because I cant figure out how to return or what to return
+function getYears(arr, getFinalsCb){
+    let years= [];
+    return years = [getFinalsCb(){
+        return getfinals().years
+    }]
 }
 
 
@@ -58,9 +60,6 @@ Use the higher-order function getWinners to do the following:
 3. Determines the winner (home or away) of each `finals` game. 
 4. Returns the names of all winning countries in an array called `winners` */ 
 
-function getWinners(/* code here */) {
-    /* code here */
-}
 
 
 
