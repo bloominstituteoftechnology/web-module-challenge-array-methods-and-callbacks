@@ -29,7 +29,7 @@ function getFinals(array, callback) {
    let finals =
    return finals.finals
 
-   console.log(getFinals(fifaData, getFinals))
+   console.log(getFinals(fifaData, getFinals));
 }
 
 
@@ -45,7 +45,7 @@ function getyears(array, callback) {
     let years =
     return years.year
  
-    console.log(getyears(fifaData, getFinals))
+    console.log(getyears(fifaData, getFinals));
  }
 
 
@@ -62,7 +62,7 @@ function getwinner(array, callback) {
     let winner =
     return winner.winner
  
-    console.log(getwinner(fifaData, getFinals))
+    console.log(getwinner(fifaData, getFinals));
 
 
 
@@ -81,7 +81,7 @@ function getWinnersByYear(array, callback) {
     let WinnersByYear =
     return WinnersByYear.winner
  
-    console.log(getWinnersByYear(fifaData, getFinals))
+    console.log(getWinnersByYear(fifaData, getFinals));
 
 
 
@@ -95,9 +95,13 @@ Use the higher order function getAverageGoals to do the following:
  Example of invocation: getAverageGoals(getFinals(fifaData));
 */
 
-function getAverageGoals(/* code here */) {
-   /* code here */
-}
+function getAverageGoals(array, callback) {
+    callback(array)
+    let AverageGoals =
+    return getAverageGoals.reduce
+ 
+    console.log(getAverageGoals(getFinals(fifaData));
+}  
 
 
 
