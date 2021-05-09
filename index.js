@@ -7,13 +7,28 @@ Practice accessing data by console.log-ing the following pieces of data note, yo
 
 //(a) Home Team name for 2014 world cup final
 
+const alpha = fifaData.filter(x => x["Year"] == 2014 && x["Stage"] == "Final");
+console.log(alpha[0]["Home Team Name"]);
+
 //(b) Away Team name for 2014 world cup final
+
+console.log(alpha[0]["Away Team Name"]);
 
 //(c) Home Team goals for 2014 world cup final
 
+console.log(alpha[0]["Home Team Goals"]);
+
 //(d) Away Team goals for 2014 world cup final
 
+console.log(alpha[0]["Away Team Goals"]);
+
 //(e) Winner of 2014 world cup final */
+
+if (alpha[0]["Home Team Goals"] > alpha[0]["Away Team Goals"]) {
+    console.log(alpha[0]["Home Team Name"]);
+} else {
+    console.log(alpha[0]["Away Team Name"])
+}
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -24,8 +39,10 @@ Use getFinals to do the following:
 hint - you should be looking at the stage key inside of the objects
 */
 
-function getFinals(/* code here */) {
-   /* code here */
+function getFinals(data) {
+    var results = data.filter(x => x.Stage === "Final");
+
+    return results;
 }
 
 
@@ -36,8 +53,14 @@ Use the higher-order function called getYears to do the following:
 2. Receive a callback function getFinals from task 2 
 3. Return an array called years containing all of the years in the getFinals data set*/
 
-function getYears(/* code here */) {
-    /* code here */
+function getYears(array, callback) {
+    var beta = callback(array);
+    var charlie = [];
+
+    for (var i = 0; i < beta.length; i++){
+        charlie.push(beta[i]["Year"]);
+    }
+    return charlie;
 }
 
 
@@ -49,8 +72,22 @@ Use the higher-order function getWinners to do the following:
 3. Determines the winner (home or away) of each `finals` game. 
 4. Returns the names of all winning countries in an array called `winners` */ 
 
-function getWinners(/* code here */) {
-    /* code here */
+function getWinners(array, callback) {
+    var beta = callback(array);
+    var charlie = [];
+    for (let delta of beta) {
+
+        if (delta["Home Team Goals"] > delta["Away Team Goals"]) {
+            beta.push(delta["Home Team Name"])
+        
+        } else if(delta["Home Team Goals"] < delta["Away Team Goals"]) {
+            beta.push(delta["Away Team Name"])
+
+        } else {
+            beta.push(delta["Home Team Name", "Away Team Name"])
+        }
+    }
+    return charlie
 }
 
 
@@ -65,8 +102,14 @@ Use the higher-order function getWinnersByYear to do the following:
 hint: the strings returned need to exactly match the string in step 4.
  */
 
-function getWinnersByYear(/* code here */) {
-    /* code here */
+function getWinnersByYear(array, callback, callback1) {
+    var charlie = []
+    var foxtrot = getYears(array, getFinals);
+    var golf = getWinners(array, getFinals);
+    for (let x = 0; x < foxtrot.length; x++){
+        charlie.push(`In ${year[x]}, ${country[x]} won the world cup!`)
+    }
+    return charlie
 }
 
 
