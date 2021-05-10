@@ -90,8 +90,8 @@ Use the higher order function getAverageGoals to do the following:
  Example of invocation: getAverageGoals(getFinals(fifaData));
 */
 
-const getAverageGoals = ((accumulator, scores) => {
-   return accumulator + scores.score
+const getAverageGoals = ((accumulator, getFinals) => {
+   return accumulator + getFinals.score
 })
 
 
