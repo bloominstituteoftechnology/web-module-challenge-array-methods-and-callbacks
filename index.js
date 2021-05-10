@@ -102,10 +102,10 @@ hint: the strings returned need to exactly match the string in step 4.
 
 function getWinnersByYear(array, callback, callback1) {
     var charlie = []
-    var foxtrot = getYears(array, getFinals);s
+    var foxtrot = getYears(array, getFinals);
     var country = getWinners(array, getFinals);
     for (let x = 0; x < foxtrot.length; x++){
-        charlie.push(`In ${year[x]}, ${country[x]} won the world cup!`)
+        charlie.push(`In ${foxtrot[x]}, ${country[x]} won the world cup!`)
     }
     return charlie
 }
