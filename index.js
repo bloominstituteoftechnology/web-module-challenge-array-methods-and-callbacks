@@ -24,8 +24,10 @@ Use getFinals to do the following:
 hint - you should be looking at the stage key inside of the objects
 */
 
-function getFinals(/* code here */) {
-   /* code here */
+function getFinals(fifaData) {
+  return (fifaData)
+
+
 }
 
 
@@ -36,9 +38,22 @@ Use the higher-order function called getYears to do the following:
 2. Receive a callback function getFinals from task 2 
 3. Return an array called years containing all of the years in the getFinals data set*/
 
-function getYears(/* code here */) {
-    /* code here */
+function getYears(cb, array) {
+  let years = [];
+  let Finals= (array); 
+
+//   For each final we want to get the year and 
+//   then add the year to our years array
+//   return our years array
+  fifaData.forEach(game => {
+  return  years.push(`${game.Year}`) 
+  });
+
+  return years
 }
+
+console.log(getYears(getFinals, fifaData));
+
 
 
 
