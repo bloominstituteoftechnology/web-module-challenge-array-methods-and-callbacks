@@ -47,6 +47,8 @@ Your goal today will be to manipulate the data using array methods and callbacks
 
 ## Instructions
 
+Initial Commit !!!!!!!!!!!!!!!!!!!!!!
+
 ### Task 1: Set up Project
 
 1. Fork the repo
