@@ -58,7 +58,7 @@ function getYears(array, callback) {
     var charlie = [];
 
     for (var i = 0; i < beta.length; i++){
-        charlie.push(beta[i]["Year"]);
+        charlie.push(beta[i]["Year"])
     }
     return charlie;
 }
@@ -77,20 +77,18 @@ function getWinners(array, callback) {
     var charlie = [];
     for (let delta of beta) {
 
-        if (charlie ["Home Team Goals"] > charlie ["Away Team Goals"]) {
-            beta.push(charlie["Home Team Name"])
+        if (delta ["Home Team Goals"] > delta ["Away Team Goals"]) {
+            beta.push(delta["Home Team Name"])
         
-        } else if(charlie ["Home Team Goals"] < charlie ["Away Team Goals"]) {
-            beta.push(charlie ["Away Team Name"])
+        } else if(delta ["Home Team Goals"] < delta ["Away Team Goals"]) {
+            beta.push(delta ["Away Team Name"])
 
         } else {
-            beta.push(charlie ["Home Team Name", "Away Team Name"])
+            beta.push(delta ["Home Team Name", "Away Team Name"])
         }
     }
     return charlie
 }
-
-
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Use the higher-order function getWinnersByYear to do the following:
@@ -104,8 +102,8 @@ hint: the strings returned need to exactly match the string in step 4.
 
 function getWinnersByYear(array, callback, callback1) {
     var charlie = []
-    var foxtrot = getYears(array, getFinals);
-    var golf = getWinners(array, getFinals);
+    var foxtrot = getYears(array, getFinals);s
+    var country = getWinners(array, getFinals);
     for (let x = 0; x < foxtrot.length; x++){
         charlie.push(`In ${year[x]}, ${country[x]} won the world cup!`)
     }
@@ -124,8 +122,15 @@ Use the higher order function getAverageGoals to do the following:
  Example of invocation: getAverageGoals(getFinals(fifaData));
 */
 
-function getAverageGoals(result) {
-    return result - number
+function getAverageGoals(result, number) /*{
+    let gameFinal = result.map(function (hotel) {
+
+        hotel["Home Team Goals"] + hotel["Away Team Goals"]
+
+        return hotel["Home Team Goals"] + hotel["Away Team Goals"]
+    });
+    
+return (gameFinal.reduce ((a,b) => a + b) / gameFinal.length).toFixed(2)
 }
 
 
