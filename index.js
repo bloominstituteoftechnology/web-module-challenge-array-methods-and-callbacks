@@ -122,17 +122,30 @@ function getWinnersByYear(array,cb, cbtwo) {
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use the higher order function getAverageGoals to do the following: 
- 1. Receive the callback function getFinals from task 2 ensure you pass in the data as an argument
- 2. Return the the average number of the total home team goals and away team goals scored per match and round to the second decimal place. 
+ 1. Receive the callback function getFinals from task 2 (ensure you pass in the data as an argument).
+ 2. Return the average number of the total home team goals and away team goals scored per match and round to the second decimal place. 
  
  (Hint: use .reduce and do this in 2 steps) 
  
  Example of invocation: getAverageGoals(getFinals(fifaData));
 */
 
-function getAverageGoals(cb,data) {
-   /* code here */
+function getAverageGoals(cb) {
+//    console.log("hi sayo, check me out", cb);
+   const averageHomeGoals = cb.reduce((total,item)=>{
+       return total += (item['Home Team Goals'] + item['Away Team Goals'])
+   },0);
+   console.log("This is the average of Home Goals", (averageHomeGoals/cb.length).toFixed(2));
+//    console.log(cb.length);
+//    let averageAwayGoals = (cd(data)).reduce((total,item)=>{
+//        return total += item['Away Team Goals'];
+//    },0 /data.length);
+   const averageGoal = (averageHomeGoals/cb.length).toFixed(2);
+   return averageGoal;
 }
+
+
+
 
 
 
