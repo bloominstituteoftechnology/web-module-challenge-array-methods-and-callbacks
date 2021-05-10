@@ -78,13 +78,13 @@ function getWinners(array, callback) {
     for (let delta of beta) {
 
         if (delta ["Home Team Goals"] > delta ["Away Team Goals"]) {
-            beta.push(delta["Home Team Name"])
+            charlie.push(delta["Home Team Name"])
         
         } else if(delta ["Home Team Goals"] < delta ["Away Team Goals"]) {
-            beta.push(delta ["Away Team Name"])
+            charlie.push(delta ["Away Team Name"])
 
         } else {
-            beta.push(delta ["Home Team Name", "Away Team Name"])
+            charlie.push(delta ["Home Team Name", "Away Team Name"])
         }
     }
     return charlie
@@ -122,7 +122,7 @@ Use the higher order function getAverageGoals to do the following:
  Example of invocation: getAverageGoals(getFinals(fifaData));
 */
 
-function getAverageGoals(result, number) /*{
+function getAverageGoals(result, number) {
     let gameFinal = result.map(function (hotel) {
 
         hotel["Home Team Goals"] + hotel["Away Team Goals"]
