@@ -4,17 +4,24 @@ import { fifaData } from './fifa.js';
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 1: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Practice accessing data by console.log-ing the following pieces of data note, you may want to filter the data first 😉*/
-
+let worldCupFinal2014 = fifaData.filter(gameStats => {
+    return gameStats.Year === 2014 && gameStats.Stage === 'Final';
+})[0];
 //(a) Home Team name for 2014 world cup final
+ console.log(worldCupFinal2014['Home Team Name']);
+
+// console.log(JSON.stringify(worldCupFinal2014))
 
 //(b) Away Team name for 2014 world cup final
-
+console.log(worldCupFinal2014['Away Team Name']);
 //(c) Home Team goals for 2014 world cup final
-
+console.log(worldCupFinal2014['Home Team Goals']);
 //(d) Away Team goals for 2014 world cup final
-
+console.log(worldCupFinal2014['Away Team Goals']);
 //(e) Winner of 2014 world cup final */
 
+// if worldCupFinal2014 (['Home Team Final'] > ['Away Team Final'])
+// console.log("worldCupFinal2014 +  'Home Team Name' + wins");
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Use getFinals to do the following:
@@ -24,9 +31,15 @@ Use getFinals to do the following:
 hint - you should be looking at the stage key inside of the objects
 */
 
-function getFinals(/* code here */) {
-   /* code here */
-}
+function getFinals(fifiData.filter(gameStats => {
+    return gamestats.Stage === 'final';
+}); ) {
+   let worldCupFinalAll = fifiData.filter(gameStats => {
+       return gamestats.Stage === 'final';
+   }); 
+       console.log (worldCupFinalAll);
+
+
 
 
 
