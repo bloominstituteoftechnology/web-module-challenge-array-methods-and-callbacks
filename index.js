@@ -1,4 +1,4 @@
-import { fifaData } from './fifa.js';
+import { fifaData } from "./fifa.js";
 
 // ⚽️ M  V P ⚽️ //
 
@@ -15,7 +15,6 @@ Practice accessing data by console.log-ing the following pieces of data note, yo
 
 //(e) Winner of 2014 world cup final */
 
-
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Use getFinals to do the following:
 1. Receive data as a parameter
@@ -24,11 +23,9 @@ Use getFinals to do the following:
 hint - you should be looking at the stage key inside of the objects
 */
 
-function getFinals(/* code here */) {
-   /* code here */
+function getFinals(receiveData) {
+  return receiveData.map((receiveData) => receiveData);
 }
-
-
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use the higher-order function called getYears to do the following: 
@@ -36,24 +33,27 @@ Use the higher-order function called getYears to do the following:
 2. Receive a callback function getFinals from task 2 
 3. Return an array called years containing all of the years in the getFinals data set*/
 
-function getYears(/* code here */) {
-    /* code here */
+function getYears(receiveData, cb) {
+  cb = getFinals(receiveData);
+  return cb.map((cb) => cb.Year);
 }
-
-
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use the higher-order function getWinners to do the following:  
 1. Receives an array
 2. Receives the callback function getFinals from task 2 
 3. Determines the winner (home or away) of each `finals` game. 
-4. Returns the names of all winning countries in an array called `winners` */ 
+4. Returns the names of all winning countries in an array called `winners` */
 
-function getWinners(/* code here */) {
-    /* code here */
+function getWinners(receiveData, cb) {
+  cb = getFinals(receiveData);
+  return cb.map((cb) => {
+    if (cb["Home Team Goals"] > cb["Away Team Goals"]) {
+      return cb["Home Team Name"];
+    }
+    return cb["Away Team Name"];
+  });
 }
-
-
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Use the higher-order function getWinnersByYear to do the following:
@@ -65,11 +65,17 @@ Use the higher-order function getWinnersByYear to do the following:
 hint: the strings returned need to exactly match the string in step 4.
  */
 
-function getWinnersByYear(/* code here */) {
-    /* code here */
+function getWinnersByYear(receiveData, getYears, getWinners) {
+  var x = [];
+  for (let i = 0; i < receiveData.length; i++) {
+    x.push(
+      `In ${getYears(receiveData)[i]}, ${
+        getWinners(receiveData)[i]
+      } won the world cup!`
+    );
+  }
+  return x;
 }
-
-
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use the higher order function getAverageGoals to do the following: 
@@ -81,12 +87,13 @@ Use the higher order function getAverageGoals to do the following:
  Example of invocation: getAverageGoals(getFinals(fifaData));
 */
 
-function getAverageGoals(/* code here */) {
-   /* code here */
+function getAverageGoals(getFinals) {
+  var x = getFinals.map((cb) => cb["Home Team Goals"]);
+  var y = getFinals.map((cb) => cb["Away Team Goals"]);
+  x = x.reduce((total, amount) => total + amount) / x.length;
+  y = y.reduce((total, amount) => total + amount) / y.length;
+  return (x + y).toFixed(2);
 }
-
-
-
 
 /// 🥅 STRETCH 🥅 ///
 
@@ -97,46 +104,35 @@ Hint: Investigate your data to find "team initials"!
 Hint: use `.reduce` */
 
 function getCountryWins(/* code here */) {
-
-    /* code here */
-
+  /* code here */
 }
-
-
 
 /* 💪💪💪💪💪 Stretch 2: 💪💪💪💪💪 
 Write a function called getGoals() that accepts a parameter `data` and returns the team with the most goals score per appearance (average goals for) in the World Cup finals */
 
 function getGoals(/* code here */) {
-
-    /* code here */
-
+  /* code here */
 }
-
 
 /* 💪💪💪💪💪 Stretch 3: 💪💪💪💪💪
 Write a function called badDefense() that accepts a parameter `data` and calculates the team with the most goals scored against them per appearance (average goals against) in the World Cup finals */
 
 function badDefense(/* code here */) {
-
-    /* code here */
-
+  /* code here */
 }
-
 
 /* If you still have time, use the space below to work on any stretch goals of your chosing as listed in the README file. */
 
-
 /* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑 */
-function foo(){
-    console.log('its working');
-    return 'bar';
+function foo() {
+  console.log("its working");
+  return "bar";
 }
-export default{
-    foo,
-    getFinals,
-    getYears,
-    getWinners,
-    getWinnersByYear,
-    getAverageGoals
-}
+export default {
+  foo,
+  getFinals,
+  getYears,
+  getWinners,
+  getWinnersByYear,
+  getAverageGoals,
+};
