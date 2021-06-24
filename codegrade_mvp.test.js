@@ -1,4 +1,4 @@
-import { fifaData } from './fifa.js';
+const { fifaData } = require('./fifa.js')
 import functions from './index';
 
 //helper functions
