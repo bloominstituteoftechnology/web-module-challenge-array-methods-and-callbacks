@@ -1,4 +1,4 @@
-import { fifaData } from './fifa.js';
+const { fifaData } = require('./fifa.js')
 
 // ⚽️ M  V P ⚽️ //
 
@@ -132,7 +132,8 @@ function foo(){
     console.log('its working');
     return 'bar';
 }
-export default{
+foo();
+module.exports = {
     foo,
     getFinals,
     getYears,

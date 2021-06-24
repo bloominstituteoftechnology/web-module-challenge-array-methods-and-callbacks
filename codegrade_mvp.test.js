@@ -1,5 +1,5 @@
-import { fifaData } from '../fifa.js';
-import functions from '../index';
+import { fifaData } from './fifa.js';
+import functions from './index';
 
 //helper functions
 const getFinals = function(){
