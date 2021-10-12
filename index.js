@@ -58,9 +58,10 @@ function getWinners(/* code here */) {
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Use the higher-order function getWinnersByYear to do the following:
 1. Receive an array
-2. Receive a callback function getYears from task 3
-3. Receive a callback function getWinners from task 4
-4. Return an array of strings that say "In {year}, {country} won the world cup!" 
+2. Receive a callback function getFinals from task 2
+3. Receive a callback function getYears from task 3
+4. Receive a callback function getWinners from task 4
+5. Return an array of strings that say "In {year}, {country} won the world cup!" 
 
 hint: the strings returned need to exactly match the string in step 4.
  */
