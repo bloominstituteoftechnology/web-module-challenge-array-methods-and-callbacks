@@ -484,7 +484,7 @@ describe('getWinners', ()=>{
 
 describe('getWinnersByYear', ()=>{
     it('an array containing strings of winners', ()=>{
-        expect(functions.getWinnersByYear(fifaData, getYears, getWinners)).toEqual(expect.arrayContaining(
+        expect(functions.getWinnersByYear(fifaData, getFinals, getYears, getWinners)).toEqual(expect.arrayContaining(
             [
                 'In 1930, Uruguay won the world cup!',
                 'In 1934, Italy won the world cup!',
@@ -509,6 +509,8 @@ describe('getWinnersByYear', ()=>{
         ));
     })
 });
+
+// Task 6
 
 describe('getAverageGoals', ()=>{
     it('getAverageGoals returns a number', ()=>{
