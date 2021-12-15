@@ -106,8 +106,6 @@ Win conditions": "France win on penalties (3 - 4)",
 
 ## Resources
 
-📚 [Examples of .map, .reduce, and .filter](https://itnext.io/15-useful-javascript-examples-of-map-reduce-and-filter-74cbbb5e0a1f)
-
 🤷‍♀️ [What the Heck is a Callback?](https://codeburst.io/javascript-what-the-heck-is-a-callback-aba4da2deced)
 
 🤝[Working with JSON in JavaScript](https://www.ma-no.org/en/programming/javascript/working-with-json-in-javascript)
