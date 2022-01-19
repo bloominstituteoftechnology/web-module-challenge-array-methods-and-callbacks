@@ -38,10 +38,10 @@ hint - you should be looking at the stage key inside of the objects
 */
 
 function getFinals(array) {
-    let allFinals = fifaData.filter(function(item){
+    let finals = fifaData.filter(function(item){
         return item.Stage === 'Final'; //this belongs to filter
     });
-   return allFinals;} 
+   return finals;} 
 //    this return belongs to getFi
 
 
@@ -99,10 +99,10 @@ hint: the strings returned need to exactly match the string in step 4.
  */
 
 function getWinnersByYear(array, getFinalscb, getYearscb, getWinnerscb) {
-    const allFinals = getFinalscb(array, getFinals);
+    const finals = getFinalscb(array, getFinals);
     const winners  = getWinnerscb(array, getFinals);
     const years = getYearscb(array, getFinals);
-    return winners.map((item, index) `In ${years[index]}, ${item} won the world cup!`
+    return winners.map((item, index) => `In ${years[index]}, ${item} won the world cup!`
     )}
 
 console.log(getWinnersByYear(fifaData, getFinals, getYears, getWinners));
@@ -118,10 +118,13 @@ Use the higher order function getAverageGoals to do the following:
 */
 
 function getAverageGoals(getFinalscb) {
-   /* code here */
+   const totalGoals = getFinalscb.reduce(function(accu, currentGame){ 
+      return accu + currentGame["Home Team Goals"] + currentGame["away Team Goals"];
+   }, 0)
+    return(totalGoals / getFinalscb.length).toFixed(2); 
 }
 
-
+console.log(getAverageGoals(getFinals(fifaData)));
 
 
 /// 🥅 STRETCH 🥅 ///
