@@ -5,7 +5,8 @@ const { fifaData } = require('./fifa.js')
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 1: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Practice accessing data by console.log-ing the following pieces of data note, you may want to filter the data first 😉*/
 
-let finals2014 = fifaData.filter((match) => {
+let finals2014 = fifaData.filter(
+    (match) => {
     return match.Year === 2014 && match.Stage === 'Final'
 })
 
@@ -34,12 +35,15 @@ hint - you should be looking at the stage key inside of the objects
 */
 
 function getFinals(data) {
-    let finalData = []
-   for (let i = 0; i < data.length; i++){
-       if (data[i].Stage === 'Final'){
-        finalData.push(data[i])
-       }
-   } return finalData
+// let finalData = []
+//    for (let i = 0; i < data.length; i++){
+//        if (data[i].Stage === 'Final'){
+//         finalData.push(data[i])
+//        }
+//    } return finalData
+    const finalData = data.filter(
+        (match) => { return match.Stage === 'Final'
+    }); return finalData
 }
 
 // console.log(getFinals(fifaData))
@@ -52,7 +56,8 @@ Use the higher-order function called getYears to do the following:
 3. Return an array called years containing all of the years in the getFinals data set*/
 
 function getYears(array, getFinalsCB) {
-    let years = getFinalsCB(array).map((match) =>{
+    let years = getFinalsCB(array).map(
+        (match) =>{
         return match.Year
     }); return years
 }
@@ -67,7 +72,8 @@ Use the higher-order function getWinners to do the following:
 4. Returns the names of all winning countries in an array called `winners` */ 
 
 function getWinners(array, getFinalsCB) {
-    let winners = getFinalsCB(array).map((match) => {return match['Home Team Goals'] > match['Away Team Goals'] ? 
+    let winners = getFinalsCB(array).map(
+        (match) => {return match['Home Team Goals'] > match['Away Team Goals'] ? 
         match['Home Team Name'] : match['Away Team Name']
     }); return winners 
 }
@@ -104,7 +110,7 @@ Use the higher order function getAverageGoals to do the following:
 
 function getAverageGoals(array) {
   let averageGoals = array.reduce(
-      (accumulator, goals,) => {
+      (accumulator, goals) => {
           let sum = accumulator + goals['Home Team Goals'] + goals['Away Team Goals']
           return sum
       }
@@ -112,10 +118,6 @@ function getAverageGoals(array) {
   let average = (averageGoals / array.length).toFixed(2)
   return average
 }
-
-
-
-
 
 
 /// 🥅 STRETCH 🥅 ///
