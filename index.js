@@ -5,7 +5,7 @@ const { fifaData } = require('./fifa.js')
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 1: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Practice accessing data by console.log-ing the following pieces of data note. 
 
-HINT: You may want to filter the data first 😉*/
+💡 HINT: You may want to filter the data first 😉*/
 
 //(a) Home Team name for 2014 world cup final
 
@@ -20,10 +20,10 @@ HINT: You may want to filter the data first 😉*/
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Use getFinals to do the following:
-1. Receive data as a parameter
+1. Receive an array as a parameter that will take the fifa data as its argument
 2. Return an array of objects with the data of the teams that made it to the final stage
 
-hint - you should be looking at the stage key inside of the objects
+💡 HINT - you should be looking at the stage key inside of the objects
 */
 
 function getFinals(/* code here */) {
