@@ -42,18 +42,26 @@ function getYears(arr, cb) {
     return cb(arr).map(match => match.Year)
 }
 
-//console.log('task 3:', getYears(fifaData, getFinals))
+
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use the higher-order function getWinners to do the following:  
-1. Receives an array
-2. Receives the callback function getFinals from task 2 
+1. Receive an array as the first parameter that will take fifaData as an argument
+2. Receive a callback function as the second parameter that will take getFinals from task 2 as an argument
 3. Determines the winner (home or away) of each `finals` game. 
+💡 HINT: You will have to use some calculation with the scores. Don't worry about ties for now (Please see the README file for info on ties for a stretch goal.)
 4. Returns the names of all winning countries in an array called `winners` */ 
 
-function getWinners(/* code here */) {
-    /* code here */
-}
+function getWinners(arr, cb) {
+    const finals = cb(arr);
+    return finals.map(match => {
+        if (match['Home Team Goals'] > match['Away Team Goals']) {
+            return match['Home Team Name'];
+        } else if (match['Home Team Goals'] === match['Away Team Goals']){ 
+            return match['Win conditions']
+        } else return match['Away Team Name'];
+    });
+};
 
 
 
