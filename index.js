@@ -49,7 +49,7 @@ Use the higher-order function getWinners to do the following:
 1. Receive an array as the first parameter that will take fifaData as an argument
 2. Receive a callback function as the second parameter that will take getFinals from task 2 as an argument
 3. Determines the winner (home or away) of each `finals` game. 
-💡 HINT: You will have to use some calculation with the scores. Don't worry about ties for now (Please see the README file for info on ties for a stretch goal.)
+💡 HINT: Don't worry about ties for now (Please see the README file for info on ties for a stretch goal.)
 4. Returns the names of all winning countries in an array called `winners` */ 
 
 function getWinners(arr, cb) {
@@ -57,8 +57,6 @@ function getWinners(arr, cb) {
     return finals.map(match => {
         if (match['Home Team Goals'] > match['Away Team Goals']) {
             return match['Home Team Name'];
-        } else if (match['Home Team Goals'] === match['Away Team Goals']){ 
-            return match['Win conditions']
         } else return match['Away Team Name'];
     });
 };
@@ -67,36 +65,44 @@ function getWinners(arr, cb) {
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Use the higher-order function getWinnersByYear to do the following:
-1. Receive an array
-2. Receive a callback function getFinals from task 2
-3. Receive a callback function getYears from task 3
-4. Receive a callback function getWinners from task 4
+1. Receive an array as the first parameter that will take fifaData as an argument
+2. Receive a callback function as the second parameter that will take getFinals from task 2 as an argument
+3. Receive a callback function as the third parameter that will take getYears from task 3 as an argument
+4. Receive a callback function as the fourth parameter that will take getWinners from task 4 as an argument
 5. Return an array of strings that say "In {year}, {country} won the world cup!" 
 
-hint: the strings returned need to exactly match the string in step 4.
+💡 HINT: the strings returned need to exactly match the string in step 4.
  */
 
-function getWinnersByYear(/* code here */) {
-    /* code here */
-}
+function getWinnersByYear(arr, cbFinals, cbYears, cbWinners) {
+    const years = cbYears(arr, cbFinals);
+    const winners = cbWinners(arr, cbFinals);
 
+    return years.map((year, i) => `In ${year}, ${winners[i]} won the world cup!`)
+}
+//console.log(getWinnersByYear(fifaData, getFinals, getYears, getWinners))
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use the higher order function getAverageGoals to do the following: 
- 1. Receive the callback function getFinals from task 2 ensure you pass in the data as an argument
+ 1. Receive a callback function in a parameter that will take getFinals (from task 2) as an argument and ensure you pass in the fifaData as its argument
+ 
+ 💡 HINT: Example of invocation: getAverageGoals(getFinals(fifaData));
+
  2. Return the the average number of the total home team goals and away team goals scored per match and round to the second decimal place. 
  
- (Hint: use .reduce and do this in 2 steps) 
+ 💡 HINT: use .reduce, .toFixed (refer to MDN for syntax), and do this in 2 steps) 
  
- Example of invocation: getAverageGoals(getFinals(fifaData));
+ 
 */
 
-function getAverageGoals(/* code here */) {
-   /* code here */
+function getAverageGoals(cbFinals) {
+   const finals = cbFinals;
+   const sum = finals.reduce((acc, item) => acc + item['Home Team Goals'] + item['Away Team Goals'], 0)
+   return (sum/finals.length).toFixed(2)
 }
 
-
+console.log('task 6', getAverageGoals(getFinals(fifaData)))
 
 
 /// 🥅 STRETCH 🥅 ///
