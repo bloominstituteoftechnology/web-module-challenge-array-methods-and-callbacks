@@ -71,7 +71,7 @@ Use the higher-order function getWinnersByYear to do the following:
 2. Receive a callback function as the second parameter that will take getFinals from task 2 as an argument
 3. Receive a callback function as the third parameter that will take getYears from task 3 as an argument
 4. Receive a callback function as the fourth parameter that will take getWinners from task 4 as an argument
-5. Return an array of strings that say "In {year}, {country} won the world cup!" 
+5. Return an  array of strings that say "In {year}, {country} won the world cup!" 
 
 💡 HINT: the strings returned need to exactly match the string in step 4.
  */
@@ -81,7 +81,7 @@ function getWinnersByYear(data, getFinals, getYearsCB, getWinnersCB) {{
     const years = getYearsCB(data, getFinals);
     return winners.map((item, index)=> `In ${years[index]}, ${item} won the world cup!`)
 }
-console.log(getWinnersByYear(fifaData, getYears, getWinners))}
+console.log(getWinnersByYear(fifaData, getYears, getWinners))};
 
 
 
